@@ -1,3 +1,35 @@
+
+const envelopeIntro = document.getElementById("envelopeIntro");
+const introWaxSeal = document.getElementById("introWaxSeal");
+
+if (envelopeIntro && introWaxSeal) {
+  let introOpened = false;
+
+  introWaxSeal.addEventListener("click", () => {
+    if (introOpened) return;
+
+    introOpened = true;
+    introWaxSeal.disabled = true;
+    envelopeIntro.classList.add("is-opening");
+
+    window.setTimeout(() => {
+      envelopeIntro.classList.add("is-leaving");
+    }, 2650);
+
+    window.setTimeout(() => {
+      document.body.classList.remove("intro-active");
+    }, 3050);
+
+    window.setTimeout(() => {
+      envelopeIntro.classList.add("is-finished");
+    }, 3600);
+
+    window.setTimeout(() => {
+      envelopeIntro.remove();
+    }, 4450);
+  });
+}
+
 const menu = document.getElementById("menu");
 const nav = document.getElementById("nav");
 const confettiCanvas = document.getElementById("confettiCanvas");
