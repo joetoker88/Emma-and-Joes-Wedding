@@ -2026,3 +2026,17 @@ body.intro-active{
     clip-path:none !important;
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.5 — SLOWER OPENING MOTION
+   Slows the flap opening so it feels closer to the reference video.
+========================================================= */
+
+.photo-envelope-lid{
+  transition:transform .94s cubic-bezier(.18,.78,.16,1), opacity .28s ease;
+}
+
+.photo-envelope-intro.is-opening .photo-envelope-lid{
+  transform:rotateX(-168deg);
+}
