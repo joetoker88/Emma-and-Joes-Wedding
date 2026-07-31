@@ -2214,3 +2214,41 @@ body.intro-active{
     animation-duration:1ms!important;
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.9 — SYNCHRONISED ENVELOPE FADE
+   Makes the full envelope disappear together instead of the
+   body fading first and the flap lingering afterwards.
+========================================================= */
+
+/* Keep all main envelope layers on the same fade timing. */
+.photo-envelope-base,
+.photo-envelope-lid,
+.photo-envelope-stage::before{
+  transition:
+    opacity .62s cubic-bezier(.22,.61,.36,1),
+    filter .62s cubic-bezier(.22,.61,.36,1),
+    transform .62s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Fade the entire envelope at the same time: base, flap, seal, and cover. */
+.photo-envelope-intro.is-dissolving .photo-envelope-base,
+.photo-envelope-intro.is-dissolving .photo-envelope-lid,
+.photo-envelope-intro.is-dissolving .photo-envelope-stage::before{
+  opacity: 0;
+  filter: blur(1px);
+}
+
+.photo-envelope-intro.is-dissolving .photo-envelope-stage{
+  transform: translate3d(0,-6px,0) scale(1.004);
+  filter: none;
+  opacity: 1;
+  transition: transform .62s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Also fade the clickable seal hitbox with the rest of the envelope. */
+.photo-envelope-intro.is-dissolving .photo-envelope-seal-hitbox{
+  opacity: 0;
+  transition: opacity .62s cubic-bezier(.22,.61,.36,1);
+}
