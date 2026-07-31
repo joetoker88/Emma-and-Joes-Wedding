@@ -13,46 +13,29 @@
 </head>
 <body class="intro-active">
 
-  <!-- Full-screen luxury envelope introduction -->
-  <section class="luxury-envelope-intro" id="luxuryEnvelopeIntro" aria-label="Open Emma and Joe's wedding invitation">
-    <div class="luxury-envelope-paper">
-      <div class="paper-grain"></div>
-      <div class="embossed-botanicals" aria-hidden="true">
-        <span class="stem stem-a"></span>
-        <span class="stem stem-b"></span>
-        <span class="stem stem-c"></span>
-        <span class="emboss-leaf l1"></span>
-        <span class="emboss-leaf l2"></span>
-        <span class="emboss-leaf l3"></span>
-        <span class="emboss-leaf l4"></span>
-        <span class="emboss-leaf l5"></span>
-        <span class="emboss-leaf l6"></span>
-        <span class="emboss-flower f1"></span>
-        <span class="emboss-flower f2"></span>
-        <span class="emboss-flower f3"></span>
-      </div>
-      <div class="envelope-back-fold envelope-back-left"></div>
-      <div class="envelope-back-fold envelope-back-right"></div>
-      <div class="envelope-bottom-fold"></div>
+  
+  <!-- V5.2 reference-based envelope introduction -->
+  <section class="photo-envelope-intro" id="luxuryEnvelopeIntro" aria-label="Open Emma and Joe's wedding invitation">
+    <div class="photo-envelope-stage">
+      <div class="photo-envelope-base" aria-hidden="true"></div>
 
-      <div class="envelope-top-flap">
-        <div class="flap-paper-grain"></div>
-
-        <button
-          class="gold-wax-seal"
-          id="goldWaxSeal"
-          type="button"
-          aria-label="Open the wedding invitation"
-        >
-          <span class="seal-monogram">E<span>&amp;</span>J</span>
-        </button>
+      <div class="photo-envelope-lid" aria-hidden="true">
+        <div class="photo-envelope-flap"></div>
+        <div class="photo-envelope-seal-piece"></div>
       </div>
 
-      <p class="seal-prompt">Tap the seal to open</p>
+      <button
+        class="photo-envelope-seal-hitbox"
+        id="goldWaxSeal"
+        type="button"
+        aria-label="Open the wedding invitation"
+      >
+        <span class="sr-only">Open the invitation</span>
+      </button>
     </div>
   </section>
 
-  <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
+<canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
   <header id="header" class="site-header">
     <a href="#home" class="brand">EMMA &amp; JOE <i>❧</i></a>
     <button id="menu" class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>

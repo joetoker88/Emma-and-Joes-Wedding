@@ -14,16 +14,16 @@ if (luxuryEnvelopeIntro && goldWaxSeal) {
 
     window.setTimeout(() => {
       luxuryEnvelopeIntro.classList.add("is-dissolving");
-    }, 760);
+    }, 520);
 
     window.setTimeout(() => {
       document.body.classList.remove("intro-active");
       luxuryEnvelopeIntro.classList.add("is-fading");
-    }, 1080);
+    }, 760);
 
     window.setTimeout(() => {
       luxuryEnvelopeIntro.remove();
-    }, 1700);
+    }, 1220);
   });
 }
 

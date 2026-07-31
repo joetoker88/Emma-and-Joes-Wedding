@@ -1738,3 +1738,179 @@ body.intro-active{overflow:hidden}
     width: clamp(38px, 11vw, 58px);
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.2 — REFERENCE-BASED ENVELOPE INTRO
+   Uses the approved envelope artwork as the visual reference.
+========================================================= */
+
+.sr-only{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
+body.intro-active{
+  overflow:hidden;
+}
+
+.photo-envelope-intro{
+  position:fixed;
+  inset:0;
+  z-index:2200;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,.74), transparent 30%),
+    linear-gradient(180deg, #f2ede4 0%, #e8e1d4 100%);
+  opacity:1;
+  visibility:visible;
+  transition:opacity .42s ease, visibility .42s ease;
+}
+
+.photo-envelope-intro.is-fading{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.photo-envelope-stage{
+  position:relative;
+  width:min(100vw, calc(100vh * 1.5));
+  height:min(100vh, calc(100vw / 1.5));
+  max-width:1536px;
+  max-height:1024px;
+  aspect-ratio:3 / 2;
+  perspective:1800px;
+}
+
+.photo-envelope-stage::after{
+  content:"";
+  position:absolute;
+  inset:auto 7% 4%;
+  height:9%;
+  border-radius:50%;
+  background:radial-gradient(ellipse at center, rgba(90,70,40,.14), rgba(90,70,40,0) 70%);
+  filter:blur(12px);
+  pointer-events:none;
+}
+
+.photo-envelope-base,
+.photo-envelope-flap,
+.photo-envelope-seal-piece{
+  position:absolute;
+  inset:0;
+  background-image:url("assets/envelope-intro-v52.png");
+  background-position:center;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+}
+
+.photo-envelope-base{
+  z-index:1;
+  clip-path:polygon(0 61%, 50% 43.2%, 100% 61%, 100% 100%, 0 100%);
+}
+
+.photo-envelope-lid{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  transform-origin:50% 0%;
+  transform-style:preserve-3d;
+  transition:transform .62s cubic-bezier(.2,.78,.16,1), opacity .34s ease;
+  will-change:transform, opacity;
+}
+
+.photo-envelope-flap{
+  clip-path:polygon(0 0, 100% 0, 50% 55.8%);
+  backface-visibility:hidden;
+}
+
+.photo-envelope-seal-piece{
+  clip-path:circle(8.2% at 50% 56.4%);
+  backface-visibility:hidden;
+}
+
+.photo-envelope-seal-hitbox{
+  position:absolute;
+  left:50%;
+  top:56.4%;
+  width:16.4%;
+  aspect-ratio:1;
+  transform:translate(-50%, -50%);
+  z-index:4;
+  border:0;
+  border-radius:50%;
+  padding:0;
+  cursor:pointer;
+  background:transparent;
+  box-shadow:none;
+  transition:transform .18s ease, filter .18s ease;
+}
+
+.photo-envelope-seal-hitbox:hover,
+.photo-envelope-seal-hitbox:focus-visible{
+  transform:translate(-50%, -50%) scale(1.035);
+  filter:brightness(1.02);
+  outline:none;
+}
+
+.photo-envelope-seal-hitbox::after{
+  content:"";
+  position:absolute;
+  inset:-4%;
+  border-radius:50%;
+  box-shadow:0 0 0 2px rgba(196,156,66,.18);
+  opacity:0;
+  transition:opacity .18s ease;
+}
+
+.photo-envelope-seal-hitbox:hover::after,
+.photo-envelope-seal-hitbox:focus-visible::after{
+  opacity:1;
+}
+
+.photo-envelope-intro.is-opening .photo-envelope-lid{
+  transform:rotateX(-169deg);
+}
+
+.photo-envelope-intro.is-dissolving .photo-envelope-stage{
+  transform:scale(1.01);
+  filter:blur(.6px);
+  opacity:0;
+  transition:transform .38s ease, filter .38s ease, opacity .38s ease;
+}
+
+@media (max-width: 700px){
+  .photo-envelope-stage{
+    width:100vw;
+    height:auto;
+  }
+
+  .photo-envelope-seal-hitbox{
+    width:20.5%;
+    top:56.6%;
+  }
+
+  .photo-envelope-seal-piece{
+    clip-path:circle(10.2% at 50% 56.6%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .photo-envelope-intro,
+  .photo-envelope-stage,
+  .photo-envelope-lid,
+  .photo-envelope-seal-hitbox{
+    animation-duration:1ms!important;
+    transition-duration:1ms!important;
+  }
+}
