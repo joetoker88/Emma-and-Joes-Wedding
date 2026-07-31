@@ -1,29 +1,29 @@
 
-const envelopeIntro = document.getElementById("envelopeIntro");
-const introWaxSeal = document.getElementById("introWaxSeal");
+const luxuryEnvelopeIntro = document.getElementById("luxuryEnvelopeIntro");
+const goldWaxSeal = document.getElementById("goldWaxSeal");
 
-if (envelopeIntro && introWaxSeal) {
-  let introOpened = false;
+if (luxuryEnvelopeIntro && goldWaxSeal) {
+  let envelopeOpened = false;
 
-  introWaxSeal.addEventListener("click", () => {
-    if (introOpened) return;
+  goldWaxSeal.addEventListener("click", () => {
+    if (envelopeOpened) return;
 
-    introOpened = true;
-    introWaxSeal.disabled = true;
-    envelopeIntro.classList.add("is-opening");
+    envelopeOpened = true;
+    goldWaxSeal.disabled = true;
+    luxuryEnvelopeIntro.classList.add("is-opening");
 
     window.setTimeout(() => {
-      envelopeIntro.classList.add("is-leaving");
-    }, 1350);
+      luxuryEnvelopeIntro.classList.add("is-dissolving");
+    }, 1250);
 
     window.setTimeout(() => {
       document.body.classList.remove("intro-active");
-      envelopeIntro.classList.add("is-finished");
-    }, 2200);
+      luxuryEnvelopeIntro.classList.add("is-fading");
+    }, 1900);
 
     window.setTimeout(() => {
-      envelopeIntro.remove();
-    }, 3000);
+      luxuryEnvelopeIntro.remove();
+    }, 3050);
   });
 }
 

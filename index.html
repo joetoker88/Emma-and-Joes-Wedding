@@ -13,34 +13,32 @@
 </head>
 <body class="intro-active">
 
-  
-  <section class="envelope-intro" id="envelopeIntro" aria-label="Wedding invitation">
-    <div class="envelope-intro-inner">
-      <div class="fullscreen-envelope">
-        <div class="envelope-panel">
-          <div class="envelope-stock"></div>
+  <!-- Full-screen luxury envelope introduction -->
+  <section class="luxury-envelope-intro" id="luxuryEnvelopeIntro" aria-label="Open Emma and Joe's wedding invitation">
+    <div class="luxury-envelope-paper">
+      <div class="paper-grain"></div>
+      <div class="envelope-back-fold envelope-back-left"></div>
+      <div class="envelope-back-fold envelope-back-right"></div>
+      <div class="envelope-bottom-fold"></div>
 
-          <div class="envelope-front">
-            <div class="front-fold front-fold-left"></div>
-            <div class="front-fold front-fold-right"></div>
-            <div class="front-fold front-fold-bottom"></div>
-          </div>
+      <div class="envelope-top-flap">
+        <div class="flap-paper-grain"></div>
 
-          <div class="envelope-flap-shell">
-            <div class="envelope-flap"></div>
-            <button class="intro-wax-seal gold-seal" id="introWaxSeal" type="button" aria-label="Open the wedding invitation">
-              <span>E&amp;J</span>
-            </button>
-          </div>
-        </div>
+        <button
+          class="gold-wax-seal"
+          id="goldWaxSeal"
+          type="button"
+          aria-label="Open the wedding invitation"
+        >
+          <span class="seal-monogram">E<span>&amp;</span>J</span>
+        </button>
       </div>
 
-      <p class="envelope-seal-instruction">Click the seal to open the invitation</p>
+      <p class="seal-prompt">Tap the seal to open</p>
     </div>
   </section>
 
   <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
-
   <header id="header" class="site-header">
     <a href="#home" class="brand">EMMA &amp; JOE <i>❧</i></a>
     <button id="menu" class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
