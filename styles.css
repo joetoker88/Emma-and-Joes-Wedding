@@ -1423,3 +1423,13 @@ body.locked {
     font-size: 1.25rem;
   }
 }
+
+
+/* Project Evergreen V4.4 — entry seal removed */
+body {
+  overflow-x: hidden;
+}
+
+.entry-gate {
+  display: none !important;
+}

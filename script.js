@@ -1,31 +1,7 @@
 const menu = document.getElementById("menu");
 const nav = document.getElementById("nav");
-const entryGate = document.getElementById("entryGate");
-const openGate = document.getElementById("openGate");
 const confettiCanvas = document.getElementById("confettiCanvas");
 const confettiContext = confettiCanvas ? confettiCanvas.getContext("2d") : null;
-
-if (openGate && entryGate) {
-  openGate.addEventListener("click", () => {
-    openGate.disabled = true;
-
-    // First: the seal visibly cracks and gives a subtle pop.
-    entryGate.classList.add("cracking");
-
-    // Then: the seal lifts away, the flap opens, and the two doors part.
-    setTimeout(() => {
-      entryGate.classList.add("opening");
-    }, 420);
-
-    // Reveal the live site after the slower luxury animation completes.
-    setTimeout(() => {
-      document.body.classList.remove("locked");
-      entryGate.classList.add("hidden");
-    }, 1900);
-
-    setTimeout(() => entryGate.remove(), 2550);
-  });
-}
 
 menu.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
