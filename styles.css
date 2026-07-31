@@ -684,3 +684,181 @@ footer span{color:var(--olive-dark)}
     min-height: 58px;
   }
 }
+
+
+/* Project Evergreen V4.1 — wax seal opening gate + confetti */
+body.locked {
+  overflow: hidden;
+}
+
+.confetti-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 120;
+}
+
+.entry-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(rgba(32,42,25,.18), rgba(34,43,28,.28)),
+    url("assets/hero-v34.jpg") center/cover no-repeat;
+  transition: opacity .55s ease, visibility .55s ease;
+}
+
+.entry-gate.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gate-backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(255,255,255,.06), rgba(255,255,255,.08));
+}
+
+.gate-card {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 100%);
+  padding: 54px 28px 42px;
+  text-align: center;
+  background: rgba(255,252,245,.68);
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 34px;
+  box-shadow: 0 28px 70px rgba(32,40,28,.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.gate-kicker {
+  margin: 0 0 16px;
+  color: #465047;
+  font: 600 .84rem var(--sans);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.gate-title {
+  margin: 0;
+  color: #1d1d1b;
+  font-family: var(--script);
+  font-size: clamp(3.8rem, 9vw, 6.8rem);
+  line-height: .9;
+}
+
+.gate-title span {
+  color: var(--olive);
+}
+
+.gate-copy {
+  margin: 18px 0 16px;
+  color: #3d4039;
+  font-size: 1.22rem;
+}
+
+.gate-date {
+  margin: 0;
+  color: #2f332d;
+  font-size: 1.8rem;
+  letter-spacing: .02em;
+}
+
+.gate-place {
+  margin: 6px 0 0;
+  color: #535850;
+  font: 500 1rem var(--sans);
+}
+
+.wax-seal {
+  position: relative;
+  margin: 28px auto 12px;
+  width: 122px;
+  height: 122px;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff7ef;
+  font: 700 1.45rem var(--serif);
+  letter-spacing: .06em;
+  background:
+    radial-gradient(circle at 32% 28%, #b8433a 0, #b8433a 16%, #9c2f28 36%, #85231f 60%, #6e1917 100%);
+  box-shadow:
+    inset 0 6px 12px rgba(255,255,255,.16),
+    inset 0 -10px 18px rgba(0,0,0,.22),
+    0 16px 26px rgba(78,18,16,.24);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.wax-seal::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 32%, rgba(255,255,255,.18), transparent 34%),
+    repeating-conic-gradient(from 0deg,
+      rgba(255,255,255,.06) 0 12deg,
+      rgba(0,0,0,.06) 12deg 24deg);
+  mix-blend-mode: screen;
+  opacity: .48;
+}
+
+.wax-seal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 7px rgba(122,24,22,.24),
+    inset 0 0 0 14px rgba(255,255,255,.05);
+}
+
+.wax-seal span {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  transform: translateY(1px);
+}
+
+.wax-seal:hover,
+.wax-seal:focus-visible {
+  transform: scale(1.05);
+  box-shadow:
+    inset 0 6px 12px rgba(255,255,255,.16),
+    inset 0 -10px 18px rgba(0,0,0,.22),
+    0 18px 30px rgba(78,18,16,.34);
+  outline: none;
+}
+
+.gate-instruction {
+  margin: 0;
+  color: #5d6258;
+  font: 500 .95rem var(--sans);
+}
+
+@media (max-width: 700px) {
+  .gate-card {
+    padding: 44px 20px 34px;
+    border-radius: 26px;
+  }
+
+  .gate-copy {
+    font-size: 1.05rem;
+  }
+
+  .gate-date {
+    font-size: 1.4rem;
+  }
+
+  .wax-seal {
+    width: 108px;
+    height: 108px;
+    font-size: 1.25rem;
+  }
+}

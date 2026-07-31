@@ -11,7 +11,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="locked">
+  <div class="entry-gate" id="entryGate" aria-label="Wedding invitation entry screen">
+    <div class="gate-backdrop"></div>
+    <div class="gate-card reveal visible">
+      <p class="gate-kicker">Together with their families</p>
+      <h1 class="gate-title">Emma <span>&amp;</span> Joe</h1>
+      <p class="gate-copy">invite you to celebrate their wedding</p>
+      <p class="gate-date">Saturday, 24th July 2027</p>
+      <p class="gate-place">The Beverley Barn, Beverley</p>
+      <button class="wax-seal" id="openGate" type="button" aria-label="Open the invitation">
+        <span>E&amp;J</span>
+      </button>
+      <p class="gate-instruction">Click the wax seal to open the invitation</p>
+    </div>
+  </div>
+  <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
   <header id="header" class="site-header">
     <a href="#home" class="brand">EMMA &amp; JOE <i>❧</i></a>
     <button id="menu" class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>

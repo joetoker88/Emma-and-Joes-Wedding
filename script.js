@@ -1,5 +1,17 @@
 const menu = document.getElementById("menu");
 const nav = document.getElementById("nav");
+const entryGate = document.getElementById("entryGate");
+const openGate = document.getElementById("openGate");
+const confettiCanvas = document.getElementById("confettiCanvas");
+const confettiContext = confettiCanvas ? confettiCanvas.getContext("2d") : null;
+
+if (openGate && entryGate) {
+  openGate.addEventListener("click", () => {
+    entryGate.classList.add("hidden");
+    document.body.classList.remove("locked");
+    setTimeout(() => entryGate.remove(), 650);
+  });
+}
 
 menu.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
@@ -38,7 +50,7 @@ async function sha256(value) {
 function checkDuplicate(endpoint, emailHash) {
   return new Promise((resolve, reject) => {
     const callbackName = `evergreenDuplicate_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
-    const script = document.createElement("script");
+    const callbackScript = document.createElement("script");
     const timer = setTimeout(() => {
       cleanup();
       reject(new Error("Duplicate check timed out."));
@@ -47,7 +59,7 @@ function checkDuplicate(endpoint, emailHash) {
     function cleanup() {
       clearTimeout(timer);
       delete window[callbackName];
-      script.remove();
+      callbackScript.remove();
     }
 
     window[callbackName] = result => {
@@ -55,15 +67,78 @@ function checkDuplicate(endpoint, emailHash) {
       resolve(Boolean(result?.duplicate));
     };
 
-    script.onerror = () => {
+    callbackScript.onerror = () => {
       cleanup();
       reject(new Error("Duplicate check failed."));
     };
 
     const separator = endpoint.includes("?") ? "&" : "?";
-    script.src = `${endpoint}${separator}action=check&hash=${encodeURIComponent(emailHash)}&callback=${encodeURIComponent(callbackName)}`;
-    document.body.appendChild(script);
+    callbackScript.src = `${endpoint}${separator}action=check&hash=${encodeURIComponent(emailHash)}&callback=${encodeURIComponent(callbackName)}`;
+    document.body.appendChild(callbackScript);
   });
+}
+
+function runConfetti() {
+  if (!confettiCanvas || !confettiContext) return;
+
+  const pieces = [];
+  const colors = ["#c3a44f", "#49613d", "#9c2f28", "#f4eee1", "#dcc476"];
+  const duration = 3200;
+  const start = performance.now();
+
+  function resizeCanvas() {
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    confettiCanvas.width = Math.floor(window.innerWidth * ratio);
+    confettiCanvas.height = Math.floor(window.innerHeight * ratio);
+    confettiCanvas.style.width = window.innerWidth + "px";
+    confettiCanvas.style.height = window.innerHeight + "px";
+    confettiContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+  }
+
+  resizeCanvas();
+
+  for (let i = 0; i < 160; i++) {
+    pieces.push({
+      x: Math.random() * window.innerWidth,
+      y: -20 - Math.random() * window.innerHeight * 0.3,
+      w: 6 + Math.random() * 7,
+      h: 10 + Math.random() * 10,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: -2 + Math.random() * 4,
+      vy: 2 + Math.random() * 4.5,
+      rotation: Math.random() * Math.PI * 2,
+      spin: -0.18 + Math.random() * 0.36,
+      sway: Math.random() * Math.PI * 2
+    });
+  }
+
+  function frame(now) {
+    confettiContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    const elapsed = now - start;
+    const opacity = Math.max(0, 1 - elapsed / duration);
+
+    pieces.forEach(piece => {
+      piece.x += piece.vx + Math.sin((elapsed / 220) + piece.sway) * 0.7;
+      piece.y += piece.vy;
+      piece.rotation += piece.spin;
+
+      confettiContext.save();
+      confettiContext.globalAlpha = opacity;
+      confettiContext.translate(piece.x, piece.y);
+      confettiContext.rotate(piece.rotation);
+      confettiContext.fillStyle = piece.color;
+      confettiContext.fillRect(-piece.w / 2, -piece.h / 2, piece.w, piece.h);
+      confettiContext.restore();
+    });
+
+    if (elapsed < duration) {
+      requestAnimationFrame(frame);
+    } else {
+      confettiContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+  }
+
+  requestAnimationFrame(frame);
 }
 
 form.addEventListener("submit", async event => {
@@ -119,6 +194,7 @@ form.addEventListener("submit", async event => {
       ? "We cannot wait to celebrate with you."
       : "Thank you for letting us know.";
 
+    runConfetti();
     thanks.classList.add("show");
     form.reset();
     status.textContent = "Your RSVP has been sent. Please check your inbox for confirmation.";
