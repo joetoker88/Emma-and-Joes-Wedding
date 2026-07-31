@@ -566,3 +566,21 @@ footer p { margin-bottom:5px; opacity:.75; }
   .invitation-card { padding:38px 24px; }
   .thank-you-card { padding:40px 24px; }
 }
+
+
+.button:disabled {
+  cursor: wait;
+  opacity: .68;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-note.form-error {
+  color: #ffd2cc;
+  font-weight: 600;
+}
+
+.form-note.form-success {
+  color: #d9eccf;
+  font-weight: 600;
+}

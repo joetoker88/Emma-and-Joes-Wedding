@@ -80,23 +80,64 @@ const thankYou = document.getElementById("thankYou");
 const thankYouTitle = document.getElementById("thankYouTitle");
 const closeThankYou = document.getElementById("closeThankYou");
 
-rsvpForm.addEventListener("submit", event => {
+rsvpForm.addEventListener("submit", async event => {
   event.preventDefault();
+
+  const submitButton = document.getElementById("submitRsvp");
+  const formStatus = document.getElementById("formStatus");
+  const endpoint = window.EVERGREEN_CONFIG?.RSVP_ENDPOINT?.trim();
   const formData = Object.fromEntries(new FormData(rsvpForm).entries());
+
   formData.submittedAt = new Date().toISOString();
+  formData.pageUrl = window.location.href;
+  formData.userAgent = navigator.userAgent;
 
-  const saved = JSON.parse(localStorage.getItem("projectEvergreenRsvps") || "[]");
-  saved.push(formData);
-  localStorage.setItem("projectEvergreenRsvps", JSON.stringify(saved));
+  if (!endpoint || endpoint.includes("PASTE_YOUR_")) {
+    formStatus.textContent = "RSVP setup is not complete yet. Please contact Emma or Joe directly.";
+    formStatus.classList.add("form-error");
+    return;
+  }
 
-  thankYouTitle.textContent = formData.attending === "Yes"
-    ? "We cannot wait to celebrate with you."
-    : "Thank you for letting us know.";
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending…";
+  formStatus.textContent = "Sending your reply…";
+  formStatus.classList.remove("form-error", "form-success");
 
-  thankYou.classList.add("show");
-  thankYou.setAttribute("aria-hidden", "false");
-  launchConfetti();
-  rsvpForm.reset();
+  try {
+    // Apps Script Web Apps do not expose a conventional CORS response.
+    // no-cors still sends the RSVP successfully to the Google Sheet.
+    await fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    // Keep a local backup in case the guest briefly loses connectivity.
+    const saved = JSON.parse(localStorage.getItem("projectEvergreenRsvps") || "[]");
+    saved.push(formData);
+    localStorage.setItem("projectEvergreenRsvps", JSON.stringify(saved));
+
+    thankYouTitle.textContent = formData.attending === "Yes"
+      ? "We cannot wait to celebrate with you."
+      : "Thank you for letting us know.";
+
+    formStatus.textContent = "Your RSVP has been sent.";
+    formStatus.classList.add("form-success");
+    thankYou.classList.add("show");
+    thankYou.setAttribute("aria-hidden", "false");
+    launchConfetti();
+    rsvpForm.reset();
+  } catch (error) {
+    console.error("RSVP submission failed:", error);
+    formStatus.textContent = "We could not send your RSVP. Please check your connection and try again.";
+    formStatus.classList.add("form-error");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Send RSVP";
+  }
 });
 
 closeThankYou.addEventListener("click", () => {

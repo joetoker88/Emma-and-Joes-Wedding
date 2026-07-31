@@ -257,7 +257,7 @@
         <div class="rsvp-intro reveal">
           <p class="eyebrow light">RSVP</p>
           <h2>We cannot wait to celebrate with you</h2>
-          <p>Please send one response per household. This Version 1 form demonstrates the full guest experience; the Google Sheets connection is the next step.</p>
+          <p>Please send one response per household. Your reply will be sent securely to Emma and Joe.</p>
         </div>
 
         <form class="rsvp-form reveal" id="rsvpForm">
@@ -319,8 +319,8 @@
             <textarea name="message" rows="4"></textarea>
           </label>
 
-          <button class="button button-gold" type="submit">Send RSVP</button>
-          <p class="form-note">Demo responses are saved only in this browser until Google Sheets is connected.</p>
+          <button class="button button-gold" id="submitRsvp" type="submit">Send RSVP</button>
+          <p class="form-note" id="formStatus" role="status" aria-live="polite">Please check your details before submitting.</p>
         </form>
       </div>
     </section>
@@ -337,7 +337,7 @@
     <div class="thank-you-card">
       <p class="eyebrow">Thank you</p>
       <h2 id="thankYouTitle">We cannot wait to celebrate with you.</h2>
-      <p>Your response has been saved in this browser for this first preview.</p>
+      <p>Your response has been sent to Emma and Joe.</p>
       <button class="button button-primary" id="closeThankYou">Return to the invitation</button>
     </div>
   </div>
@@ -346,14 +346,15 @@
     <button id="closePanel" aria-label="Close project panel">×</button>
     <p class="eyebrow">Project Evergreen</p>
     <h2>Version 1.0 preview</h2>
-    <p>This hidden panel will later become your private RSVP dashboard.</p>
+    <p>This hidden panel shows responses saved on this device as an offline backup. Your master guest list remains in Google Sheets.</p>
     <dl>
-      <div><dt>Saved demo RSVPs</dt><dd id="savedCount">0</dd></div>
+      <div><dt>Device backup RSVPs</dt><dd id="savedCount">0</dd></div>
       <div><dt>Wedding date</dt><dd>24 July 2027</dd></div>
       <div><dt>Venue</dt><dd>The Beverley Barn</dd></div>
     </dl>
   </div>
 
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
