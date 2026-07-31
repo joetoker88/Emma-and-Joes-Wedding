@@ -3,36 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#34462d">
+  <meta name="theme-color" content="#4b5f43">
   <meta name="description" content="Emma Everett and Joe Toker are getting married at The Beverley Barn on 24 July 2027.">
   <title>Emma & Joe | 24 July 2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="locked">
-  <div class="gate" id="gate">
-    <div class="invite">
-      <div class="seal">E<span>&amp;</span>J</div>
-      <p class="eyebrow">Together with their families</p>
-      <h1>Emma Everett <em>&amp;</em> Joe Toker</h1>
-      <p>invite you to celebrate their wedding</p>
-      <img src="assets/sprig.svg" alt="">
-      <strong>Saturday, 24 July 2027</strong>
-      <span>The Beverley Barn · Beverley</span>
-      <button id="open" class="button">Open invitation</button>
-    </div>
-  </div>
-
-  <header id="header">
-    <a href="#home" class="brand">Emma &amp; Joe <i>❧</i></a>
-    <button id="menu" class="menu" aria-label="Open navigation">☰</button>
+<body>
+  <header id="header" class="site-header">
+    <a href="#home" class="brand">EMMA &amp; JOE <i>❧❧</i></a>
+    <button id="menu" class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
     <nav id="nav">
-      <a href="#story">Our story</a>
-      <a href="#day">The day</a>
+      <a href="#story">Our Story</a>
+      <a href="#day">The Day</a>
       <a href="#details">Details</a>
-      <a href="#stay">Travel &amp; stay</a>
+      <a href="#stay">Travel &amp; Stay</a>
       <a href="#gifts">Gifts</a>
       <a class="nav-rsvp" href="#rsvp">RSVP</a>
       <i>❧</i>
@@ -41,19 +28,21 @@
 
   <main>
     <section class="hero" id="home">
-      <div class="shade"></div>
-      <div class="hero-copy reveal">
-        <p class="eyebrow light">We’re getting married</p>
-        <h2>Emma &amp; Joe</h2>
-        <img class="sprig" src="assets/sprig.svg" alt="">
-        <p class="date">24th July 2027</p>
-        <p class="place">The Beverley Barn, Beverley, Yorkshire</p>
-        <a class="button hero-button" href="#welcome">You’re invited <span>❧</span></a>
+      <div class="hero-overlay"></div>
+      <div class="hero-panel reveal">
+        <p class="hero-kicker">Together with their families</p>
+        <h1><span class="name-black">Emma</span><span class="amp">&amp;</span><span class="name-black">Joe</span></h1>
+        <p class="hero-line">joyfully invite you to celebrate their wedding</p>
+        <div class="date-block">
+          <strong>Saturday, 24th July 2027</strong>
+          <span>at four o'clock in the afternoon</span>
+        </div>
+        <a class="hero-button" href="#rsvp">RSVP Now</a>
       </div>
     </section>
 
     <section class="welcome section" id="welcome">
-      <div class="narrow reveal">
+      <div class="section-heading reveal narrow">
         <img class="sprig" src="assets/sprig.svg" alt="">
         <h2>Welcome</h2>
         <p>We can’t wait to celebrate our special day with our favourite people.<br>Take a look around to find all the details you need for the big day.</p>
@@ -63,38 +52,51 @@
       <div class="feature-grid">
         <article class="feature-card reveal">
           <img src="assets/card-story.jpg" alt="A couple walking through a meadow at sunset">
-          <div>
-            <h3>Our story</h3>
+          <div class="feature-copy">
+            <h3>Our Story</h3>
             <img class="mini-sprig" src="assets/sprig.svg" alt="">
             <p>How it all began</p>
-            <a href="#story">Read our story <span>❧</span></a>
+            <a href="#story">Read Our Story <span>❧</span></a>
           </div>
         </article>
         <article class="feature-card reveal">
-          <img src="assets/card-day.jpg" alt="A rustic barn lit for a wedding celebration">
-          <div>
-            <h3>The day</h3>
+          <img src="assets/card-day.jpg" alt="A rustic wedding barn at golden hour">
+          <div class="feature-copy">
+            <h3>The Day</h3>
             <img class="mini-sprig" src="assets/sprig.svg" alt="">
             <p>Everything you need to know</p>
-            <a href="#day">View the details <span>❧</span></a>
+            <a href="#day">View The Details <span>❧</span></a>
           </div>
         </article>
         <article class="feature-card reveal">
-          <img src="assets/card-details.jpg" alt="A countryside signpost">
-          <div>
+          <img src="assets/card-details.jpg" alt="A wooden signpost in a meadow">
+          <div class="feature-copy">
             <h3>Details</h3>
             <img class="mini-sprig" src="assets/sprig.svg" alt="">
             <p>Travel, stay and more</p>
-            <a href="#details">Plan your visit <span>❧</span></a>
+            <a href="#details">Plan Your Visit <span>❧</span></a>
           </div>
         </article>
+      </div>
+
+      <div class="rsvp-banner reveal">
+        <div class="rsvp-banner-art">
+          <img src="assets/sprig.svg" alt="">
+        </div>
+        <div class="rsvp-banner-copy">
+          <h3>RSVP</h3>
+          <p>Kindly let us know by 31st May 2027</p>
+        </div>
+        <div class="rsvp-banner-action">
+          <a href="#rsvp">Send Your Reply <span>❧</span></a>
+        </div>
       </div>
     </section>
 
     <section class="story section" id="story">
       <div class="section-heading reveal">
         <img class="sprig" src="assets/sprig.svg" alt="">
-        <h2>Our story</h2>
+        <h2>Our Story</h2>
         <p>From the ordinary days that became our favourite memories to the adventures still ahead, every chapter has led us to this moment.</p>
       </div>
       <div class="story-panel reveal">
@@ -109,7 +111,7 @@
     <section class="day section" id="day">
       <div class="section-heading reveal">
         <img class="sprig" src="assets/sprig.svg" alt="">
-        <h2>The big day</h2>
+        <h2>The Big Day</h2>
         <p>A little look at what is planned.</p>
       </div>
       <div class="timeline">
@@ -129,27 +131,40 @@
         <h2>Details</h2>
       </div>
       <div class="detail-grid">
-        <article class="reveal"><small>01</small><h3>The venue</h3><p>The Beverley Barn<br>Beverley, East Yorkshire</p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=The+Beverley+Barn+Beverley">Open in Google Maps</a></article>
-        <article class="reveal"><small>02</small><h3>Arrival</h3><p>Please arrive from 12:30.<br>The ceremony begins at 13:00.</p></article>
-        <article class="reveal"><small>03</small><h3>Travel</h3><p>On-site parking details will follow. We recommend pre-booking taxis.</p></article>
+        <article class="reveal">
+          <small>01</small>
+          <h3>The Venue</h3>
+          <p>The Beverley Barn<br>Beverley, East Yorkshire</p>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=The+Beverley+Barn+Beverley">Open in Google Maps</a>
+        </article>
+        <article class="reveal">
+          <small>02</small>
+          <h3>Arrival</h3>
+          <p>Please arrive from 12:30.<br>The ceremony begins at 13:00.</p>
+        </article>
+        <article class="reveal">
+          <small>03</small>
+          <h3>Travel</h3>
+          <p>On-site parking details will follow. We recommend pre-booking taxis.</p>
+        </article>
       </div>
     </section>
 
     <section class="stay section" id="stay">
       <div class="section-heading reveal">
         <img class="sprig" src="assets/sprig.svg" alt="">
-        <h2>Travel &amp; stay</h2>
+        <h2>Travel &amp; Stay</h2>
         <p>Make a weekend of it in Beverley.</p>
       </div>
       <div class="stay-grid">
         <article class="reveal"><small>Boutique</small><h3>The Beverley Arms</h3><p>Central Beverley with a polished country-house feel.</p><a target="_blank" rel="noopener" href="https://www.google.com/search?q=The+Beverley+Arms">View options</a></article>
-        <article class="reveal"><small>Country hotel</small><h3>Tickton Grange</h3><p>A traditional country-house hotel a short drive away.</p><a target="_blank" rel="noopener" href="https://www.google.com/search?q=Tickton+Grange">View options</a></article>
-        <article class="reveal"><small>Town centre</small><h3>Beverley stays</h3><p>Hotels, guest houses and apartments close to restaurants and taxis.</p><a target="_blank" rel="noopener" href="https://www.google.com/search?q=hotels+in+Beverley">Search stays</a></article>
+        <article class="reveal"><small>Country Hotel</small><h3>Tickton Grange</h3><p>A traditional country-house hotel a short drive away.</p><a target="_blank" rel="noopener" href="https://www.google.com/search?q=Tickton+Grange">View options</a></article>
+        <article class="reveal"><small>Town Centre</small><h3>Beverley Stays</h3><p>Hotels, guest houses and apartments close to restaurants and taxis.</p><a target="_blank" rel="noopener" href="https://www.google.com/search?q=hotels+in+Beverley">Search stays</a></article>
       </div>
     </section>
 
     <section class="gifts section" id="gifts">
-      <div class="narrow reveal">
+      <div class="section-heading reveal narrow">
         <img class="sprig" src="assets/sprig.svg" alt="">
         <h2>Gifts</h2>
         <p>Your presence is our present. Should you wish to give something more, a contribution towards our honeymoon would be received with enormous gratitude.</p>
@@ -159,7 +174,7 @@
     <section class="faq section" id="faq">
       <div class="section-heading reveal">
         <img class="sprig" src="assets/sprig.svg" alt="">
-        <h2>Good to know</h2>
+        <h2>Good To Know</h2>
       </div>
       <div class="accordion reveal">
         <details><summary>What time should I arrive?</summary><p>Please arrive from 12:30. The ceremony begins at 13:00.</p></details>
@@ -170,7 +185,7 @@
     </section>
 
     <section class="rsvp section" id="rsvp">
-      <div class="rsvp-heading reveal">
+      <div class="section-heading reveal narrow">
         <img class="sprig" src="assets/sprig.svg" alt="">
         <h2>RSVP</h2>
         <p>Kindly send one response per household.</p>
@@ -193,8 +208,12 @@
         <div class="form-row">
           <label>Number attending
             <select name="guestCount">
-              <option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option>
-              <option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option>
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6 guests</option>
             </select>
           </label>
           <label>Guest names<input type="text" name="guestNames" placeholder="As shown on the invitation"></label>
@@ -204,7 +223,7 @@
         <label>Song request<input type="text" name="song" placeholder="What will get you on the dance floor?"></label>
         <label>Message for Emma &amp; Joe<textarea name="message" rows="4"></textarea></label>
 
-        <button class="button submit" id="submit" type="submit">Send your reply <span>❧</span></button>
+        <button class="submit" id="submit" type="submit">Send Your Reply <span>❧</span></button>
         <p id="status">Please check your details before submitting.</p>
       </form>
     </section>
@@ -218,10 +237,10 @@
 
   <div id="thanks" class="thanks">
     <div>
-      <p class="eyebrow">Thank you</p>
+      <p class="hero-kicker">Thank you</p>
       <h2 id="thanksTitle">We cannot wait to celebrate with you.</h2>
       <p>Your response has been sent to Emma and Joe.</p>
-      <button id="closeThanks" class="button">Return to the invitation</button>
+      <button id="closeThanks" class="hero-button small">Return to the invitation</button>
     </div>
   </div>
 
