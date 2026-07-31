@@ -2511,3 +2511,90 @@ body.intro-active{
     top: 59.0%;
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.14 — CLOSER SEAM + SMOOTHER OPENING
+========================================================= */
+
+.layered-envelope-stage{
+  perspective: 2100px;
+}
+
+.layered-envelope-lid{
+  transform-origin: 50% 1.7%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Back face of the flap (the inside of the envelope flap) */
+.layered-envelope-lid::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(255,255,255,.78), transparent 28%),
+    linear-gradient(180deg, #faf5eb 0%, #ece1d0 68%, #e2d4bf 100%);
+  box-shadow:
+    inset 0 -22px 36px rgba(116, 92, 57, .10),
+    inset 0 18px 30px rgba(255,255,255,.32);
+  /* triangular back face only */
+  clip-path: polygon(0.8% 1.8%, 99.2% 1.8%, 50% 74%);
+}
+
+/* Slightly smaller hit area aligned to the seal */
+.layered-envelope-seal-hitbox{
+  top: 59.05%;
+  width: 19.6%;
+  max-width: 300px;
+}
+
+/* Smoother, more luxurious motion */
+.layered-envelope-intro.is-opening .layered-envelope-lid{
+  animation: evergreenFlapOpenV514 1.7s cubic-bezier(.18,.72,.20,1) forwards;
+}
+
+@keyframes evergreenFlapOpenV514{
+  0%{
+    transform: translate3d(0,0,0) rotateX(0deg);
+  }
+  10%{
+    transform: translate3d(0,-0.5px,1px) rotateX(-3deg);
+  }
+  28%{
+    transform: translate3d(0,-1.8px,4px) rotateX(-20deg);
+  }
+  48%{
+    transform: translate3d(0,-4px,8px) rotateX(-56deg);
+  }
+  70%{
+    transform: translate3d(0,-6.5px,12px) rotateX(-96deg);
+  }
+  88%{
+    transform: translate3d(0,-8.2px,15px) rotateX(-122deg);
+  }
+  100%{
+    transform: translate3d(0,-9.5px,17px) rotateX(-136deg);
+  }
+}
+
+/* Keep the whole envelope on screen through the open, then fade away */
+.layered-envelope-intro.is-dissolving .layered-envelope-stage{
+  opacity: 0;
+  transform: translate3d(0,-7px,0) scale(1.006);
+  filter: blur(1px) saturate(.97) brightness(1.015);
+  transition:
+    opacity .76s cubic-bezier(.22,.61,.36,1),
+    transform .76s cubic-bezier(.22,.61,.36,1),
+    filter .76s cubic-bezier(.22,.61,.36,1);
+}
+
+@media (max-width:700px){
+  .layered-envelope-seal-hitbox{
+    width: 23%;
+    top: 58.9%;
+  }
+}

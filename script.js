@@ -15,16 +15,16 @@ if (luxuryEnvelopeIntro && goldWaxSeal) {
     // Keep the complete envelope visible until the flap finishes opening.
     window.setTimeout(() => {
       luxuryEnvelopeIntro.classList.add("is-dissolving");
-    }, 1520);
+    }, 1780);
 
     window.setTimeout(() => {
       document.body.classList.remove("intro-active");
       luxuryEnvelopeIntro.classList.add("is-fading");
-    }, 2050);
+    }, 2340);
 
     window.setTimeout(() => {
       luxuryEnvelopeIntro.remove();
-    }, 2760);
+    }, 3080);
   });
 }
 
