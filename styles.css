@@ -2448,3 +2448,35 @@ body.intro-active{
     transition-duration:1ms!important;
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.12 — FLAP FOLLOWS REAL SEAM
+   Uses a re-cut flap layer matching the seam line highlighted
+   by the user, including the lower curve around the seal.
+========================================================= */
+
+.layered-envelope-lid{
+  transform-origin: 50% 2%;
+}
+
+.layered-envelope-lid::after{
+  /* clean back face for the opening flap */
+  clip-path: polygon(1% 2%, 99% 2%, 50% 70%);
+  background:
+    radial-gradient(circle at 50% 14%, rgba(255,255,255,.72), transparent 30%),
+    linear-gradient(180deg, #f8f2e8 0%, #e8ddcb 100%);
+}
+
+.layered-envelope-seal-hitbox{
+  top: 58.9%;
+  width: 19.5%;
+  max-width: 300px;
+}
+
+@media(max-width:700px){
+  .layered-envelope-seal-hitbox{
+    width: 23%;
+    top: 58.8%;
+  }
+}
