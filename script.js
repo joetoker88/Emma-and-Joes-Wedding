@@ -7,9 +7,13 @@ const confettiContext = confettiCanvas ? confettiCanvas.getContext("2d") : null;
 
 if (openGate && entryGate) {
   openGate.addEventListener("click", () => {
-    entryGate.classList.add("hidden");
-    document.body.classList.remove("locked");
-    setTimeout(() => entryGate.remove(), 650);
+    openGate.disabled = true;
+    entryGate.classList.add("opening");
+    setTimeout(() => {
+      document.body.classList.remove("locked");
+      entryGate.classList.add("hidden");
+    }, 760);
+    setTimeout(() => entryGate.remove(), 1450);
   });
 }
 

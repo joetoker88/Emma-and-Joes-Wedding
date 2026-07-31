@@ -862,3 +862,304 @@ body.locked {
     font-size: 1.25rem;
   }
 }
+
+
+/* Project Evergreen V4.2 — premium wax-seal opening invitation */
+.entry-gate {
+  overflow: hidden;
+  perspective: 1600px;
+}
+
+.invitation-shell {
+  position: relative;
+  z-index: 2;
+  width: min(440px, calc(100vw - 34px));
+  display: grid;
+  gap: 16px;
+  place-items: center;
+}
+
+.invitation-heading {
+  text-align: center;
+}
+
+.invitation-heading .gate-kicker {
+  margin: 0;
+  color: #efe7d4;
+  font: 600 .86rem var(--sans);
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(27,33,23,.22);
+}
+
+.invitation-heading .gate-instruction {
+  margin: 10px 0 0;
+  color: rgba(255,248,236,.86);
+  font: 500 .98rem var(--sans);
+  letter-spacing: .02em;
+}
+
+.invitation-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.74;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255,255,255,.75), transparent 26%),
+    linear-gradient(180deg, #f7f3ec 0%, #f1ece2 100%);
+  box-shadow:
+    0 26px 50px rgba(36,46,29,.18),
+    inset 0 0 0 1px rgba(168,154,127,.34);
+  overflow: hidden;
+}
+
+.invitation-cover::before,
+.invitation-cover::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(194,177,142,.35);
+  pointer-events: none;
+}
+
+.invitation-cover::after {
+  inset: 28px;
+  border-color: rgba(229,220,201,.7);
+}
+
+.cover-door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.2%;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.18), rgba(0,0,0,.02)),
+    linear-gradient(180deg, #f9f5ee 0%, #f2ede4 100%);
+  transition: transform 1.05s cubic-bezier(.2,.72,.06,1), opacity .8s ease;
+  box-shadow: inset 0 0 0 1px rgba(182,166,137,.2);
+}
+
+.cover-left {
+  left: 0;
+  transform-origin: left center;
+  border-right: 1px solid rgba(199,183,153,.3);
+}
+
+.cover-right {
+  right: 0;
+  transform-origin: right center;
+  border-left: 1px solid rgba(199,183,153,.3);
+}
+
+.emboss-column {
+  position: absolute;
+  top: 68px;
+  bottom: 68px;
+  width: 84px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.emboss-column::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 50%;
+  width: 6px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(232,223,208,.95), rgba(222,211,191,.95));
+  box-shadow:
+    inset 1px 1px 2px rgba(255,255,255,.7),
+    inset -1px -1px 2px rgba(171,154,126,.28);
+}
+
+.leaf {
+  position: absolute;
+  display: block;
+  width: 42px;
+  height: 22px;
+  border-radius: 100% 0 100% 0 / 100% 0 100% 0;
+  background: linear-gradient(145deg, rgba(244,238,228,.96), rgba(218,206,185,.96));
+  box-shadow:
+    inset 1px 1px 2px rgba(255,255,255,.72),
+    inset -1px -1px 2px rgba(164,148,120,.28);
+}
+
+.leaf::after {
+  content: "";
+  position: absolute;
+  inset: 45% 18% auto 18%;
+  height: 1px;
+  background: rgba(183,168,142,.42);
+  transform: rotate(-32deg);
+}
+
+.cover-left .leaf {
+  right: 34px;
+  transform-origin: right center;
+}
+
+.cover-right .leaf {
+  left: 34px;
+  transform: scaleX(-1);
+  transform-origin: left center;
+}
+
+.leaf-1 { top: 0; transform: rotate(-28deg); }
+.leaf-2 { top: 18%; transform: rotate(-12deg); }
+.leaf-3 { top: 40%; transform: rotate(-3deg); }
+.leaf-4 { top: 62%; transform: rotate(12deg); }
+.leaf-5 { top: 82%; transform: rotate(26deg); }
+
+.cover-right .leaf-1 { transform: scaleX(-1) rotate(-28deg); }
+.cover-right .leaf-2 { transform: scaleX(-1) rotate(-12deg); }
+.cover-right .leaf-3 { transform: scaleX(-1) rotate(-3deg); }
+.cover-right .leaf-4 { transform: scaleX(-1) rotate(12deg); }
+.cover-right .leaf-5 { transform: scaleX(-1) rotate(26deg); }
+
+.seal-ribbon {
+  position: absolute;
+  background:
+    linear-gradient(180deg, rgba(209,188,152,.95), rgba(189,165,119,.95));
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.55),
+    inset 0 -1px 1px rgba(110,96,72,.2);
+}
+
+.seal-ribbon-h {
+  left: 36px;
+  right: 36px;
+  top: 50%;
+  height: 22px;
+  transform: translateY(-50%);
+}
+
+.seal-ribbon-v {
+  top: 36px;
+  bottom: 36px;
+  left: 50%;
+  width: 22px;
+  transform: translateX(-50%);
+}
+
+.wax-seal.premium {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 0;
+  width: 126px;
+  height: 126px;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  font-size: 1.55rem;
+  letter-spacing: .08em;
+  background:
+    radial-gradient(circle at 34% 28%, #c95e57 0, #b7443d 18%, #a1322e 44%, #871f1d 73%, #731715 100%);
+  box-shadow:
+    inset 0 10px 14px rgba(255,255,255,.16),
+    inset 0 -14px 22px rgba(0,0,0,.25),
+    0 16px 28px rgba(98,30,25,.28);
+}
+
+.wax-seal.premium::before {
+  inset: 8px;
+  background:
+    radial-gradient(circle at 35% 32%, rgba(255,255,255,.18), transparent 35%),
+    repeating-conic-gradient(from 0deg, rgba(255,255,255,.08) 0 12deg, rgba(0,0,0,.06) 12deg 24deg);
+}
+
+.wax-seal.premium::after {
+  box-shadow:
+    inset 0 0 0 7px rgba(122,24,22,.22),
+    inset 0 0 0 13px rgba(255,255,255,.06);
+}
+
+.invitation-shadow {
+  width: 76%;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(32,40,28,.28), rgba(32,40,28,0) 72%);
+  filter: blur(9px);
+}
+
+.entry-gate.opening .wax-seal.premium {
+  animation: sealLift .6s ease forwards;
+}
+
+.entry-gate.opening .cover-left {
+  transform: translateX(-105%) rotateY(24deg);
+  opacity: 0;
+}
+
+.entry-gate.opening .cover-right {
+  transform: translateX(105%) rotateY(-24deg);
+  opacity: 0;
+}
+
+.entry-gate.opening .seal-ribbon-h,
+.entry-gate.opening .seal-ribbon-v {
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+
+.entry-gate.opening .invitation-heading {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all .4s ease;
+}
+
+.entry-gate.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes sealLift {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  55% { transform: translate(-50%, -56%) scale(1.08); opacity: 1; }
+  100% { transform: translate(-50%, -70%) scale(.82); opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .invitation-shell {
+    width: min(360px, calc(100vw - 28px));
+  }
+
+  .invitation-cover {
+    border-radius: 22px;
+  }
+
+  .emboss-column {
+    width: 72px;
+    top: 58px;
+    bottom: 58px;
+  }
+
+  .leaf {
+    width: 36px;
+    height: 18px;
+  }
+
+  .cover-left .leaf { right: 29px; }
+  .cover-right .leaf { left: 29px; }
+
+  .seal-ribbon-h {
+    left: 28px;
+    right: 28px;
+    height: 18px;
+  }
+
+  .seal-ribbon-v {
+    top: 28px;
+    bottom: 28px;
+    width: 18px;
+  }
+
+  .wax-seal.premium {
+    width: 112px;
+    height: 112px;
+    font-size: 1.35rem;
+  }
+}
