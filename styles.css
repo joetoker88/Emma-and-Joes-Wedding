@@ -1465,3 +1465,276 @@ body.intro-active{overflow:hidden}
 @keyframes evergreenEnvelopeSettle{from{opacity:0;transform:scale(1.055)}to{opacity:1;transform:scale(1)}}
 @media(max-width:700px){.luxury-envelope-paper::before{inset:12px}.luxury-envelope-paper::after{inset:21px}.gold-wax-seal{top:55%}.seal-prompt{bottom:20px;font-size:.68rem;letter-spacing:.12em}}
 @media(prefers-reduced-motion:reduce){.luxury-envelope-intro,.luxury-envelope-paper,.envelope-top-flap,.gold-wax-seal{animation-duration:1ms!important;transition-duration:1ms!important}}
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.1 — REALISM + FASTER REVEAL
+   Inspired by the uploaded reference video:
+   embossed ivory stock, shallow triangular flap, metallic wax,
+   and a quick reveal once the flap has opened.
+========================================================= */
+
+/* Softer, warmer ivory stock with more believable paper depth. */
+.luxury-envelope-intro {
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255,255,255,.92), transparent 29%),
+    linear-gradient(180deg, #f5f1e8 0%, #ebe3d6 100%);
+}
+
+.luxury-envelope-paper {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,.94), transparent 22%),
+    radial-gradient(circle at 78% 82%, rgba(173,150,110,.10), transparent 31%),
+    linear-gradient(145deg, #fffdf8 0%, #f6efe4 48%, #e9decd 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(142,122,88,.18),
+    inset 0 -60px 100px rgba(151,129,91,.08),
+    0 0 80px rgba(91,77,52,.08);
+}
+
+.paper-grain,
+.flap-paper-grain {
+  opacity: .7;
+  background:
+    repeating-linear-gradient(
+      92deg,
+      rgba(102,82,53,.018) 0 1px,
+      transparent 1px 3px
+    ),
+    repeating-linear-gradient(
+      2deg,
+      rgba(255,255,255,.18) 0 1px,
+      transparent 1px 4px
+    ),
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,.45), transparent 24%);
+}
+
+/* Reference video uses a shallower, cleaner closing flap. */
+.envelope-top-flap {
+  clip-path: polygon(0 0, 100% 0, 50% 56%);
+  background:
+    radial-gradient(circle at 22% 8%, rgba(255,255,255,.92), transparent 24%),
+    linear-gradient(180deg, #fffdf8 0%, #f2e9dc 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.9),
+    inset 0 -28px 42px rgba(144,122,84,.10),
+    0 17px 34px rgba(96,78,49,.12);
+}
+
+.envelope-top-flap::after {
+  clip-path: polygon(0 0, 100% 0, 50% 56%);
+}
+
+/* Raised botanical embossing like the invitation in the reference. */
+.embossed-botanicals {
+  position: absolute;
+  inset: 5% 6%;
+  z-index: 6;
+  pointer-events: none;
+  opacity: .88;
+  filter: drop-shadow(1px 1px 0 rgba(255,255,255,.75))
+          drop-shadow(-1px -1px 0 rgba(157,139,107,.12));
+}
+
+.stem {
+  position: absolute;
+  display: block;
+  width: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e5dac8, #fdf9f2 46%, #d4c5ae);
+  box-shadow:
+    inset 1px 0 1px rgba(255,255,255,.8),
+    inset -1px 0 1px rgba(139,119,85,.16);
+  transform-origin: bottom center;
+}
+
+.stem-a {
+  height: 72%;
+  left: 22%;
+  bottom: 5%;
+  transform: rotate(-9deg);
+}
+
+.stem-b {
+  height: 78%;
+  right: 24%;
+  bottom: 2%;
+  transform: rotate(8deg);
+}
+
+.stem-c {
+  height: 48%;
+  left: 49%;
+  bottom: 7%;
+  transform: rotate(2deg);
+}
+
+.emboss-leaf {
+  position: absolute;
+  width: clamp(46px, 6vw, 95px);
+  aspect-ratio: 1.8 / 1;
+  border-radius: 100% 0 100% 0 / 100% 0 100% 0;
+  background:
+    linear-gradient(145deg, #fbf7ef 0%, #ded1bd 100%);
+  box-shadow:
+    inset 2px 2px 4px rgba(255,255,255,.84),
+    inset -2px -2px 4px rgba(141,122,89,.14);
+}
+
+.emboss-leaf::after {
+  content: "";
+  position: absolute;
+  left: 16%;
+  right: 14%;
+  top: 48%;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(159,140,109,.22);
+  transform: rotate(-25deg);
+}
+
+.l1 { left: 13%; top: 19%; transform: rotate(-28deg); }
+.l2 { left: 20%; top: 42%; transform: rotate(-5deg); }
+.l3 { left: 26%; top: 66%; transform: rotate(18deg); }
+.l4 { right: 14%; top: 17%; transform: scaleX(-1) rotate(-28deg); }
+.l5 { right: 21%; top: 40%; transform: scaleX(-1) rotate(-2deg); }
+.l6 { right: 27%; top: 65%; transform: scaleX(-1) rotate(20deg); }
+
+.emboss-flower {
+  position: absolute;
+  width: clamp(48px, 5.2vw, 84px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #e4d6c0 0 11%, transparent 12%),
+    radial-gradient(ellipse at 50% 14%, #fdf9f2 0 18%, transparent 19%),
+    radial-gradient(ellipse at 86% 50%, #f3ebdf 0 18%, transparent 19%),
+    radial-gradient(ellipse at 50% 86%, #ded1bd 0 18%, transparent 19%),
+    radial-gradient(ellipse at 14% 50%, #f7f1e7 0 18%, transparent 19%);
+  filter:
+    drop-shadow(1px 1px 1px rgba(255,255,255,.72))
+    drop-shadow(-1px -1px 1px rgba(142,121,88,.14));
+}
+
+.f1 { left: 9%; top: 8%; transform: rotate(-12deg); }
+.f2 { right: 10%; top: 7%; transform: rotate(16deg); }
+.f3 { left: 46%; bottom: 4%; transform: scale(.82); }
+
+/* More natural folds: less graphic, more shadow-led. */
+.envelope-back-left {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.76), rgba(229,218,199,.86));
+  filter: drop-shadow(10px 0 15px rgba(110,90,58,.055));
+}
+
+.envelope-back-right {
+  background:
+    linear-gradient(225deg, rgba(255,255,255,.76), rgba(229,218,199,.86));
+  filter: drop-shadow(-10px 0 15px rgba(110,90,58,.055));
+}
+
+.envelope-bottom-fold {
+  background:
+    linear-gradient(180deg, #f1e8dc 0%, #dcd0bd 100%);
+  box-shadow:
+    inset 0 18px 26px rgba(255,255,255,.28),
+    0 -2px 8px rgba(126,104,69,.06);
+}
+
+/* More realistic, less perfectly circular metallic seal. */
+.gold-wax-seal {
+  width: clamp(108px, 10vw, 150px);
+  height: clamp(108px, 10vw, 150px);
+  border-radius:
+    46% 54% 48% 52% /
+    51% 47% 53% 49%;
+  background:
+    radial-gradient(circle at 29% 22%, rgba(255,255,255,.98) 0%, rgba(255,255,255,.38) 9%, transparent 21%),
+    radial-gradient(circle at 71% 79%, rgba(89,54,4,.42), transparent 29%),
+    radial-gradient(circle at 48% 48%, #f5dc82 0 30%, #d3aa3c 52%, #a67216 77%, #82520a 100%);
+  box-shadow:
+    inset 8px 7px 12px rgba(255,255,255,.42),
+    inset -12px -14px 20px rgba(82,49,5,.31),
+    inset 0 0 0 6px rgba(151,105,18,.24),
+    inset 0 0 0 15px rgba(255,239,174,.11),
+    0 19px 34px rgba(103,69,12,.27);
+}
+
+.gold-wax-seal::before {
+  inset: -8px;
+  border-radius:
+    52% 48% 55% 45% /
+    45% 55% 47% 53%;
+  background:
+    radial-gradient(circle at 17% 28%, #dbb04a 0 13%, transparent 14%),
+    radial-gradient(circle at 85% 24%, #c7982d 0 11%, transparent 12%),
+    radial-gradient(circle at 80% 79%, #9d6911 0 13%, transparent 14%),
+    radial-gradient(circle at 19% 81%, #e6c45d 0 14%, transparent 15%),
+    conic-gradient(from 0deg, #f1d36d, #99630d, #d8ad3b, #f1d36d);
+}
+
+.gold-wax-seal::after {
+  inset: 12px;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255,255,255,.34), transparent 24%),
+    repeating-conic-gradient(
+      from 4deg,
+      rgba(255,255,255,.12) 0 10deg,
+      rgba(104,66,6,.08) 10deg 20deg
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(255,246,197,.52),
+    inset 0 0 0 7px rgba(124,82,9,.09);
+}
+
+.seal-monogram {
+  color: #fff0ad;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.28),
+    0 -1px 0 rgba(103,64,5,.52),
+    1px 0 1px rgba(255,255,255,.12);
+}
+
+/* Faster opening: closer to the uploaded reference clip. */
+.envelope-top-flap {
+  transition:
+    transform .82s cubic-bezier(.18,.78,.14,1),
+    filter .7s ease;
+}
+
+.luxury-envelope-intro.is-opening .envelope-top-flap {
+  transform: rotateX(-174deg);
+}
+
+.luxury-envelope-intro.is-dissolving .luxury-envelope-paper {
+  transform: scale(1.02);
+  opacity: 0;
+  filter: blur(1px);
+  transition:
+    opacity .52s ease,
+    transform .52s ease,
+    filter .52s ease;
+}
+
+.luxury-envelope-intro {
+  transition:
+    opacity .55s ease,
+    visibility .55s ease;
+}
+
+@media (max-width: 700px) {
+  .embossed-botanicals {
+    inset: 7% 4%;
+  }
+
+  .stem-a { left: 16%; }
+  .stem-b { right: 18%; }
+
+  .emboss-leaf {
+    width: clamp(38px, 12vw, 62px);
+  }
+
+  .emboss-flower {
+    width: clamp(38px, 11vw, 58px);
+  }
+}
