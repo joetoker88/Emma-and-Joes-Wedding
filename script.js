@@ -12,18 +12,20 @@ if (luxuryEnvelopeIntro && goldWaxSeal) {
     goldWaxSeal.disabled = true;
     luxuryEnvelopeIntro.classList.add("is-opening");
 
+    // Let the flap complete its full opening motion first.
     window.setTimeout(() => {
       luxuryEnvelopeIntro.classList.add("is-dissolving");
-    }, 1320);
+    }, 1580);
 
+    // Then fade the entire envelope away together.
     window.setTimeout(() => {
       document.body.classList.remove("intro-active");
       luxuryEnvelopeIntro.classList.add("is-fading");
-    }, 1760);
+    }, 2220);
 
     window.setTimeout(() => {
       luxuryEnvelopeIntro.remove();
-    }, 2350);
+    }, 2880);
   });
 }
 

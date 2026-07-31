@@ -2252,3 +2252,33 @@ body.intro-active{
   opacity: 0;
   transition: opacity .62s cubic-bezier(.22,.61,.36,1);
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.10 — FADE ONLY AFTER FULL OPEN
+   Keeps the full envelope visible for the complete opening
+   sequence, then fades the whole envelope away afterwards.
+========================================================= */
+
+/* During the opening motion, keep every envelope layer fully visible. */
+.photo-envelope-intro.is-opening:not(.is-dissolving) .photo-envelope-base,
+.photo-envelope-intro.is-opening:not(.is-dissolving) .photo-envelope-lid,
+.photo-envelope-intro.is-opening:not(.is-dissolving) .photo-envelope-stage::before,
+.photo-envelope-intro.is-opening:not(.is-dissolving) .photo-envelope-seal-hitbox{
+  opacity: 1;
+  filter: none;
+}
+
+/* Hold the open envelope briefly, then fade the whole thing together. */
+.photo-envelope-intro.is-dissolving .photo-envelope-base,
+.photo-envelope-intro.is-dissolving .photo-envelope-lid,
+.photo-envelope-intro.is-dissolving .photo-envelope-stage::before,
+.photo-envelope-intro.is-dissolving .photo-envelope-seal-hitbox{
+  opacity: 0;
+  filter: blur(.9px);
+}
+
+.photo-envelope-intro.is-dissolving .photo-envelope-stage{
+  transform: translate3d(0,-5px,0) scale(1.003);
+  transition: transform .72s cubic-bezier(.22,.61,.36,1);
+}
