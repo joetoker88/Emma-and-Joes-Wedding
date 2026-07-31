@@ -10,21 +10,23 @@ if (luxuryEnvelopeIntro && goldWaxSeal) {
 
     envelopeOpened = true;
     goldWaxSeal.disabled = true;
-    luxuryEnvelopeIntro.classList.add("is-opening");
 
-    // Keep the complete envelope visible until the flap finishes opening.
+    // Brief tactile press on the seal.
+    luxuryEnvelopeIntro.classList.add("is-pressed");
+
+    // The complete envelope then fades away as one image.
     window.setTimeout(() => {
       luxuryEnvelopeIntro.classList.add("is-dissolving");
-    }, 1780);
+    }, 150);
 
     window.setTimeout(() => {
       document.body.classList.remove("intro-active");
       luxuryEnvelopeIntro.classList.add("is-fading");
-    }, 2340);
+    }, 760);
 
     window.setTimeout(() => {
       luxuryEnvelopeIntro.remove();
-    }, 3080);
+    }, 1480);
   });
 }
 

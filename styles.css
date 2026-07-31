@@ -2598,3 +2598,135 @@ body.intro-active{
     top: 58.9%;
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.15 — PRESS SEAL, THEN FADE
+   The envelope remains completely still. Pressing the seal
+   gives subtle tactile feedback before the whole image fades.
+========================================================= */
+
+body.intro-active{
+  overflow:hidden;
+}
+
+.fade-envelope-intro{
+  position:fixed;
+  inset:0;
+  z-index:2600;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.72),transparent 31%),
+    linear-gradient(180deg,#f2ede4 0%,#e8e1d4 100%);
+  opacity:1;
+  visibility:visible;
+  transition:
+    opacity .86s cubic-bezier(.22,.61,.36,1),
+    visibility .86s ease,
+    background .86s ease;
+}
+
+.fade-envelope-stage{
+  position:relative;
+  width:min(100vw,calc(100vh * 1.5));
+  height:min(100vh,calc(100vw / 1.5));
+  max-width:1536px;
+  max-height:1024px;
+  aspect-ratio:3 / 2;
+  transform:translate3d(0,0,0) scale(1);
+  opacity:1;
+  filter:none;
+  will-change:transform,opacity,filter;
+  transition:
+    transform .86s cubic-bezier(.22,.61,.36,1),
+    opacity .86s cubic-bezier(.22,.61,.36,1),
+    filter .86s cubic-bezier(.22,.61,.36,1);
+}
+
+.fade-envelope-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:fill;
+  user-select:none;
+  pointer-events:none;
+}
+
+.fade-envelope-seal-hitbox{
+  position:absolute;
+  left:50%;
+  top:56.4%;
+  z-index:3;
+  width:16.4%;
+  max-width:252px;
+  aspect-ratio:1;
+  transform:translate(-50%,-50%) scale(1);
+  border:0;
+  border-radius:50%;
+  padding:0;
+  cursor:pointer;
+  background:transparent;
+  outline:none;
+  transition:
+    transform .18s ease,
+    filter .18s ease,
+    box-shadow .18s ease,
+    opacity .3s ease;
+}
+
+.fade-envelope-seal-hitbox:hover,
+.fade-envelope-seal-hitbox:focus-visible{
+  transform:translate(-50%,-50%) scale(1.035);
+  filter:brightness(1.02);
+  box-shadow:0 0 0 3px rgba(190,145,45,.16);
+}
+
+.fade-envelope-intro.is-pressed .fade-envelope-seal-hitbox{
+  transform:translate(-50%,-50%) scale(.965);
+  filter:brightness(.97);
+}
+
+.fade-envelope-intro.is-dissolving{
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.34),transparent 34%),
+    linear-gradient(180deg,rgba(242,237,228,.64),rgba(232,225,212,.58));
+}
+
+.fade-envelope-intro.is-dissolving .fade-envelope-stage{
+  transform:translate3d(0,-5px,0) scale(1.008);
+  opacity:0;
+  filter:blur(1.2px) saturate(.96) brightness(1.015);
+}
+
+.fade-envelope-intro.is-dissolving .fade-envelope-seal-hitbox{
+  opacity:0;
+}
+
+.fade-envelope-intro.is-fading{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+@media(max-width:700px){
+  .fade-envelope-stage{
+    width:100vw;
+    height:auto;
+  }
+
+  .fade-envelope-seal-hitbox{
+    width:20.5%;
+    top:56.5%;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .fade-envelope-intro,
+  .fade-envelope-stage,
+  .fade-envelope-seal-hitbox{
+    transition-duration:1ms!important;
+  }
+}
