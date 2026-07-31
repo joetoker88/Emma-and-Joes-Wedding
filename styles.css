@@ -2136,3 +2136,81 @@ body.intro-active{
   visibility: hidden;
   pointer-events: none;
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.8 — SMOOTHER ENVELOPE OPENING
+   Removes the visual "catch" at the start of the motion and
+   prevents the fade from beginning before the flap has finished.
+========================================================= */
+
+/* Keep the ivory under-flap cover permanently in place.
+   This avoids an opacity pop when the user clicks the seal. */
+.photo-envelope-stage::before{
+  opacity:1;
+  transition:none;
+  clip-path:polygon(-1% -1%,101% -1%,50% 56.2%);
+}
+
+/* Force the flap layer onto its own compositor layer. */
+.photo-envelope-lid{
+  transform:translate3d(0,0,0) rotateX(0deg);
+  transform-origin:50% 0%;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  will-change:transform;
+  transition:none;
+}
+
+/* Use a staged keyframe animation instead of a single transition.
+   The slower first movement and progressive acceleration feel
+   more like a real heavy-stock flap opening. */
+.photo-envelope-intro.is-opening .photo-envelope-lid{
+  animation:evergreenSmoothFlapOpen 1.32s linear forwards;
+}
+
+@keyframes evergreenSmoothFlapOpen{
+  0%{
+    transform:translate3d(0,0,0) rotateX(0deg);
+  }
+  12%{
+    transform:translate3d(0,-1px,2px) rotateX(-4deg);
+  }
+  38%{
+    transform:translate3d(0,-3px,5px) rotateX(-46deg);
+  }
+  68%{
+    transform:translate3d(0,-6px,8px) rotateX(-118deg);
+  }
+  88%{
+    transform:translate3d(0,-8px,10px) rotateX(-158deg);
+  }
+  100%{
+    transform:translate3d(0,-9px,11px) rotateX(-168deg);
+  }
+}
+
+/* Keep the envelope completely stable while the flap opens. */
+.photo-envelope-stage{
+  transform:translateZ(0);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+
+/* Begin the premium fade only after the flap motion is complete. */
+.photo-envelope-intro.is-dissolving .photo-envelope-stage{
+  transform:translate3d(0,-7px,0) scale(1.006);
+  filter:blur(1px) saturate(.96) brightness(1.015);
+  opacity:0;
+  transition:
+    transform .68s cubic-bezier(.22,.61,.36,1),
+    filter .68s cubic-bezier(.22,.61,.36,1),
+    opacity .68s cubic-bezier(.22,.61,.36,1);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .photo-envelope-intro.is-opening .photo-envelope-lid{
+    animation-duration:1ms!important;
+  }
+}
