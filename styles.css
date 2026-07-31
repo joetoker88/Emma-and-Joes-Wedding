@@ -2040,3 +2040,40 @@ body.intro-active{
 .photo-envelope-intro.is-opening .photo-envelope-lid{
   transform:rotateX(-168deg);
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.6 — REMOVE STATIC FLAP DURING OPEN
+   The complete base image remains for the closed state.
+   As the flap starts moving, a matching ivory cover hides the
+   original printed flap so only the animated flap remains visible.
+========================================================= */
+
+.photo-envelope-stage::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  opacity:0;
+  clip-path:polygon(0 0,100% 0,50% 55.8%);
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.56),transparent 34%),
+    linear-gradient(180deg,#f8f3ea 0%,#eee5d8 100%);
+  transition:opacity .12s ease;
+}
+
+.photo-envelope-intro.is-opening .photo-envelope-stage::before{
+  opacity:1;
+}
+
+/* Keep the animated flap above the masking cover. */
+.photo-envelope-lid{
+  z-index:3;
+}
+
+/* Let the cover disappear with the intro. */
+.photo-envelope-intro.is-dissolving .photo-envelope-stage::before,
+.photo-envelope-intro.is-fading .photo-envelope-stage::before{
+  opacity:0;
+}
