@@ -1914,3 +1914,51 @@ body.intro-active{
     transition-duration:1ms!important;
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.3 — FIX ENVELOPE TRIANGLE ARTEFACTS
+   Fixes the blank/strange triangles by changing the base mask
+   so the side folds remain visible while only the top flap is removed.
+========================================================= */
+
+.photo-envelope-base{
+  /* Keep the full envelope body and side folds visible.
+     Only remove the upper triangular flap region. */
+  clip-path: polygon(
+    0 0,
+    0 100%,
+    100% 100%,
+    100% 0,
+    100% 60.8%,
+    50% 43.2%,
+    0 60.8%
+  );
+}
+
+.photo-envelope-lid{
+  /* Slightly cleaner hinge behaviour */
+  transform-origin: 50% 0%;
+}
+
+.photo-envelope-flap{
+  clip-path: polygon(0 0, 100% 0, 50% 55.8%);
+}
+
+.photo-envelope-seal-piece{
+  clip-path: circle(8.2% at 50% 56.4%);
+}
+
+@media (max-width: 700px){
+  .photo-envelope-base{
+    clip-path: polygon(
+      0 0,
+      0 100%,
+      100% 100%,
+      100% 0,
+      100% 60.8%,
+      50% 43.2%,
+      0 60.8%
+    );
+  }
+}
