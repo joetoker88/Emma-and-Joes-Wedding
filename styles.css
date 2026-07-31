@@ -486,3 +486,18 @@ footer span{color:var(--olive-dark)}
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto !important;transition:none !important}
 }
+
+
+/* V3.5 botanical ornament */
+.sprig {
+  width: 118px;
+}
+
+.mini-sprig {
+  width: 82px;
+}
+
+.hero-panel .sprig,
+.rsvp-banner-art .sprig {
+  width: 128px;
+}
