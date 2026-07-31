@@ -13,40 +13,34 @@
 </head>
 <body class="intro-active">
 
+  
   <section class="envelope-intro" id="envelopeIntro" aria-label="Wedding invitation">
     <div class="envelope-intro-inner">
-      <p class="envelope-intro-caption">You are invited</p>
+      <div class="fullscreen-envelope">
+        <div class="envelope-panel">
+          <div class="envelope-stock"></div>
 
-      <div class="envelope-scene">
-        <div class="envelope">
-          <div class="envelope-back"></div>
+          <div class="envelope-front">
+            <div class="front-fold front-fold-left"></div>
+            <div class="front-fold front-fold-right"></div>
+            <div class="front-fold front-fold-bottom"></div>
+          </div>
 
-          <article class="envelope-letter">
-            <div class="envelope-letter-content">
-              <p class="envelope-letter-kicker">Together with their families</p>
-              <h1>Emma <span>&amp;</span> Joe</h1>
-              <p>Joyfully invite you to celebrate their wedding.</p>
-            </div>
-          </article>
-
-          <div class="envelope-fold envelope-fold-left"></div>
-          <div class="envelope-fold envelope-fold-right"></div>
-          <div class="envelope-fold envelope-fold-bottom"></div>
-          <div class="envelope-flap"></div>
-
-          <button class="intro-wax-seal" id="introWaxSeal" type="button" aria-label="Open the wedding invitation">
-            <span>E&amp;J</span>
-          </button>
+          <div class="envelope-flap-shell">
+            <div class="envelope-flap"></div>
+            <button class="intro-wax-seal gold-seal" id="introWaxSeal" type="button" aria-label="Open the wedding invitation">
+              <span>E&amp;J</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <p class="envelope-seal-instruction">Click the wax seal to open the invitation</p>
+      <p class="envelope-seal-instruction">Click the seal to open the invitation</p>
     </div>
   </section>
 
   <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
 
-  <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
   <header id="header" class="site-header">
     <a href="#home" class="brand">EMMA &amp; JOE <i>❧</i></a>
     <button id="menu" class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>

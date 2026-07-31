@@ -14,19 +14,16 @@ if (envelopeIntro && introWaxSeal) {
 
     window.setTimeout(() => {
       envelopeIntro.classList.add("is-leaving");
-    }, 2650);
+    }, 1350);
 
     window.setTimeout(() => {
       document.body.classList.remove("intro-active");
-    }, 3050);
-
-    window.setTimeout(() => {
       envelopeIntro.classList.add("is-finished");
-    }, 3600);
+    }, 2200);
 
     window.setTimeout(() => {
       envelopeIntro.remove();
-    }, 4450);
+    }, 3000);
   });
 }
 
