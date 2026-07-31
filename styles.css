@@ -2077,3 +2077,62 @@ body.intro-active{
 .photo-envelope-intro.is-fading .photo-envelope-stage::before{
   opacity:0;
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.7 — SLOWER OPEN + PREMIUM FADE
+   Refines the motion so the flap opens more slowly and the
+   envelope dissolves away with a softer, more luxurious finish.
+========================================================= */
+
+.photo-envelope-intro{
+  transition:
+    opacity .72s cubic-bezier(.22,.61,.36,1),
+    visibility .72s ease,
+    background-color .5s ease,
+    background-image .5s ease;
+}
+
+.photo-envelope-lid{
+  transition:
+    transform 1.18s cubic-bezier(.18,.74,.14,1),
+    opacity .34s ease;
+  will-change: transform;
+}
+
+.photo-envelope-seal-hitbox{
+  transition:
+    transform .22s ease,
+    filter .22s ease,
+    opacity .24s ease;
+}
+
+.photo-envelope-intro.is-opening .photo-envelope-lid{
+  transform: rotateX(-168deg);
+}
+
+.photo-envelope-intro.is-dissolving{
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,.42), transparent 34%),
+    linear-gradient(180deg, rgba(242,237,228,.78) 0%, rgba(232,225,212,.72) 100%);
+}
+
+.photo-envelope-intro.is-dissolving .photo-envelope-stage{
+  transform: translateY(-8px) scale(1.008);
+  filter: blur(1.4px) saturate(.94) brightness(1.02);
+  opacity: 0;
+  transition:
+    transform .78s cubic-bezier(.22,.61,.36,1),
+    filter .78s cubic-bezier(.22,.61,.36,1),
+    opacity .78s cubic-bezier(.22,.61,.36,1);
+}
+
+.photo-envelope-intro.is-dissolving .photo-envelope-seal-hitbox{
+  opacity: 0;
+}
+
+.photo-envelope-intro.is-fading{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
