@@ -10,13 +10,78 @@
 <section class="section" id="stay"><div class="narrow reveal"><p class="eyebrow">Stay nearby</p><h2>Make a weekend of it</h2></div><div class="cards"><article><small>Boutique</small><h3>The Beverley Arms</h3><p>Central Beverley with a polished country-house feel.</p></article><article><small>Country hotel</small><h3>Tickton Grange</h3><p>A traditional country-house hotel a short drive away.</p></article><article><small>Town centre</small><h3>Beverley stays</h3><p>Hotels, guest houses and apartments close to restaurants and taxis.</p></article></div></section>
 <section class="section gifts"><div class="narrow reveal"><p class="eyebrow light">Gifts</p><h2>Your presence is our present</h2><p>Celebrating with you is the greatest gift we could ask for. Should you wish to give something more, a contribution towards our honeymoon would be received with enormous gratitude.</p></div></section>
 <section class="section faq" id="faq"><div class="narrow reveal"><p class="eyebrow">Good to know</p><h2>Frequently asked questions</h2></div><div class="accordion"><details><summary>What time should I arrive?</summary><p>Please arrive from 12:30. The ceremony begins at 13:00.</p></details><details><summary>What is the dress code?</summary><p>Wedding guest attire with a relaxed country-luxury feel.</p></details><details><summary>Can I bring a guest?</summary><p>Your invitation confirms the number of places reserved for your household.</p></details><details><summary>Can children attend?</summary><p>We will add the final children policy before invitations are sent.</p></details></div></section>
-<section class="section rsvp" id="rsvp"><div class="rsvp-grid"><div class="rsvp-copy reveal"><p class="eyebrow light">RSVP</p><h2>We cannot wait to celebrate with you</h2><p>Please send one response per household. Your reply will be sent securely to Emma and Joe.</p><p id="stepLabel">Step 1 of 5</p><div class="progress"><i id="progress"></i></div></div><form id="form" class="form reveal">
-<div class="step active"><p>First things first</p><h3>Who is responding?</h3><label>Your name<input name="name" required></label><label>Email address<input type="email" name="email" required></label></div>
-<div class="step"><p>The important question</p><h3>Will you be joining us?</h3><label class="choice"><input type="radio" name="attending" value="Yes" required><span>Accepts with pleasure</span></label><label class="choice"><input type="radio" name="attending" value="No" required><span>Regretfully declines</span></label></div>
-<div class="step"><p>Your party</p><h3>Who will be attending?</h3><label>Number attending<select name="guestCount"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label><label>Guest names<input name="guestNames"></label></div>
-<div class="step"><p>A few useful details</p><h3>Food and dancing</h3><label>Dietary requirements<textarea name="dietary"></textarea></label><label>Song request<input name="song"></label></div>
-<div class="step"><p>Nearly there</p><h3>Leave us a message</h3><label>Message for Emma & Joe<textarea name="message"></textarea></label><div id="review"></div></div>
-<div class="actions"><button type="button" id="back" class="button ghost" hidden>Back</button><button type="button" id="next" class="button gold">Continue</button><button type="submit" id="submit" class="button gold" hidden>Send RSVP</button></div><p id="status">Your answers are not sent until the final step.</p></form></div></section></main>
+<section class="section rsvp" id="rsvp">
+  <div class="rsvp-grid">
+    <div class="rsvp-copy reveal">
+      <p class="eyebrow light">RSVP</p>
+      <h2>We cannot wait to celebrate with you</h2>
+      <p>Please send one response per household. Your reply will be sent securely to Emma and Joe.</p>
+    </div>
+
+    <form class="form classic-form reveal" id="form">
+      <div class="form-row two">
+        <label>
+          Your name
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>
+          Email address
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+      </div>
+
+      <fieldset>
+        <legend>Will you be joining us?</legend>
+        <div class="choice-grid">
+          <label class="choice">
+            <input type="radio" name="attending" value="Yes" required>
+            <span>Accepts with pleasure</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="attending" value="No" required>
+            <span>Regretfully declines</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="form-row two">
+        <label>
+          Number attending
+          <select name="guestCount">
+            <option value="1">1 guest</option>
+            <option value="2">2 guests</option>
+            <option value="3">3 guests</option>
+            <option value="4">4 guests</option>
+            <option value="5">5 guests</option>
+            <option value="6">6 guests</option>
+          </select>
+        </label>
+        <label>
+          Guest names
+          <input type="text" name="guestNames" placeholder="As shown on the invitation">
+        </label>
+      </div>
+
+      <label>
+        Dietary requirements
+        <textarea name="dietary" rows="3" placeholder="Please include the guest's name and requirement"></textarea>
+      </label>
+
+      <label>
+        Song request
+        <input type="text" name="song" placeholder="What will get you on the dance floor?">
+      </label>
+
+      <label>
+        Message for Emma &amp; Joe
+        <textarea name="message" rows="4"></textarea>
+      </label>
+
+      <button class="button gold submit-full" id="submit" type="submit">Send RSVP</button>
+      <p id="status">Please check your details before submitting.</p>
+    </form>
+  </div>
+</section></main>
 <footer><p class="footer-script">Emma & Joe</p><p>24 July 2027 · The Beverley Barn</p></footer>
 <div id="thanks" class="thanks"><div><p class="eyebrow">Thank you</p><h2 id="thanksTitle">We cannot wait to celebrate with you.</h2><p>Your response has been sent to Emma and Joe.</p><button id="closeThanks" class="button">Return to the invitation</button></div></div>
 <script src="config.js"></script><script src="script.js"></script></body></html>
