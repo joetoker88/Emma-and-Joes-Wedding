@@ -501,3 +501,24 @@ footer span{color:var(--olive-dark)}
 .rsvp-banner-art .sprig {
   width: 128px;
 }
+
+
+/* Project Evergreen V3.6 - regular botanical sizing */
+.sprig {
+  width: 74px;
+}
+
+.mini-sprig {
+  width: 74px;
+  margin: 10px auto 14px;
+}
+
+.hero-panel .sprig,
+.rsvp-banner-art .sprig {
+  width: 74px;
+}
+
+.feature-copy .mini-sprig {
+  width: 74px;
+  max-width: 74px;
+}
