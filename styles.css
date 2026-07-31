@@ -1962,3 +1962,67 @@ body.intro-active{
     );
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.4 — REMOVE TRIANGLE ARTEFACTS
+   The closed state now uses the complete approved image.
+   Only the duplicated flap/seal layer is animated on click.
+========================================================= */
+
+.photo-envelope-base{
+  inset:0;
+  clip-path:none !important;
+  opacity:1;
+  transition:opacity .34s ease .12s;
+}
+
+.photo-envelope-lid{
+  z-index:3;
+  transform-origin:50% 0%;
+  transition:transform .56s cubic-bezier(.2,.78,.16,1), opacity .26s ease;
+}
+
+.photo-envelope-flap{
+  clip-path:polygon(0 0,100% 0,50% 55.8%);
+}
+
+.photo-envelope-seal-piece{
+  clip-path:circle(8.2% at 50% 56.4%);
+}
+
+.photo-envelope-intro{
+  transition:background-color .34s ease .12s, opacity .30s ease, visibility .30s ease;
+}
+
+.photo-envelope-intro.is-opening .photo-envelope-lid{
+  transform:rotateX(-168deg);
+}
+
+.photo-envelope-intro.is-opening .photo-envelope-base{
+  opacity:0;
+}
+
+.photo-envelope-intro.is-dissolving{
+  background-color:transparent;
+  background-image:none;
+}
+
+.photo-envelope-intro.is-dissolving .photo-envelope-stage{
+  transform:none;
+  filter:none;
+  opacity:1;
+  transition:none;
+}
+
+.photo-envelope-intro.is-fading{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+@media(max-width:700px){
+  .photo-envelope-base{
+    clip-path:none !important;
+  }
+}
