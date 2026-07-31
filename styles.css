@@ -2282,3 +2282,169 @@ body.intro-active{
   transform: translate3d(0,-5px,0) scale(1.003);
   transition: transform .72s cubic-bezier(.22,.61,.36,1);
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.11 — TRUE TWO-LAYER ENVELOPE
+   The body contains no closed flap or seal. The moving flap is
+   a separate transparent PNG, eliminating the double-flap issue.
+========================================================= */
+
+body.intro-active{
+  overflow:hidden;
+}
+
+.layered-envelope-intro{
+  position:fixed;
+  inset:0;
+  z-index:2400;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.72),transparent 31%),
+    linear-gradient(180deg,#f2ede4 0%,#e8e1d4 100%);
+  opacity:1;
+  visibility:visible;
+  transition:opacity .72s cubic-bezier(.22,.61,.36,1),visibility .72s ease;
+}
+
+.layered-envelope-intro.is-fading{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.layered-envelope-stage{
+  position:relative;
+  width:min(100vw,calc(100vh * 1.5));
+  height:min(100vh,calc(100vw / 1.5));
+  max-width:1536px;
+  max-height:1024px;
+  aspect-ratio:3 / 2;
+  perspective:1900px;
+  transform:translateZ(0);
+  will-change:transform,opacity,filter;
+}
+
+.layered-envelope-body,
+.layered-envelope-flap{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:fill;
+  user-select:none;
+  pointer-events:none;
+}
+
+.layered-envelope-body{
+  z-index:1;
+}
+
+.layered-envelope-lid{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  transform-origin:50% 1.95%;
+  transform-style:preserve-3d;
+  backface-visibility:visible;
+  will-change:transform;
+}
+
+.layered-envelope-lid::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  clip-path:polygon(.9% 1.95%,99.1% 1.95%,50% 61.7%);
+  transform:rotateX(180deg);
+  backface-visibility:hidden;
+  background:
+    radial-gradient(circle at 50% 12%,rgba(255,255,255,.72),transparent 30%),
+    linear-gradient(180deg,#f8f2e8 0%,#e8ddcb 100%);
+  box-shadow:inset 0 -18px 30px rgba(125,100,61,.08);
+}
+
+.layered-envelope-flap{
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+
+.layered-envelope-seal-hitbox{
+  position:absolute;
+  left:50%;
+  top:59.4%;
+  z-index:5;
+  width:21.5%;
+  max-width:330px;
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  border:0;
+  border-radius:50%;
+  padding:0;
+  cursor:pointer;
+  background:transparent;
+  outline:none;
+}
+
+.layered-envelope-seal-hitbox:focus-visible{
+  box-shadow:0 0 0 4px rgba(184,139,42,.28);
+}
+
+/* Slow, continuous motion with no visibility or layer swap mid-animation. */
+.layered-envelope-intro.is-opening .layered-envelope-lid{
+  animation:evergreenLayeredFlapOpen 1.48s cubic-bezier(.21,.67,.19,1) forwards;
+}
+
+@keyframes evergreenLayeredFlapOpen{
+  0%{
+    transform:translate3d(0,0,0) rotateX(0deg);
+  }
+  18%{
+    transform:translate3d(0,-1px,3px) rotateX(-10deg);
+  }
+  48%{
+    transform:translate3d(0,-4px,8px) rotateX(-62deg);
+  }
+  76%{
+    transform:translate3d(0,-7px,12px) rotateX(-112deg);
+  }
+  100%{
+    transform:translate3d(0,-9px,14px) rotateX(-132deg);
+  }
+}
+
+/* Fade the complete stage only after the opening animation finishes. */
+.layered-envelope-intro.is-dissolving .layered-envelope-stage{
+  opacity:0;
+  transform:translate3d(0,-7px,0) scale(1.006);
+  filter:blur(1px) saturate(.96) brightness(1.015);
+  transition:
+    opacity .72s cubic-bezier(.22,.61,.36,1),
+    transform .72s cubic-bezier(.22,.61,.36,1),
+    filter .72s cubic-bezier(.22,.61,.36,1);
+}
+
+@media(max-width:700px){
+  .layered-envelope-stage{
+    width:100vw;
+    height:auto;
+  }
+
+  .layered-envelope-seal-hitbox{
+    width:24%;
+    top:59.2%;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .layered-envelope-intro.is-opening .layered-envelope-lid{
+    animation-duration:1ms!important;
+  }
+
+  .layered-envelope-intro,
+  .layered-envelope-stage{
+    transition-duration:1ms!important;
+  }
+}
