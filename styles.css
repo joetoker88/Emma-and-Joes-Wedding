@@ -2480,3 +2480,34 @@ body.intro-active{
     top: 58.8%;
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.13 — GUIDELINE-MATCHED FLAP
+   Rebuilt from the approved red guideline so the opening seam
+   follows the line shown in the reference diagram.
+========================================================= */
+
+.layered-envelope-lid{
+  transform-origin: 50% 1.8%;
+}
+
+.layered-envelope-lid::after{
+  clip-path: polygon(1% 2%, 99% 2%, 50% 73%);
+  background:
+    radial-gradient(circle at 50% 14%, rgba(255,255,255,.72), transparent 30%),
+    linear-gradient(180deg, #f8f2e8 0%, #e8ddcb 100%);
+}
+
+.layered-envelope-seal-hitbox{
+  top: 59.2%;
+  width: 19.8%;
+  max-width: 304px;
+}
+
+@media(max-width:700px){
+  .layered-envelope-seal-hitbox{
+    width: 23.2%;
+    top: 59.0%;
+  }
+}
