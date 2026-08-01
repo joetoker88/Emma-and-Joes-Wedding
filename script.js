@@ -35,14 +35,16 @@ const nav = document.getElementById("nav");
 const confettiCanvas = document.getElementById("confettiCanvas");
 const confettiContext = confettiCanvas ? confettiCanvas.getContext("2d") : null;
 
-menu.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  menu.setAttribute("aria-expanded", String(open));
-});
+if (menu && nav) {
+  menu.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(open));
+  });
 
-document.querySelectorAll("#nav a").forEach(link => {
-  link.addEventListener("click", () => nav.classList.remove("open"));
-});
+  document.querySelectorAll("#nav a").forEach(link => {
+    link.addEventListener("click", () => nav.classList.remove("open"));
+  });
+}
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
