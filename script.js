@@ -62,6 +62,7 @@ const submit = document.getElementById("submit");
 const status = document.getElementById("status");
 const thanks = document.getElementById("thanks");
 const thanksTitle = document.getElementById("thanksTitle");
+const REQUIRED_BACKEND_VERSION = "5.29";
 let confettiFrameId = null;
 
 async function sha256(value) {
@@ -89,7 +90,7 @@ function checkDuplicate(endpoint, emailHash) {
 
     window[callbackName] = result => {
       cleanup();
-      resolve(Boolean(result?.duplicate));
+      resolve(result || { duplicate: false, version: "" });
     };
 
     callbackScript.onerror = () => {
@@ -98,7 +99,7 @@ function checkDuplicate(endpoint, emailHash) {
     };
 
     const separator = endpoint.includes("?") ? "&" : "?";
-    callbackScript.src = `${endpoint}${separator}action=check&hash=${encodeURIComponent(emailHash)}&callback=${encodeURIComponent(callbackName)}`;
+    callbackScript.src = `${endpoint}${separator}action=check&hash=${encodeURIComponent(emailHash)}&callback=${encodeURIComponent(callbackName)}&_=${Date.now()}`;
     document.body.appendChild(callbackScript);
   });
 }
@@ -139,7 +140,7 @@ function checkSubmissionStatus(endpoint, emailHash) {
     };
 
     const separator = endpoint.includes("?") ? "&" : "?";
-    callbackScript.src = `${endpoint}${separator}action=status&hash=${encodeURIComponent(emailHash)}&callback=${encodeURIComponent(callbackName)}`;
+    callbackScript.src = `${endpoint}${separator}action=status&hash=${encodeURIComponent(emailHash)}&callback=${encodeURIComponent(callbackName)}&_=${Date.now()}`;
     document.body.appendChild(callbackScript);
   });
 }
@@ -348,9 +349,15 @@ form.addEventListener("submit", async event => {
 
   try {
     const emailHash = await sha256(data.email);
-    const duplicate = await checkDuplicate(endpoint, emailHash);
+    const backendCheck = await checkDuplicate(endpoint, emailHash);
 
-    if (duplicate) {
+    if (backendCheck.version !== REQUIRED_BACKEND_VERSION) {
+      throw new Error(
+        `BACKEND_VERSION_MISMATCH:${backendCheck.version || "unknown"}`
+      );
+    }
+
+    if (backendCheck.duplicate) {
       status.textContent = "An RSVP has already been submitted using this email address. Please contact Emma or Joe if the response needs changing.";
       status.className = "form-error";
       return;
@@ -371,8 +378,14 @@ form.addEventListener("submit", async event => {
     status.textContent = "Confirming your RSVP was saved…";
     const savedStatus = await waitForSubmissionStatus(endpoint, emailHash);
 
+    if (savedStatus.version !== REQUIRED_BACKEND_VERSION) {
+      throw new Error(
+        `BACKEND_VERSION_MISMATCH:${savedStatus.version || "unknown"}`
+      );
+    }
+
     if (!savedStatus.found) {
-      throw new Error("The website could not confirm that the RSVP reached the spreadsheet.");
+      throw new Error("SUBMISSION_NOT_CONFIRMED");
     }
 
     thanksTitle.textContent = data.attending === "Yes"
@@ -400,7 +413,15 @@ form.addEventListener("submit", async event => {
     }
   } catch (error) {
     console.error(error);
-    status.textContent = "We could not verify or send your RSVP. Please check your connection and try again.";
+
+    if (String(error?.message || error).startsWith("BACKEND_VERSION_MISMATCH:")) {
+      status.textContent = "The RSVP service has not been updated to the latest version. Please contact Emma or Joe before trying again.";
+    } else if (String(error?.message || error) === "SUBMISSION_NOT_CONFIRMED") {
+      status.textContent = "Your reply may have been received, but the website could not confirm it. Please contact Emma or Joe before submitting again.";
+    } else {
+      status.textContent = "We could not send your RSVP. Please check your connection and try again.";
+    }
+
     status.className = "form-error";
   } finally {
     submit.disabled = false;
