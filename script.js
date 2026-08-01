@@ -2,6 +2,21 @@
 const luxuryEnvelopeIntro = document.getElementById("luxuryEnvelopeIntro");
 const goldWaxSeal = document.getElementById("goldWaxSeal");
 
+// Prevent the browser restoring an old scroll position when the invitation opens.
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+function returnInvitationToTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
+
+// Start every fresh visit at the top, including browser refreshes and back navigation.
+returnInvitationToTop();
+window.addEventListener("pageshow", returnInvitationToTop);
+
 if (luxuryEnvelopeIntro && goldWaxSeal) {
   let envelopeOpened = false;
 
@@ -11,20 +26,26 @@ if (luxuryEnvelopeIntro && goldWaxSeal) {
     envelopeOpened = true;
     goldWaxSeal.disabled = true;
 
+    // Lock the reveal to the top of the homepage before the envelope disappears.
+    returnInvitationToTop();
+
     // Brief tactile press on the seal.
     luxuryEnvelopeIntro.classList.add("is-pressed");
 
     // The complete envelope then fades away as one image.
     window.setTimeout(() => {
+      returnInvitationToTop();
       luxuryEnvelopeIntro.classList.add("is-dissolving");
     }, 150);
 
     window.setTimeout(() => {
+      returnInvitationToTop();
       document.body.classList.remove("intro-active");
       luxuryEnvelopeIntro.classList.add("is-fading");
     }, 760);
 
     window.setTimeout(() => {
+      returnInvitationToTop();
       luxuryEnvelopeIntro.remove();
     }, 1480);
   });
