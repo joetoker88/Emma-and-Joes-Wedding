@@ -3638,3 +3638,43 @@ body.intro-active{
     border-radius:4px;
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.22 — THREE HOMEPAGE CARDS + RSVP UPDATES
+========================================================= */
+
+.story-photo{
+  background-image:url("assets/story-photo-v522.jpg");
+  background-position:center 42%;
+}
+
+.song-requests{
+  margin:0 0 20px;
+}
+
+.song-requests legend{
+  margin-bottom:8px;
+}
+
+/* Revised three-card homepage hotspots */
+.v520-hotspot.card-day{
+  left:17.8%;
+  top:46.0%;
+  width:20.9%;
+  height:45.0%;
+}
+
+.v520-hotspot.card-travel{
+  left:40.4%;
+  top:46.0%;
+  width:20.9%;
+  height:45.0%;
+}
+
+.v520-hotspot.card-rsvp{
+  left:62.9%;
+  top:46.0%;
+  width:20.9%;
+  height:45.0%;
+}

@@ -177,6 +177,12 @@ form.addEventListener("submit", async event => {
   const data = Object.fromEntries(new FormData(form).entries());
 
   data.email = String(data.email || "").trim().toLowerCase();
+
+  const songRequests = [data.song1, data.song2, data.song3]
+    .map(value => String(value || "").trim())
+    .filter(Boolean);
+  data.song = songRequests.join(" | ");
+
   data.submittedAt = new Date().toISOString();
   data.pageUrl = location.href;
   data.userAgent = navigator.userAgent;
@@ -218,7 +224,9 @@ form.addEventListener("submit", async event => {
       ? "We cannot wait to celebrate with you."
       : "Thank you for letting us know.";
 
-    runConfetti();
+    if (data.attending === "Yes") {
+      runConfetti();
+    }
     thanks.classList.add("show");
     form.reset();
     status.textContent = "Your RSVP has been sent. Please check your inbox for confirmation.";

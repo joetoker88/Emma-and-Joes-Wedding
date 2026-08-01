@@ -44,7 +44,7 @@
     <section class="v520-homepage" id="home" aria-label="Emma and Joe wedding homepage">
       <img
         class="v520-homepage-image"
-        src="assets/homepage-v520.png"
+        src="assets/homepage-v522.png"
         alt="Emma and Joe wedding homepage with a pastel wildflower meadow, wedding details and four information cards"
       >
 
@@ -55,8 +55,6 @@
         <a class="v520-hotspot nav-travel" href="#stay" aria-label="Travel"></a>
         <a class="v520-hotspot nav-rsvp" href="#rsvp" aria-label="RSVP"></a>
         <a class="v520-hotspot nav-info" href="#faq" aria-label="Guest Info"></a>
-
-        <a class="v520-hotspot card-story" href="#story" aria-label="We would love you to be there"></a>
         <a class="v520-hotspot card-day" href="#day" aria-label="The Day"></a>
         <a class="v520-hotspot card-travel" href="#stay" aria-label="Travel"></a>
         <a class="v520-hotspot card-rsvp" href="#rsvp" aria-label="RSVP"></a>
@@ -235,7 +233,14 @@
         </div>
 
         <label>Dietary requirements<textarea name="dietary" rows="3" placeholder="Please include the guest's name and requirement"></textarea></label>
-        <label>Song request<input type="text" name="song" placeholder="What will get you on the dance floor?"></label>
+        <fieldset class="song-requests">
+          <legend>Song requests</legend>
+          <div class="form-row">
+            <label>Song request 1<input type="text" name="song1" placeholder="Artist and song title"></label>
+            <label>Song request 2<input type="text" name="song2" placeholder="Artist and song title"></label>
+          </div>
+          <label>Song request 3<input type="text" name="song3" placeholder="Artist and song title"></label>
+        </fieldset>
         <label>Message for Emma &amp; Joe<textarea name="message" rows="4"></textarea></label>
 
         <button class="submit" id="submit" type="submit">Send Your Reply <span>❧</span></button>
