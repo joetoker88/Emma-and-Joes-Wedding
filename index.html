@@ -39,105 +39,28 @@
 
 <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
   
-  <header id="header" class="site-header v517-header">
-    <button id="menu" class="menu v517-menu" aria-label="Open navigation" aria-expanded="false">☰</button>
-
-    <nav id="nav" class="v517-nav" aria-label="Main navigation">
-      <div class="v517-nav-group v517-nav-left">
-        <a href="#home">Home</a>
-        <a href="#story">Our Story</a>
-        <a href="#day">The Day</a>
-      </div>
-
-      <a href="#home" class="v517-monogram v519-monogram" aria-label="Emma and Joe home">
-        <span class="v519-monogram-row">
-          <span class="v519-leaf v519-leaf-left" aria-hidden="true"></span>
-          <span class="v519-monogram-maintext"><b>E</b><em>&amp;</em><b>J</b></span>
-          <span class="v519-leaf v519-leaf-right" aria-hidden="true"></span>
-        </span>
-        <span class="v517-monogram-date v519-monogram-date">24 · 07 · 2027</span>
-      </a>
-
-      <div class="v517-nav-group v517-nav-right">
-        <a href="#stay">Travel</a>
-        <a href="#rsvp">RSVP</a>
-        <a href="#faq">Guest Info</a>
-      </div>
-    </nav>
-  </header>
-
+  
   <main>
-    <section class="v517-hero" id="home">
-      <div class="v517-hero-overlay"></div>
+    <section class="v520-homepage" id="home" aria-label="Emma and Joe wedding homepage">
+      <img
+        class="v520-homepage-image"
+        src="assets/homepage-v520.png"
+        alt="Emma and Joe wedding homepage with a pastel wildflower meadow, wedding details and four information cards"
+      >
 
-      <div class="v517-hero-copy reveal">
-        <h1>Emma <span>&amp;</span> Joe</h1>
-        <p class="v517-hero-kicker">Are getting married</p>
-        <div class="v517-heart-line"><span></span><b>♥</b><span></span></div>
-        <p class="v517-hero-date">24th July 2027</p>
-        <p class="v517-hero-venue">The Beverley Barn, Beverley</p>
-      </div>
+      <nav class="v520-hotspots" aria-label="Homepage links">
+        <a class="v520-hotspot nav-home" href="#home" aria-label="Home"></a>
+        <a class="v520-hotspot nav-story" href="#story" aria-label="Our Story"></a>
+        <a class="v520-hotspot nav-day" href="#day" aria-label="The Day"></a>
+        <a class="v520-hotspot nav-travel" href="#stay" aria-label="Travel"></a>
+        <a class="v520-hotspot nav-rsvp" href="#rsvp" aria-label="RSVP"></a>
+        <a class="v520-hotspot nav-info" href="#faq" aria-label="Guest Info"></a>
 
-      <svg class="v517-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,72 C190,12 345,20 500,53 C680,92 823,87 980,45 C1155,0 1280,15 1440,57 L1440,120 L0,120 Z"></path>
-      </svg>
-    </section>
-
-    <section class="v517-home section" id="welcome">
-      <div class="v517-card-grid">
-        <a class="v517-card reveal" href="#story">
-          <div class="v517-card-image">
-            <img src="assets/card-together-v518.jpg" alt="Emma and Joe enjoying a trip together">
-          </div>
-          <span class="v517-card-icon" aria-hidden="true">♡</span>
-          <div class="v517-card-copy">
-            <h2>We would love you<br>to be there...</h2>
-            <p>We can’t wait to celebrate our special day with the people who mean the most to us. Your love and support mean the world.</p>
-            <span class="v517-card-flourish">❧ · ❧</span>
-          </div>
-        </a>
-
-        <a class="v517-card reveal" href="#day">
-          <div class="v517-card-image">
-            <img src="assets/card-day-v518.jpg" alt="The outdoor ceremony setting at The Beverley Barn">
-          </div>
-          <span class="v517-card-icon" aria-hidden="true">▣</span>
-          <div class="v517-card-copy">
-            <h2>The Day</h2>
-            <p>Join us for our ceremony and reception at The Beverley Barn. See the schedule and key details for our special day.</p>
-            <span class="v517-card-flourish">❧ · ❧</span>
-          </div>
-        </a>
-
-        <a class="v517-card reveal" href="#stay">
-          <div class="v517-card-image">
-            <img src="assets/card-travel-v518.jpg" alt="A scenic view representing travel and accommodation">
-          </div>
-          <span class="v517-card-icon" aria-hidden="true">⌖</span>
-          <div class="v517-card-copy">
-            <h2>Travel</h2>
-            <p>Find directions to the venue, accommodation options, taxi numbers and local travel information.</p>
-            <span class="v517-card-flourish">❧ · ❧</span>
-          </div>
-        </a>
-
-        <a class="v517-card reveal" href="#rsvp">
-          <div class="v517-card-image">
-            <img src="assets/card-rsvp-v518.jpg" alt="An elegant wedding table arrangement">
-          </div>
-          <span class="v517-card-icon" aria-hidden="true">✉</span>
-          <div class="v517-card-copy">
-            <h2>RSVP</h2>
-            <p>Please kindly RSVP by 31st October 2026 using our online form.</p>
-            <span class="v517-card-flourish">❧ · ❧</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="v517-home-signoff reveal">
-        <span>❧</span><b>♥</b><span>❧</span>
-        <p>We can’t wait to celebrate with you!</p>
-      </div>
+        <a class="v520-hotspot card-story" href="#story" aria-label="We would love you to be there"></a>
+        <a class="v520-hotspot card-day" href="#day" aria-label="The Day"></a>
+        <a class="v520-hotspot card-travel" href="#stay" aria-label="Travel"></a>
+        <a class="v520-hotspot card-rsvp" href="#rsvp" aria-label="RSVP"></a>
+      </nav>
     </section>
 
     <section class="story section" id="story">
