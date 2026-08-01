@@ -1,1 +1,1 @@
-window.EVERGREEN_CONFIG={RSVP_ENDPOINT:"https://script.google.com/macros/s/AKfycbw8JA1OtqIj1onTrp7kb6-JS8pffd2NVUThtSlIonXjxUbNvtGQxpgQzso9MGZ4Kzrr2g/exec"};
+window.EVERGREEN_CONFIG={RSVP_ENDPOINT:"https://script.google.com/macros/s/AKfycbyxhTVRwbIb9jYa5QG4Mbb2qEChO12D_jx8H1j5voDXNwPHedj9OvS_O95eSAzwk6qKCQ/exec"};
