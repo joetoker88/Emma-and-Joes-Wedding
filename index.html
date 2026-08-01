@@ -45,7 +45,6 @@
       <div class="v523-hero">
         <nav class="v523-nav" aria-label="Primary">
           <a href="#home">Home</a>
-          <a href="#story">Our Story</a>
           <a href="#day">The Day</a>
           <a href="#stay">Travel</a>
           <a href="#rsvp">RSVP</a>
@@ -350,10 +349,9 @@
           </div>
 
           <div class="guest-fields" data-fields-for="2" hidden>
-            <div class="form-row three-fields">
+            <div class="form-row">
               <label>First name<input type="text" name="guest2FirstName" autocomplete="given-name" disabled></label>
               <label>Last name<input type="text" name="guest2LastName" autocomplete="family-name" disabled></label>
-              <label>Email address<input type="email" name="guest2Email" autocomplete="email" disabled></label>
             </div>
 
             <fieldset class="attendance-fieldset">
@@ -394,10 +392,9 @@
           </div>
 
           <div class="guest-fields" data-fields-for="3" hidden>
-            <div class="form-row three-fields">
+            <div class="form-row">
               <label>First name<input type="text" name="guest3FirstName" autocomplete="given-name" disabled></label>
               <label>Last name<input type="text" name="guest3LastName" autocomplete="family-name" disabled></label>
-              <label>Email address<input type="email" name="guest3Email" autocomplete="email" disabled></label>
             </div>
 
             <fieldset class="attendance-fieldset">
@@ -444,10 +441,14 @@
               <label>Song request 3<input type="text" name="song3" placeholder="Artist and song title"></label>
             </div>
           </fieldset>
+
+          <label class="message-field">Write a message to Emma &amp; Joe
+            <textarea name="message" rows="5" placeholder="Leave us a message..."></textarea>
+          </label>
         </section>
 
         <button class="submit premium-submit" id="submit" type="submit">Send Your Reply <span>❧</span></button>
-        <p id="status">Please check your details before submitting. The Guest 1 email address can be used once.</p>
+        <p id="status">Please check your details before submitting.</p>
       </form>
     </section>
   </main>

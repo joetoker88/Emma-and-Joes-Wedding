@@ -251,9 +251,6 @@ form.addEventListener("submit", async event => {
   const data = Object.fromEntries(new FormData(form).entries());
 
   data.guest1Email = String(data.guest1Email || "").trim().toLowerCase();
-  data.guest2Email = String(data.guest2Email || "").trim().toLowerCase();
-  data.guest3Email = String(data.guest3Email || "").trim().toLowerCase();
-
   data.email = data.guest1Email;
   data.name = [data.guest1FirstName, data.guest1LastName].filter(Boolean).join(" ").trim();
 
@@ -262,12 +259,11 @@ form.addEventListener("submit", async event => {
       number,
       firstName: String(data[`guest${number}FirstName`] || "").trim(),
       lastName: String(data[`guest${number}LastName`] || "").trim(),
-      email: String(data[`guest${number}Email`] || "").trim().toLowerCase(),
       attending: String(data[`guest${number}Attending`] || "").trim(),
       starter: String(data[`guest${number}Starter`] || "").trim(),
       main: String(data[`guest${number}Main`] || "").trim()
     }))
-    .filter(guest => guest.firstName || guest.lastName || guest.email);
+    .filter(guest => guest.firstName || guest.lastName);
 
   data.attending = guests.some(guest => guest.attending === "Yes") ? "Yes" : "No";
   data.guestCount = String(guests.filter(guest => guest.attending === "Yes").length);
@@ -277,7 +273,7 @@ form.addEventListener("submit", async event => {
     .map(value => String(value || "").trim())
     .filter(Boolean);
   data.song = songRequests.join(" | ");
-  data.message = "";
+  data.message = String(data.message || "").trim();
 
   data.submittedAt = new Date().toISOString();
   data.pageUrl = location.href;
