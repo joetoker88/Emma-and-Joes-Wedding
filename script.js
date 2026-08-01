@@ -296,14 +296,29 @@ form.addEventListener("submit", async event => {
   data.name = [data.guest1FirstName, data.guest1LastName].filter(Boolean).join(" ").trim();
 
   const guests = [1, 2, 3]
-    .map(number => ({
-      number,
-      firstName: String(data[`guest${number}FirstName`] || "").trim(),
-      lastName: String(data[`guest${number}LastName`] || "").trim(),
-      attending: String(data[`guest${number}Attending`] || "").trim(),
-      starter: String(data[`guest${number}Starter`] || "").trim(),
-      main: String(data[`guest${number}Main`] || "").trim()
-    }))
+    .map(number => {
+      const guest = {
+        number,
+        firstName: String(data[`guest${number}FirstName`] || "").trim(),
+        lastName: String(data[`guest${number}LastName`] || "").trim(),
+        attending: String(data[`guest${number}Attending`] || "").trim(),
+        starter: String(data[`guest${number}Starter`] || "").trim(),
+        main: String(data[`guest${number}Main`] || "").trim()
+      };
+
+      data[`guest${number}Name`] = [guest.firstName, guest.lastName]
+        .filter(Boolean)
+        .join(" ")
+        .trim();
+
+      data[`guest${number}MealChoices`] = guest.attending === "Yes"
+        ? `Starter: ${guest.starter || "Not supplied"} | Main: ${guest.main || "Not supplied"}`
+        : guest.attending === "No"
+          ? "Not attending"
+          : "";
+
+      return guest;
+    })
     .filter(guest => guest.firstName || guest.lastName);
 
   data.attending = guests.some(guest => guest.attending === "Yes") ? "Yes" : "No";
