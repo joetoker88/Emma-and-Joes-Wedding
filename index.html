@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=534">
 </head>
 <body class="intro-active">
 
@@ -136,6 +136,33 @@
           <img class="sprig" src="assets/sprig.svg" alt="">
           <p>We can’t wait to celebrate with you!</p>
         </div>
+      </div>
+    </section>
+
+
+    <section class="wedding-countdown" aria-label="Countdown to Emma and Joe's wedding">
+      <div class="countdown-inner reveal">
+        <img class="sprig" src="assets/sprig.svg" alt="">
+        <p class="countdown-kicker">Until we say “I do”</p>
+        <div class="countdown-grid" id="weddingCountdown">
+          <div class="countdown-item">
+            <strong id="countdownDays">000</strong>
+            <span>Days</span>
+          </div>
+          <div class="countdown-item">
+            <strong id="countdownHours">00</strong>
+            <span>Hours</span>
+          </div>
+          <div class="countdown-item">
+            <strong id="countdownMinutes">00</strong>
+            <span>Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <strong id="countdownSeconds">00</strong>
+            <span>Seconds</span>
+          </div>
+        </div>
+        <p class="countdown-date">Saturday, 24th July 2027</p>
       </div>
     </section>
 
@@ -332,8 +359,8 @@
             <fieldset class="menu-course">
               <legend>Main course</legend>
               <div class="menu-options">
-                <label><input type="radio" name="guest1Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets & Yorkshire Pudding"><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding</small></span></label>
-                <label><input type="radio" name="guest1Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette"><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette</small></span></label>
+                <label><input type="radio" name="guest1Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets, Yorkshire Pudding, Roast Potatoes & Roasted Root Vegetables"><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding. Served with roast potatoes and roasted root vegetables.</small></span></label>
+                <label><input type="radio" name="guest1Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette, Roast Potatoes & Roasted Root Vegetables"><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette. Served with roast potatoes and roasted root vegetables.</small></span></label>
               </div>
             </fieldset>
           </div>
@@ -374,8 +401,9 @@
               <fieldset class="menu-course">
                 <legend>Main course</legend>
                 <div class="menu-options">
-                  <label><input type="radio" name="guest2Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets & Yorkshire Pudding" disabled><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding</small></span></label>
-                  <label><input type="radio" name="guest2Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette" disabled><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette</small></span></label>
+                  <label><input type="radio" name="guest2Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets, Yorkshire Pudding, Roast Potatoes & Roasted Root Vegetables" disabled><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding. Served with roast potatoes and roasted root vegetables.</small></span></label>
+                  <label><input type="radio" name="guest2Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette, Roast Potatoes & Roasted Root Vegetables" disabled><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette. Served with roast potatoes and roasted root vegetables.</small></span></label>
+                  <label><input type="radio" name="guest2Main" value="Requires Children's Meal" disabled><span>Require Children’s Meal<small>Please select this option where a children’s meal is required.</small></span></label>
                 </div>
               </fieldset>
             </div>
@@ -417,8 +445,9 @@
               <fieldset class="menu-course">
                 <legend>Main course</legend>
                 <div class="menu-options">
-                  <label><input type="radio" name="guest3Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets & Yorkshire Pudding" disabled><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding</small></span></label>
-                  <label><input type="radio" name="guest3Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette" disabled><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette</small></span></label>
+                  <label><input type="radio" name="guest3Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets, Yorkshire Pudding, Roast Potatoes & Roasted Root Vegetables" disabled><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding. Served with roast potatoes and roasted root vegetables.</small></span></label>
+                  <label><input type="radio" name="guest3Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette, Roast Potatoes & Roasted Root Vegetables" disabled><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette. Served with roast potatoes and roasted root vegetables.</small></span></label>
+                  <label><input type="radio" name="guest3Main" value="Requires Children's Meal" disabled><span>Require Children’s Meal<small>Please select this option where a children’s meal is required.</small></span></label>
                 </div>
               </fieldset>
             </div>
@@ -469,6 +498,6 @@
   </div>
 
   <script src="config.js"></script>
-  <script src="script.js?v=533"></script>
+  <script src="script.js?v=534"></script>
 </body>
 </html>

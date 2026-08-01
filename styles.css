@@ -4222,3 +4222,124 @@ body.intro-active{
     grid-template-columns:1fr;
   }
 }
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.34 — WEDDING COUNTDOWN
+========================================================= */
+
+.wedding-countdown{
+  position:relative;
+  padding:64px 24px 70px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 16% 16%, rgba(230,192,117,.12), transparent 30%),
+    radial-gradient(circle at 84% 78%, rgba(73,97,61,.09), transparent 32%),
+    #f7f3ed;
+  border-top:1px solid rgba(195,164,79,.22);
+  border-bottom:1px solid rgba(195,164,79,.22);
+}
+
+.wedding-countdown::before,
+.wedding-countdown::after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  background:url("assets/sprig.svg") center/contain no-repeat;
+  opacity:.09;
+  pointer-events:none;
+}
+
+.wedding-countdown::before{
+  left:-38px;
+  top:-34px;
+  transform:rotate(-32deg);
+}
+
+.wedding-countdown::after{
+  right:-38px;
+  bottom:-34px;
+  transform:rotate(148deg);
+}
+
+.countdown-inner{
+  position:relative;
+  z-index:1;
+  max-width:850px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.countdown-inner > .sprig{
+  width:64px;
+  margin-bottom:10px;
+}
+
+.countdown-kicker{
+  margin:0 0 28px;
+  color:#6f5a3f;
+  font:600 .92rem var(--sans);
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+
+.countdown-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:14px;
+  max-width:720px;
+  margin:0 auto;
+}
+
+.countdown-item{
+  position:relative;
+  padding:24px 12px 20px;
+  background:rgba(255,253,249,.9);
+  border:1px solid rgba(195,164,79,.34);
+  border-radius:18px;
+  box-shadow:0 12px 28px rgba(52,45,36,.07);
+}
+
+.countdown-item strong{
+  display:block;
+  color:#40513a;
+  font:500 clamp(2rem,5vw,3.1rem)/1 var(--serif);
+  font-variant-numeric:tabular-nums;
+}
+
+.countdown-item span{
+  display:block;
+  margin-top:10px;
+  color:#8b7048;
+  font:600 .72rem var(--sans);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.countdown-date{
+  margin:26px 0 0;
+  color:#4f493f;
+  font-size:1.18rem;
+  letter-spacing:.05em;
+}
+
+.countdown-grid.is-complete::after{
+  content:"Today is the day";
+  position:absolute;
+}
+
+@media(max-width:650px){
+  .wedding-countdown{
+    padding:52px 18px 58px;
+  }
+
+  .countdown-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    max-width:420px;
+  }
+
+  .countdown-item{
+    padding:20px 10px 17px;
+  }
+}

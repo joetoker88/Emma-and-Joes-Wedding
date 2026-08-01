@@ -17,6 +17,45 @@ function returnInvitationToTop() {
 returnInvitationToTop();
 window.addEventListener("pageshow", returnInvitationToTop);
 
+
+/* Wedding countdown: 1:00pm on 24 July 2027 in British Summer Time. */
+const weddingDate = new Date("2027-07-24T13:00:00+01:00");
+const countdownDays = document.getElementById("countdownDays");
+const countdownHours = document.getElementById("countdownHours");
+const countdownMinutes = document.getElementById("countdownMinutes");
+const countdownSeconds = document.getElementById("countdownSeconds");
+const weddingCountdown = document.getElementById("weddingCountdown");
+
+function updateWeddingCountdown() {
+  if (!weddingCountdown) return;
+
+  const remaining = weddingDate.getTime() - Date.now();
+
+  if (remaining <= 0) {
+    countdownDays.textContent = "000";
+    countdownHours.textContent = "00";
+    countdownMinutes.textContent = "00";
+    countdownSeconds.textContent = "00";
+    weddingCountdown.classList.add("is-complete");
+    return;
+  }
+
+  const totalSeconds = Math.floor(remaining / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  countdownDays.textContent = String(days).padStart(3, "0");
+  countdownHours.textContent = String(hours).padStart(2, "0");
+  countdownMinutes.textContent = String(minutes).padStart(2, "0");
+  countdownSeconds.textContent = String(seconds).padStart(2, "0");
+}
+
+updateWeddingCountdown();
+window.setInterval(updateWeddingCountdown, 1000);
+
+
 if (luxuryEnvelopeIntro && goldWaxSeal) {
   let envelopeOpened = false;
 
