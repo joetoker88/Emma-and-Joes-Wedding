@@ -112,6 +112,47 @@ function stopConfetti() {
   confettiContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
 }
 
+
+function checkSubmissionStatus(endpoint, emailHash) {
+  return new Promise((resolve, reject) => {
+    const callbackName = `evergreenStatus_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+    const callbackScript = document.createElement("script");
+    const timer = setTimeout(() => {
+      cleanup();
+      reject(new Error("Submission status check timed out."));
+    }, 10000);
+
+    function cleanup() {
+      clearTimeout(timer);
+      delete window[callbackName];
+      callbackScript.remove();
+    }
+
+    window[callbackName] = result => {
+      cleanup();
+      resolve(result || { found: false });
+    };
+
+    callbackScript.onerror = () => {
+      cleanup();
+      reject(new Error("Submission status check failed."));
+    };
+
+    const separator = endpoint.includes("?") ? "&" : "?";
+    callbackScript.src = `${endpoint}${separator}action=status&hash=${encodeURIComponent(emailHash)}&callback=${encodeURIComponent(callbackName)}`;
+    document.body.appendChild(callbackScript);
+  });
+}
+
+async function waitForSubmissionStatus(endpoint, emailHash) {
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    await new Promise(resolve => window.setTimeout(resolve, 900 + attempt * 500));
+    const result = await checkSubmissionStatus(endpoint, emailHash);
+    if (result.found) return result;
+  }
+  return { found: false };
+}
+
 function runConfetti() {
   if (!confettiCanvas || !confettiContext) return;
 
@@ -312,6 +353,13 @@ form.addEventListener("submit", async event => {
       body: JSON.stringify(data)
     });
 
+    status.textContent = "Confirming your RSVP was saved…";
+    const savedStatus = await waitForSubmissionStatus(endpoint, emailHash);
+
+    if (!savedStatus.found) {
+      throw new Error("The website could not confirm that the RSVP reached the spreadsheet.");
+    }
+
     thanksTitle.textContent = data.attending === "Yes"
       ? "We cannot wait to celebrate with you."
       : "Thank you for letting us know.";
@@ -327,8 +375,14 @@ form.addEventListener("submit", async event => {
       section.hidden = true;
     });
     [2, 3].forEach(number => setRequiredForGuest(number, false));
-    status.textContent = "Your RSVP has been sent. Please check your inbox for confirmation.";
-    status.className = "form-success";
+
+    if (savedStatus.emailStatus === "Sent") {
+      status.textContent = "Your RSVP and meal choices were saved. Please check your inbox for confirmation.";
+      status.className = "form-success";
+    } else {
+      status.textContent = "Your RSVP and meal choices were saved, but the confirmation email could not be sent. Please contact Emma or Joe.";
+      status.className = "form-error";
+    }
   } catch (error) {
     console.error(error);
     status.textContent = "We could not verify or send your RSVP. Please check your connection and try again.";
