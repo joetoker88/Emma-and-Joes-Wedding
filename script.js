@@ -86,6 +86,22 @@ const thanksTitle = document.getElementById("thanksTitle");
 const REQUIRED_BACKEND_VERSION = "5.29";
 let confettiFrameId = null;
 
+/*
+ * Prevent an RSVP from being submitted by pressing Enter inside a form field.
+ * Enter remains available inside textareas for writing multi-line messages.
+ * The RSVP can only be submitted using the visible “Send Your Reply” button.
+ */
+form.addEventListener("keydown", event => {
+  if (event.key !== "Enter") return;
+
+  const field = event.target;
+  const isTextarea = field instanceof HTMLTextAreaElement;
+
+  if (!isTextarea) {
+    event.preventDefault();
+  }
+});
+
 async function sha256(value) {
   const bytes = new TextEncoder().encode(value.trim().toLowerCase());
   const digest = await crypto.subtle.digest("SHA-256", bytes);
@@ -304,6 +320,11 @@ document.querySelectorAll('input[name$="Attending"]').forEach(input => {
 
 form.addEventListener("submit", async event => {
   event.preventDefault();
+
+  // Ignore implicit submissions. Only the visible submit button may send the RSVP.
+  if (event.submitter !== submit) {
+    return;
+  }
 
   if (!form.checkValidity()) {
     form.reportValidity();
