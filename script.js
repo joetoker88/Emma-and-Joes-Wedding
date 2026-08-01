@@ -177,6 +177,68 @@ function runConfetti() {
   confettiFrameId = requestAnimationFrame(frame);
 }
 
+
+const guestEnableToggles = document.querySelectorAll(".guest-enable");
+
+function setRequiredForGuest(guestNumber, enabled) {
+  const fields = document.querySelector(`[data-fields-for="${guestNumber}"]`);
+  if (!fields) return;
+
+  fields.querySelectorAll("input, select, textarea").forEach(control => {
+    control.disabled = !enabled;
+  });
+
+  ["FirstName", "LastName", "Email"].forEach(suffix => {
+    const control = fields.querySelector(`[name="guest${guestNumber}${suffix}"]`);
+    if (control) control.required = enabled;
+  });
+
+  fields.querySelectorAll(`[name="guest${guestNumber}Attending"]`).forEach(control => {
+    control.required = enabled;
+  });
+}
+
+guestEnableToggles.forEach(toggle => {
+  toggle.addEventListener("change", () => {
+    const guestNumber = toggle.dataset.enableGuest;
+    const fields = document.querySelector(`[data-fields-for="${guestNumber}"]`);
+    if (!fields) return;
+
+    fields.hidden = !toggle.checked;
+    setRequiredForGuest(guestNumber, toggle.checked);
+
+    if (!toggle.checked) {
+      fields.querySelectorAll("input").forEach(input => {
+        if (input.type === "radio" || input.type === "checkbox") input.checked = false;
+        else input.value = "";
+      });
+      const meals = document.querySelector(`[data-meals-for="${guestNumber}"]`);
+      if (meals) meals.hidden = true;
+    }
+  });
+});
+
+function updateMealSelection(guestNumber, attending) {
+  const meals = document.querySelector(`[data-meals-for="${guestNumber}"]`);
+  if (!meals) return;
+
+  const accepting = attending === "Yes";
+  meals.hidden = !accepting;
+
+  meals.querySelectorAll("input[type=radio]").forEach(input => {
+    input.disabled = !accepting;
+    input.required = accepting;
+    if (!accepting) input.checked = false;
+  });
+}
+
+document.querySelectorAll('input[name$="Attending"]').forEach(input => {
+  input.addEventListener("change", () => {
+    const match = input.name.match(/^guest(\d+)Attending$/);
+    if (match) updateMealSelection(match[1], input.value);
+  });
+});
+
 form.addEventListener("submit", async event => {
   event.preventDefault();
 
@@ -188,12 +250,34 @@ form.addEventListener("submit", async event => {
   const endpoint = window.EVERGREEN_CONFIG?.RSVP_ENDPOINT?.trim();
   const data = Object.fromEntries(new FormData(form).entries());
 
-  data.email = String(data.email || "").trim().toLowerCase();
+  data.guest1Email = String(data.guest1Email || "").trim().toLowerCase();
+  data.guest2Email = String(data.guest2Email || "").trim().toLowerCase();
+  data.guest3Email = String(data.guest3Email || "").trim().toLowerCase();
+
+  data.email = data.guest1Email;
+  data.name = [data.guest1FirstName, data.guest1LastName].filter(Boolean).join(" ").trim();
+
+  const guests = [1, 2, 3]
+    .map(number => ({
+      number,
+      firstName: String(data[`guest${number}FirstName`] || "").trim(),
+      lastName: String(data[`guest${number}LastName`] || "").trim(),
+      email: String(data[`guest${number}Email`] || "").trim().toLowerCase(),
+      attending: String(data[`guest${number}Attending`] || "").trim(),
+      starter: String(data[`guest${number}Starter`] || "").trim(),
+      main: String(data[`guest${number}Main`] || "").trim()
+    }))
+    .filter(guest => guest.firstName || guest.lastName || guest.email);
+
+  data.attending = guests.some(guest => guest.attending === "Yes") ? "Yes" : "No";
+  data.guestCount = String(guests.filter(guest => guest.attending === "Yes").length);
+  data.guestNames = guests.map(guest => [guest.firstName, guest.lastName].filter(Boolean).join(" ")).join(" | ");
 
   const songRequests = [data.song1, data.song2, data.song3]
     .map(value => String(value || "").trim())
     .filter(Boolean);
   data.song = songRequests.join(" | ");
+  data.message = "";
 
   data.submittedAt = new Date().toISOString();
   data.pageUrl = location.href;
@@ -243,6 +327,10 @@ form.addEventListener("submit", async event => {
     }
     thanks.classList.add("show");
     form.reset();
+    document.querySelectorAll(".guest-fields, .meal-selection").forEach(section => {
+      section.hidden = true;
+    });
+    [2, 3].forEach(number => setRequiredForGuest(number, false));
     status.textContent = "Your RSVP has been sent. Please check your inbox for confirmation.";
     status.className = "form-success";
   } catch (error) {

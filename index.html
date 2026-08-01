@@ -241,6 +241,7 @@
               <a class="travel-button" target="_blank" rel="noopener" href="https://www.kingsheadbeverley.co.uk/">View &amp; Book</a>
             </article>
             <article class="travel-card reveal">
+              <small>Historic</small>
               <h3>The Lairgate Hotel</h3>
               <p>30–34 Lairgate, Beverley, HU17 8EP</p>
               <p class="distance-line">Approx. 2.6 miles to The Beverley Barn</p>
@@ -288,50 +289,165 @@
       <div class="section-heading reveal narrow">
         <img class="sprig" src="assets/sprig.svg" alt="">
         <h2>RSVP</h2>
-        <p>Kindly send one response per household by 31st October 2026. A confirmation will be emailed to you.</p>
+        <p>Kindly complete the details for each invited guest by 31st October 2026. A confirmation will be emailed to Guest 1.</p>
       </div>
 
-      <form class="form reveal" id="form">
-        <div class="form-row">
-          <label>Your name<input type="text" name="name" autocomplete="name" required></label>
-          <label>Email address<input type="email" name="email" autocomplete="email" required></label>
-        </div>
-
-        <fieldset>
-          <legend>Will you be joining us?</legend>
-          <div class="choices">
-            <label><input type="radio" name="attending" value="Yes" required><span>Accepts with pleasure</span></label>
-            <label><input type="radio" name="attending" value="No" required><span>Regretfully declines</span></label>
+      <form class="form rsvp-form-v525 reveal" id="form">
+        <section class="rsvp-guest-card is-primary" data-guest="1">
+          <div class="guest-card-heading">
+            <div>
+              <span class="guest-number">01</span>
+              <h3>Guest 1</h3>
+            </div>
+            <p>Primary contact</p>
           </div>
-        </fieldset>
 
-        <div class="form-row">
-          <label>Number attending
-            <select name="guestCount">
-              <option value="1">1 guest</option>
-              <option value="2">2 guests</option>
-              <option value="3">3 guests</option>
-              <option value="4">4 guests</option>
-              <option value="5">5 guests</option>
-              <option value="6">6 guests</option>
-            </select>
-          </label>
-          <label>Guest names<input type="text" name="guestNames" placeholder="As shown on the invitation"></label>
-        </div>
-
-        <label>Dietary requirements<textarea name="dietary" rows="3" placeholder="Please include the guest's name and requirement"></textarea></label>
-        <fieldset class="song-requests">
-          <legend>Song requests</legend>
-          <div class="form-row">
-            <label>Song request 1<input type="text" name="song1" placeholder="Artist and song title"></label>
-            <label>Song request 2<input type="text" name="song2" placeholder="Artist and song title"></label>
+          <div class="form-row three-fields">
+            <label>First name<input type="text" name="guest1FirstName" autocomplete="given-name" required></label>
+            <label>Last name<input type="text" name="guest1LastName" autocomplete="family-name" required></label>
+            <label>Email address<input type="email" name="guest1Email" autocomplete="email" required></label>
           </div>
-          <label>Song request 3<input type="text" name="song3" placeholder="Artist and song title"></label>
-        </fieldset>
-        <label>Message for Emma &amp; Joe<textarea name="message" rows="4"></textarea></label>
 
-        <button class="submit" id="submit" type="submit">Send Your Reply <span>❧</span></button>
-        <p id="status">Please check your details before submitting. Each email address can be used once.</p>
+          <fieldset class="attendance-fieldset">
+            <legend>Will you be joining us?</legend>
+            <div class="choices attendance-choices">
+              <label><input type="radio" name="guest1Attending" value="Yes" required><span>Accepts with pleasure</span></label>
+              <label><input type="radio" name="guest1Attending" value="No" required><span>Regretfully declines</span></label>
+            </div>
+          </fieldset>
+
+          <div class="meal-selection" data-meals-for="1" hidden>
+            <div class="meal-heading">
+              <span>Meal choices</span>
+              <p>Please select one starter and one main course.</p>
+            </div>
+
+            <fieldset class="menu-course">
+              <legend>Starter</legend>
+              <div class="menu-options">
+                <label><input type="radio" name="guest1Starter" value="Ham Hock Terrine with Crostini, Rocket & Piccalilli"><span>Ham Hock Terrine<small>With crostini, rocket &amp; piccalilli</small></span></label>
+                <label><input type="radio" name="guest1Starter" value="Smoked Salmon with Cream Cheese, King Prawns, Chives & Lemon Oil"><span>Smoked Salmon<small>With cream cheese, king prawns, chives &amp; lemon oil</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="menu-course">
+              <legend>Main course</legend>
+              <div class="menu-options">
+                <label><input type="radio" name="guest1Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets & Yorkshire Pudding"><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding</small></span></label>
+                <label><input type="radio" name="guest1Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette"><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette</small></span></label>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="rsvp-guest-card optional-guest" data-guest="2">
+          <div class="guest-card-heading">
+            <div>
+              <span class="guest-number">02</span>
+              <h3>Guest 2</h3>
+            </div>
+            <label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable-guest="2"><span>Add guest 2</span></label>
+          </div>
+
+          <div class="guest-fields" data-fields-for="2" hidden>
+            <div class="form-row three-fields">
+              <label>First name<input type="text" name="guest2FirstName" autocomplete="given-name" disabled></label>
+              <label>Last name<input type="text" name="guest2LastName" autocomplete="family-name" disabled></label>
+              <label>Email address<input type="email" name="guest2Email" autocomplete="email" disabled></label>
+            </div>
+
+            <fieldset class="attendance-fieldset">
+              <legend>Will you be joining us?</legend>
+              <div class="choices attendance-choices">
+                <label><input type="radio" name="guest2Attending" value="Yes" disabled><span>Accepts with pleasure</span></label>
+                <label><input type="radio" name="guest2Attending" value="No" disabled><span>Regretfully declines</span></label>
+              </div>
+            </fieldset>
+
+            <div class="meal-selection" data-meals-for="2" hidden>
+              <div class="meal-heading"><span>Meal choices</span><p>Please select one starter and one main course.</p></div>
+              <fieldset class="menu-course">
+                <legend>Starter</legend>
+                <div class="menu-options">
+                  <label><input type="radio" name="guest2Starter" value="Ham Hock Terrine with Crostini, Rocket & Piccalilli" disabled><span>Ham Hock Terrine<small>With crostini, rocket &amp; piccalilli</small></span></label>
+                  <label><input type="radio" name="guest2Starter" value="Smoked Salmon with Cream Cheese, King Prawns, Chives & Lemon Oil" disabled><span>Smoked Salmon<small>With cream cheese, king prawns, chives &amp; lemon oil</small></span></label>
+                </div>
+              </fieldset>
+              <fieldset class="menu-course">
+                <legend>Main course</legend>
+                <div class="menu-options">
+                  <label><input type="radio" name="guest2Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets & Yorkshire Pudding" disabled><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding</small></span></label>
+                  <label><input type="radio" name="guest2Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette" disabled><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette</small></span></label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+
+        <section class="rsvp-guest-card optional-guest" data-guest="3">
+          <div class="guest-card-heading">
+            <div>
+              <span class="guest-number">03</span>
+              <h3>Guest 3</h3>
+            </div>
+            <label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable-guest="3"><span>Add guest 3</span></label>
+          </div>
+
+          <div class="guest-fields" data-fields-for="3" hidden>
+            <div class="form-row three-fields">
+              <label>First name<input type="text" name="guest3FirstName" autocomplete="given-name" disabled></label>
+              <label>Last name<input type="text" name="guest3LastName" autocomplete="family-name" disabled></label>
+              <label>Email address<input type="email" name="guest3Email" autocomplete="email" disabled></label>
+            </div>
+
+            <fieldset class="attendance-fieldset">
+              <legend>Will you be joining us?</legend>
+              <div class="choices attendance-choices">
+                <label><input type="radio" name="guest3Attending" value="Yes" disabled><span>Accepts with pleasure</span></label>
+                <label><input type="radio" name="guest3Attending" value="No" disabled><span>Regretfully declines</span></label>
+              </div>
+            </fieldset>
+
+            <div class="meal-selection" data-meals-for="3" hidden>
+              <div class="meal-heading"><span>Meal choices</span><p>Please select one starter and one main course.</p></div>
+              <fieldset class="menu-course">
+                <legend>Starter</legend>
+                <div class="menu-options">
+                  <label><input type="radio" name="guest3Starter" value="Ham Hock Terrine with Crostini, Rocket & Piccalilli" disabled><span>Ham Hock Terrine<small>With crostini, rocket &amp; piccalilli</small></span></label>
+                  <label><input type="radio" name="guest3Starter" value="Smoked Salmon with Cream Cheese, King Prawns, Chives & Lemon Oil" disabled><span>Smoked Salmon<small>With cream cheese, king prawns, chives &amp; lemon oil</small></span></label>
+                </div>
+              </fieldset>
+              <fieldset class="menu-course">
+                <legend>Main course</legend>
+                <div class="menu-options">
+                  <label><input type="radio" name="guest3Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets & Yorkshire Pudding" disabled><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding</small></span></label>
+                  <label><input type="radio" name="guest3Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette" disabled><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette</small></span></label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+
+        <section class="rsvp-extra-card">
+          <div class="guest-card-heading compact">
+            <div><span class="guest-number">04</span><h3>Finishing touches</h3></div>
+          </div>
+
+          <label>Dietary requirements<textarea name="dietary" rows="4" placeholder="Please include the guest’s name and requirement"></textarea></label>
+
+          <fieldset class="song-requests premium-song-requests">
+            <legend>Song requests</legend>
+            <p class="field-help">Choose up to three songs that will get you onto the dance floor.</p>
+            <div class="form-row three-fields">
+              <label>Song request 1<input type="text" name="song1" placeholder="Artist and song title"></label>
+              <label>Song request 2<input type="text" name="song2" placeholder="Artist and song title"></label>
+              <label>Song request 3<input type="text" name="song3" placeholder="Artist and song title"></label>
+            </div>
+          </fieldset>
+        </section>
+
+        <button class="submit premium-submit" id="submit" type="submit">Send Your Reply <span>❧</span></button>
+        <p id="status">Please check your details before submitting. The Guest 1 email address can be used once.</p>
       </form>
     </section>
   </main>
