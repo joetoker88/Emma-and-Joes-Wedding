@@ -62,6 +62,7 @@ const submit = document.getElementById("submit");
 const status = document.getElementById("status");
 const thanks = document.getElementById("thanks");
 const thanksTitle = document.getElementById("thanksTitle");
+let confettiFrameId = null;
 
 async function sha256(value) {
   const bytes = new TextEncoder().encode(value.trim().toLowerCase());
@@ -102,8 +103,19 @@ function checkDuplicate(endpoint, emailHash) {
   });
 }
 
+function stopConfetti() {
+  if (!confettiCanvas || !confettiContext) return;
+  if (confettiFrameId) {
+    cancelAnimationFrame(confettiFrameId);
+    confettiFrameId = null;
+  }
+  confettiContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+}
+
 function runConfetti() {
   if (!confettiCanvas || !confettiContext) return;
+
+  stopConfetti();
 
   const pieces = [];
   const colors = ["#c3a44f", "#49613d", "#9c2f28", "#f4eee1", "#dcc476"];
@@ -156,13 +168,13 @@ function runConfetti() {
     });
 
     if (elapsed < duration) {
-      requestAnimationFrame(frame);
+      confettiFrameId = requestAnimationFrame(frame);
     } else {
       confettiContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
     }
   }
 
-  requestAnimationFrame(frame);
+  confettiFrameId = requestAnimationFrame(frame);
 }
 
 form.addEventListener("submit", async event => {
@@ -226,6 +238,8 @@ form.addEventListener("submit", async event => {
 
     if (data.attending === "Yes") {
       runConfetti();
+    } else {
+      stopConfetti();
     }
     thanks.classList.add("show");
     form.reset();
