@@ -3701,7 +3701,7 @@ body.intro-active{
 .v523-hero::after{
   content:"";
   position:absolute;
-  inset:24px 20% 88px;
+  inset:24px 10% 88px;
   background:radial-gradient(circle at center, rgba(255,252,247,.78) 0%, rgba(255,252,247,.36) 42%, rgba(255,252,247,0) 74%);
   pointer-events:none;
 }
@@ -3713,8 +3713,8 @@ body.intro-active{
   margin:0 auto;
   padding:34px 32px 0;
   display:flex;
-  justify-content:space-between;
-  gap:18px;
+  justify-content:center;
+  gap:clamp(34px, 6vw, 82px);
   flex-wrap:wrap;
 }
 
@@ -4341,5 +4341,18 @@ body.intro-active{
 
   .countdown-item{
     padding:20px 10px 17px;
+  }
+}
+
+
+/* =========================================================
+   PROJECT EVERGREEN V5.35 — HERO BALANCE
+========================================================= */
+
+@media(max-width:760px){
+  .v523-nav{
+    gap:14px 28px;
+    padding-left:20px;
+    padding-right:20px;
   }
 }
