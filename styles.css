@@ -308,6 +308,36 @@ p{margin:0 0 14px}
   filter:brightness(0) saturate(100%) invert(84%) sepia(32%) saturate(529%) hue-rotate(356deg) brightness(97%) contrast(92%);
 }
 
+.gift-qr-card{
+  margin:32px auto 0;
+  max-width:360px;
+  padding:24px;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:22px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(3px);
+}
+.gift-qr{
+  display:block;
+  width:min(260px, 78vw);
+  height:auto;
+  margin:0 auto;
+  padding:12px;
+  background:#fff;
+  border-radius:16px;
+}
+.gifts .gift-qr-label{
+  margin:18px 0 0;
+  font-weight:600;
+  color:#fff;
+}
+.gifts .gift-qr-note{
+  margin:8px 0 0;
+  font-size:.9rem;
+  line-height:1.5;
+  color:rgba(255,255,255,.82);
+}
+
 .faq{background:#efebe1}
 .accordion{
   max-width:840px;

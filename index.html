@@ -295,6 +295,11 @@
         <img class="sprig" src="assets/sprig.svg" alt="">
         <h2>Gifts</h2>
         <p>Your presence is our present. Should you wish to give something more, a contribution towards our honeymoon would be received with enormous gratitude.</p>
+        <div class="gift-qr-card" aria-label="Honeymoon fund payment QR code">
+          <img class="gift-qr" src="assets/honeymoon-fund-qr.png" alt="QR code for Emma and Joe's honeymoon fund">
+          <p class="gift-qr-label">Scan to contribute to our honeymoon fund</p>
+          <p class="gift-qr-note">For privacy, our bank details are contained within the QR code rather than displayed on the website.</p>
+        </div>
       </div>
     </section>
 
@@ -403,51 +408,6 @@
                 <div class="menu-options">
                   <label><input type="radio" name="guest2Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets, Yorkshire Pudding, Roast Potatoes & Roasted Root Vegetables" disabled><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding. Served with roast potatoes and roasted root vegetables.</small></span></label>
                   <label><input type="radio" name="guest2Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette, Roast Potatoes & Roasted Root Vegetables" disabled><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette. Served with roast potatoes and roasted root vegetables.</small></span></label>
-                  <label><input type="radio" name="guest2Main" value="Requires Children's Meal" disabled><span>Require Children’s Meal<small>Please select this option where a children’s meal is required.</small></span></label>
-                </div>
-              </fieldset>
-            </div>
-          </div>
-        </section>
-
-        <section class="rsvp-guest-card optional-guest" data-guest="3">
-          <div class="guest-card-heading">
-            <div>
-              <span class="guest-number">03</span>
-              <h3>Guest 3</h3>
-            </div>
-            <label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable-guest="3"><span>Add guest 3</span></label>
-          </div>
-
-          <div class="guest-fields" data-fields-for="3" hidden>
-            <div class="form-row">
-              <label>First name<input type="text" name="guest3FirstName" autocomplete="given-name" disabled></label>
-              <label>Last name<input type="text" name="guest3LastName" autocomplete="family-name" disabled></label>
-            </div>
-
-            <fieldset class="attendance-fieldset">
-              <legend>Will you be joining us?</legend>
-              <div class="choices attendance-choices">
-                <label><input type="radio" name="guest3Attending" value="Yes" disabled><span>Accepts with pleasure</span></label>
-                <label><input type="radio" name="guest3Attending" value="No" disabled><span>Regretfully declines</span></label>
-              </div>
-            </fieldset>
-
-            <div class="meal-selection" data-meals-for="3" hidden>
-              <div class="meal-heading"><span>Meal choices</span><p>Please select one starter and one main course.</p></div>
-              <fieldset class="menu-course">
-                <legend>Starter</legend>
-                <div class="menu-options">
-                  <label><input type="radio" name="guest3Starter" value="Ham Hock Terrine with Crostini, Rocket & Piccalilli" disabled><span>Ham Hock Terrine<small>With crostini, rocket &amp; piccalilli</small></span></label>
-                  <label><input type="radio" name="guest3Starter" value="Smoked Salmon with Cream Cheese, King Prawns, Chives & Lemon Oil" disabled><span>Smoked Salmon<small>With cream cheese, king prawns, chives &amp; lemon oil</small></span></label>
-                </div>
-              </fieldset>
-              <fieldset class="menu-course">
-                <legend>Main course</legend>
-                <div class="menu-options">
-                  <label><input type="radio" name="guest3Main" value="Traditional Roast Chicken or Pork with Homemade Stuffing, Pigs in Blankets, Yorkshire Pudding, Roast Potatoes & Roasted Root Vegetables" disabled><span>Traditional Roast Chicken or Pork<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding. Served with roast potatoes and roasted root vegetables.</small></span></label>
-                  <label><input type="radio" name="guest3Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette, Roast Potatoes & Roasted Root Vegetables" disabled><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette. Served with roast potatoes and roasted root vegetables.</small></span></label>
-                  <label><input type="radio" name="guest3Main" value="Requires Children's Meal" disabled><span>Require Children’s Meal<small>Please select this option where a children’s meal is required.</small></span></label>
                 </div>
               </fieldset>
             </div>
@@ -456,7 +416,7 @@
 
         <section class="rsvp-extra-card">
           <div class="guest-card-heading compact">
-            <div><span class="guest-number">04</span><h3>Finishing touches</h3></div>
+            <div><span class="guest-number">03</span><h3>Finishing touches</h3></div>
           </div>
 
           <label>Dietary requirements<textarea name="dietary" rows="4" placeholder="Please include the guest’s name and requirement"></textarea></label>
