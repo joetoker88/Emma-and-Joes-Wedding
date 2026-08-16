@@ -10,6 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=536">
+<style>
+.drinks-course .menu-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.drinks-course .menu-options label{min-height:auto;padding:9px 6px}
+.drinks-course .menu-options span{font-size:.72rem;line-height:1.2}
+@media(max-width:700px){.drinks-course .menu-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.drinks-course .menu-options{grid-template-columns:1fr}}
+</style>
 </head>
 <body class="intro-active">
 
@@ -312,7 +319,6 @@
               <strong>40184863</strong>
               <button class="gift-copy-button" type="button" data-copy="40184863">Copy</button>
             </div>
-            <p class="gift-reference">Suggested reference: <strong>Wedding Gift</strong></p>
           </div>
           <p class="gift-privacy-note">Bank details are hidden until you choose to view them.</p>
         </div>
@@ -388,9 +394,9 @@
             <fieldset class="menu-course drinks-course">
               <legend>Drinks Options</legend>
               <div class="menu-options">
-                <label><input type="radio" name="guest1Drinks" value="2 x sparkling wine"><span>2 x sparkling wine</span></label>
-                <label><input type="radio" name="guest1Drinks" value="2 x beer"><span>2 x beer</span></label>
-                <label><input type="radio" name="guest1Drinks" value="1 x sparkling wine & 1 x beer"><span>1 x sparkling wine &amp; 1 x beer</span></label>
+                <label><input type="radio" name="guest1Drinks" value="2 x Sparkling wine"><span>2 x Sparkling wine</span></label>
+                <label><input type="radio" name="guest1Drinks" value="2 x Beer"><span>2 x Beer</span></label>
+                <label><input type="radio" name="guest1Drinks" value="1 x Sparkling wine & 1 x beer"><span>1 x Sparkling wine &amp; 1 x beer</span></label>
                 <label><input type="radio" name="guest1Drinks" value="Non-alcoholic"><span>Non-alcoholic</span></label>
               </div>
             </fieldset>
@@ -440,9 +446,9 @@
             <fieldset class="menu-course drinks-course">
               <legend>Drinks Options</legend>
               <div class="menu-options">
-                <label><input type="radio" name="guest2Drinks" value="2 x sparkling wine"><span>2 x sparkling wine</span></label>
-                <label><input type="radio" name="guest2Drinks" value="2 x beer"><span>2 x beer</span></label>
-                <label><input type="radio" name="guest2Drinks" value="1 x sparkling wine & 1 x beer"><span>1 x sparkling wine &amp; 1 x beer</span></label>
+                <label><input type="radio" name="guest2Drinks" value="2 x Sparkling wine"><span>2 x Sparkling wine</span></label>
+                <label><input type="radio" name="guest2Drinks" value="2 x Beer"><span>2 x Beer</span></label>
+                <label><input type="radio" name="guest2Drinks" value="1 x Sparkling wine & 1 x beer"><span>1 x Sparkling wine &amp; 1 x beer</span></label>
                 <label><input type="radio" name="guest2Drinks" value="Non-alcoholic"><span>Non-alcoholic</span></label>
               </div>
             </fieldset>
@@ -495,6 +501,6 @@
   </div>
 
   <script src="config.js"></script>
-  <script src="script.js?v=546"></script>
+  <script src="script.js?v=547"></script>
 </body>
 </html>
