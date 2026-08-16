@@ -513,3 +513,29 @@ form.addEventListener("submit", async event => {
 document.getElementById("closeThanks").addEventListener("click", () => {
   thanks.classList.remove("show");
 });
+
+
+const revealGiftDetails = document.getElementById("revealGiftDetails");
+const giftBankDetails = document.getElementById("giftBankDetails");
+
+if (revealGiftDetails && giftBankDetails) {
+  revealGiftDetails.addEventListener("click", () => {
+    const opening = giftBankDetails.hidden;
+    giftBankDetails.hidden = !opening;
+    revealGiftDetails.setAttribute("aria-expanded", String(opening));
+    revealGiftDetails.textContent = opening ? "Hide bank details" : "View bank details";
+  });
+}
+
+document.querySelectorAll(".gift-copy-button").forEach(button => {
+  button.addEventListener("click", async () => {
+    const original = button.textContent;
+    try {
+      await navigator.clipboard.writeText(button.dataset.copy || "");
+      button.textContent = "Copied";
+    } catch {
+      button.textContent = "Copy failed";
+    }
+    window.setTimeout(() => { button.textContent = original; }, 1600);
+  });
+});

@@ -295,10 +295,26 @@
         <img class="sprig" src="assets/sprig.svg" alt="">
         <h2>Gifts</h2>
         <p>Your presence is our present. Should you wish to give something more, a contribution towards our honeymoon would be received with enormous gratitude.</p>
-        <div class="gift-qr-card" aria-label="Honeymoon fund payment QR code">
-          <img class="gift-qr" src="assets/honeymoon-fund-qr.png" alt="QR code for Emma and Joe's honeymoon fund">
-          <p class="gift-qr-label">Scan to contribute to our honeymoon fund</p>
-          <p class="gift-qr-note">For privacy, our bank details are contained within the QR code rather than displayed on the website.</p>
+        <div class="gift-details-card">
+          <button class="gift-reveal-button" id="revealGiftDetails" type="button" aria-expanded="false" aria-controls="giftBankDetails">View bank details</button>
+          <div class="gift-bank-details" id="giftBankDetails" hidden>
+            <div class="gift-detail-row gift-account-name">
+              <span>Account name</span>
+              <strong>Miss Emma Elizabeth Everett &amp; Mr Joe Toker</strong>
+            </div>
+            <div class="gift-detail-row">
+              <span>Sort code</span>
+              <strong>09-01-30</strong>
+              <button class="gift-copy-button" type="button" data-copy="09-01-30">Copy</button>
+            </div>
+            <div class="gift-detail-row">
+              <span>Account number</span>
+              <strong>40184863</strong>
+              <button class="gift-copy-button" type="button" data-copy="40184863">Copy</button>
+            </div>
+            <p class="gift-reference">Suggested reference: <strong>Wedding Gift</strong></p>
+          </div>
+          <p class="gift-privacy-note">Bank details are hidden until you choose to view them.</p>
         </div>
       </div>
     </section>
