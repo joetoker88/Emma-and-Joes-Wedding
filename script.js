@@ -515,7 +515,6 @@ document.getElementById("closeThanks").addEventListener("click", () => {
 });
 
 
-
 const revealGiftDetails = document.getElementById("revealGiftDetails");
 const giftBankDetails = document.getElementById("giftBankDetails");
 
@@ -532,14 +531,12 @@ document.querySelectorAll(".gift-copy-button").forEach(button => {
   button.addEventListener("click", async () => {
     const original = button.textContent;
     const value = button.dataset.copy || "";
-
     try {
       await navigator.clipboard.writeText(value);
       button.textContent = "Copied";
     } catch {
       const temp = document.createElement("textarea");
       temp.value = value;
-      temp.setAttribute("readonly", "");
       temp.style.position = "absolute";
       temp.style.left = "-9999px";
       document.body.appendChild(temp);
@@ -548,9 +545,6 @@ document.querySelectorAll(".gift-copy-button").forEach(button => {
       temp.remove();
       button.textContent = "Copied";
     }
-
-    window.setTimeout(() => {
-      button.textContent = original;
-    }, 1600);
+    window.setTimeout(() => { button.textContent = original; }, 1600);
   });
 });
