@@ -385,7 +385,8 @@ form.addEventListener("submit", async event => {
         lastName: String(data[`guest${number}LastName`] || "").trim(),
         attending: String(data[`guest${number}Attending`] || "").trim(),
         starter: String(data[`guest${number}Starter`] || "").trim(),
-        main: String(data[`guest${number}Main`] || "").trim()
+        main: String(data[`guest${number}Main`] || "").trim(),
+        drinks: String(data[`guest${number}Drinks`] || "").trim()
       };
 
       data[`guest${number}Name`] = [guest.firstName, guest.lastName]
@@ -394,7 +395,7 @@ form.addEventListener("submit", async event => {
         .trim();
 
       data[`guest${number}MealChoices`] = guest.attending === "Yes"
-        ? `Starter: ${guest.starter || "Not supplied"} | Main: ${guest.main || "Not supplied"}`
+        ? `Starter: ${guest.starter || "Not supplied"} | Main: ${guest.main || "Not supplied"} | Drinks: ${guest.drinks || "Not supplied"}`
         : guest.attending === "No"
           ? "Not attending"
           : "";
