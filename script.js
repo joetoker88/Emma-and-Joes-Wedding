@@ -513,3 +513,44 @@ form.addEventListener("submit", async event => {
 document.getElementById("closeThanks").addEventListener("click", () => {
   thanks.classList.remove("show");
 });
+
+
+
+const revealGiftDetails = document.getElementById("revealGiftDetails");
+const giftBankDetails = document.getElementById("giftBankDetails");
+
+if (revealGiftDetails && giftBankDetails) {
+  revealGiftDetails.addEventListener("click", () => {
+    const opening = giftBankDetails.hidden;
+    giftBankDetails.hidden = !opening;
+    revealGiftDetails.setAttribute("aria-expanded", String(opening));
+    revealGiftDetails.textContent = opening ? "Hide bank details" : "View bank details";
+  });
+}
+
+document.querySelectorAll(".gift-copy-button").forEach(button => {
+  button.addEventListener("click", async () => {
+    const original = button.textContent;
+    const value = button.dataset.copy || "";
+
+    try {
+      await navigator.clipboard.writeText(value);
+      button.textContent = "Copied";
+    } catch {
+      const temp = document.createElement("textarea");
+      temp.value = value;
+      temp.setAttribute("readonly", "");
+      temp.style.position = "absolute";
+      temp.style.left = "-9999px";
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand("copy");
+      temp.remove();
+      button.textContent = "Copied";
+    }
+
+    window.setTimeout(() => {
+      button.textContent = original;
+    }, 1600);
+  });
+});
