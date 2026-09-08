@@ -1,209 +1,409 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#46593f">
-  <meta name="description" content="Emma and Joe's evening wedding celebration at The Beverley Barn on 24 July 2027.">
-  <title>Emma & Joe | Evening Celebration</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#4b5f43" name="theme-color"/>
+<meta content="Emma Everett and Joe Toker's evening wedding celebration at The Beverley Barn on 24 July 2027." name="description"/>
+<title>Emma &amp; Joe | Evening Celebration | 24 July 2027</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="../styles.css?v=536" rel="stylesheet"/>
+<link href="styles.css?v=536" rel="stylesheet"/>
+<style>
+.drinks-course .menu-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.drinks-course .menu-options label{min-height:auto;padding:9px 6px}
+.drinks-course .menu-options span{line-height:1.2}
+@media(max-width:700px){.drinks-course .menu-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.drinks-course .menu-options{grid-template-columns:1fr}}
+</style>
+<style>
+.menu-options label span{
+  width:100%;
+  text-align:center;
+}
+.menu-options label small{
+  text-align:center;
+}
+</style>
 </head>
 <body class="intro-active">
-  <section class="envelope-intro" id="envelopeIntro" aria-label="Open Emma and Joe's evening invitation">
-    <div class="envelope-card">
-      <div class="envelope-flourish">❦</div>
-      <div class="envelope-monogram">E <span>&amp;</span> J</div>
-      <div class="envelope-date">24 · 07 · 2027</div>
-      <p>Evening Invitation</p>
-      <button type="button" id="waxSeal" class="wax-seal" aria-label="Open the evening invitation">E&amp;J</button>
-      <span class="seal-help">Press the seal to open</span>
-    </div>
-  </section>
-
-  <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
-
-  <main>
-    <section class="hero" id="home">
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#home">Home</a>
-        <a href="#evening">The Evening</a>
-        <a href="#travel">Travel</a>
-        <a href="#rsvp">RSVP</a>
-        <a href="#info">Guest Info</a>
-      </nav>
-
-      <div class="hero-flowers hero-flowers-left" aria-hidden="true">❀ ❋ ❁</div>
-      <div class="hero-flowers hero-flowers-right" aria-hidden="true">❁ ❋ ❀</div>
-
-      <div class="hero-content">
-        <div class="monogram-wrap">
-          <span class="laurel">❧</span>
-          <div class="hero-monogram">E <i>&amp;</i> J</div>
-          <span class="laurel mirror">❧</span>
-        </div>
-        <p class="date-mark">24 · 07 · 2027</p>
-        <div class="gold-divider"><span></span><b>♥</b><span></span></div>
-        <p class="eyebrow">Together with their families</p>
-        <h1>Emma &amp; Joe</h1>
-        <p class="hero-subtitle">joyfully invite you to celebrate their wedding</p>
-        <div class="gold-divider"><span></span><b>♥</b><span></span></div>
-        <h2>Evening Celebration</h2>
-        <p class="hero-date">Saturday, 24th July 2027</p>
-        <p class="hero-time">Please arrive from <strong>18:00</strong></p>
-        <p class="hero-venue">The Beverley Barn · Beverley</p>
-        <a class="primary-button" href="#rsvp">RSVP</a>
-      </div>
-    </section>
-
-    <section class="countdown-section" aria-label="Countdown to the evening celebration">
-      <div class="section-shell reveal">
-        <p class="script-kicker">Until the celebration begins</p>
-        <div class="countdown" id="countdown">
-          <div><strong id="days">000</strong><span>Days</span></div>
-          <div><strong id="hours">00</strong><span>Hours</span></div>
-          <div><strong id="minutes">00</strong><span>Minutes</span></div>
-          <div><strong id="seconds">00</strong><span>Seconds</span></div>
-        </div>
-        <p class="countdown-date">Saturday, 24th July 2027 · 18:00</p>
-      </div>
-    </section>
-
-    <section class="section" id="evening">
-      <div class="section-shell">
-        <header class="section-heading reveal">
-          <span class="flourish">❦</span>
-          <p class="eyebrow">The Evening</p>
-          <h2>Come celebrate with us</h2>
-          <p>Join us for the evening celebrations at The Beverley Barn.</p>
-        </header>
-
-        <div class="timeline">
-          <article class="reveal"><time>18:00</time><div><h3>Evening guest arrival</h3><p>Join us at The Beverley Barn and settle in for the evening.</p></div></article>
-          <article class="reveal"><time>19:25</time><div><h3>Cake cutting</h3><p>A sweet moment before the first dance.</p></div></article>
-          <article class="reveal"><time>19:30</time><div><h3>First dance</h3><p>Then everyone joins us on the dance floor.</p></div></article>
-          <article class="reveal"><time>20:30</time><div><h3>Evening food</h3><p>A little more fuel for the dance floor.</p></div></article>
-          <article class="reveal"><time>21:00</time><div><h3>Sparklers</h3><p>Join us outside for a sparkling evening moment.</p></div></article>
-          <article class="reveal"><time>23:30</time><div><h3>Carriages</h3><p>Home safely after a wonderful evening.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section pale" id="travel">
-      <div class="section-shell">
-        <header class="section-heading reveal">
-          <span class="flourish">❦</span>
-          <p class="eyebrow">Travel &amp; Stay</p>
-          <h2>Plan your evening</h2>
-          <p>Accommodation in Beverley can fill quickly, so we recommend booking early.</p>
-        </header>
-
-        <div class="venue-card reveal">
-          <div><span class="number">01</span><h3>The Beverley Barn</h3><p>Long Lane, Beverley<br>East Riding of Yorkshire, HU17 0RN</p></div>
-          <div><span class="number">02</span><h3>Arrival</h3><p>Please arrive from 18:00.</p></div>
-          <div><span class="number">03</span><h3>Parking</h3><p>Free parking is available on site. Cars may be left overnight but must be collected by 08:00 on 25th July 2027.</p></div>
-        </div>
-
-        <h3 class="subheading reveal">Recommended Hotels</h3>
-        <div class="hotel-grid">
-          <article class="hotel reveal"><small>Boutique</small><h3>The Beverley Arms</h3><p>25 North Bar Within, Beverley, HU17 8DD</p><p>Approx. 2.6 miles to the venue</p><a href="https://www.beverleyarms.co.uk/" target="_blank" rel="noopener">View &amp; Book</a></article>
-          <article class="hotel reveal"><small>Town Centre</small><h3>Premier Inn Beverley</h3><p>Flemingate Centre, Flemingate, Beverley, HU17 0NQ</p><p>Approx. 2.7 miles to the venue</p><a href="https://www.premierinn.com/gb/en/hotels/england/east-riding-of-yorkshire/beverley/beverley-town-centre.html" target="_blank" rel="noopener">View &amp; Book</a></article>
-          <article class="hotel reveal"><small>Market Place</small><h3>The Kings Head Hotel</h3><p>38 Market Place, Beverley, HU17 9AG</p><p>Approx. 2.6 miles to the venue</p><a href="https://www.kingsheadbeverley.co.uk/" target="_blank" rel="noopener">View &amp; Book</a></article>
-          <article class="hotel reveal"><small>Historic</small><h3>The Lairgate Hotel</h3><p>30–34 Lairgate, Beverley, HU17 8EP</p><p>Approx. 2.6 miles to the venue</p><a href="https://thelairgatebeverley.co.uk/" target="_blank" rel="noopener">View &amp; Book</a></article>
-        </div>
-
-        <h3 class="subheading reveal">Recommended Taxis</h3>
-        <p class="taxi-note reveal">Please pre-book your journey home.</p>
-        <div class="taxi-grid reveal">
-          <a href="tel:01482888999"><strong>Westholme Cars</strong><span>01482 888999</span></a>
-          <a href="tel:01482869686"><strong>Minster Cars</strong><span>01482 869686</span></a>
-          <a href="tel:01482910247"><strong>AJS Taxi</strong><span>01482 910247</span></a>
-          <a href="tel:01482888051"><strong>Beaver Cars</strong><span>01482 888051</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="info">
-      <div class="section-shell narrow">
-        <header class="section-heading reveal">
-          <span class="flourish">❦</span>
-          <p class="eyebrow">Guest Info</p>
-          <h2>Good to know</h2>
-        </header>
-        <div class="accordion reveal">
-          <details><summary>What time should I arrive?</summary><p>Please arrive from 18:00.</p></details>
-          <details><summary>What is the dress code?</summary><p>Formal wedding guest attire.</p></details>
-          <details><summary>Can I bring a guest?</summary><p>Your invitation confirms the number of places reserved for your household.</p></details>
-          <details><summary>Can I leave my car overnight?</summary><p>Yes. Cars may be left overnight at the owner's risk, but they must be collected by 08:00 on 25th July 2027.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section rsvp-section" id="rsvp">
-      <div class="section-shell narrow-wide">
-        <header class="section-heading reveal">
-          <span class="flourish">❦</span>
-          <p class="eyebrow">RSVP</p>
-          <h2>Send your reply</h2>
-          <p>Kindly complete the details for each invited guest by 31st October 2026. A confirmation will be emailed to Guest 1.</p>
-        </header>
-
-        <form id="rsvpForm" class="rsvp-form reveal" novalidate>
-          <section class="guest-card primary-guest" data-guest="1">
-            <div class="guest-heading"><div><span>01</span><h3>Guest 1</h3></div><small>Primary contact</small></div>
-            <div class="form-row three">
-              <label>First name<input type="text" name="guest1FirstName" required autocomplete="given-name"></label>
-              <label>Last name<input type="text" name="guest1LastName" required autocomplete="family-name"></label>
-              <label>Email address<input type="email" name="guest1Email" required autocomplete="email"></label>
-            </div>
-            <fieldset><legend>Will you be joining us?</legend><div class="choice-row"><label><input type="radio" name="guest1Attending" value="Yes" required><span>Accepts with pleasure</span></label><label><input type="radio" name="guest1Attending" value="No" required><span>Regretfully declines</span></label></div></fieldset>
-          </section>
-
-          <section class="guest-card optional" data-guest="2">
-            <div class="guest-heading"><div><span>02</span><h3>Guest 2</h3></div><label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable="2"><span>Add guest 2</span></label></div>
-            <div class="guest-fields" data-fields="2" hidden>
-              <div class="form-row"><label>First name<input type="text" name="guest2FirstName" disabled></label><label>Last name<input type="text" name="guest2LastName" disabled></label></div>
-              <fieldset><legend>Will you be joining us?</legend><div class="choice-row"><label><input type="radio" name="guest2Attending" value="Yes" disabled><span>Accepts with pleasure</span></label><label><input type="radio" name="guest2Attending" value="No" disabled><span>Regretfully declines</span></label></div></fieldset>
-            </div>
-          </section>
-
-          <section class="guest-card optional" data-guest="3">
-            <div class="guest-heading"><div><span>03</span><h3>Guest 3</h3></div><label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable="3"><span>Add guest 3</span></label></div>
-            <div class="guest-fields" data-fields="3" hidden>
-              <div class="form-row"><label>First name<input type="text" name="guest3FirstName" disabled></label><label>Last name<input type="text" name="guest3LastName" disabled></label></div>
-              <fieldset><legend>Will you be joining us?</legend><div class="choice-row"><label><input type="radio" name="guest3Attending" value="Yes" disabled><span>Accepts with pleasure</span></label><label><input type="radio" name="guest3Attending" value="No" disabled><span>Regretfully declines</span></label></div></fieldset>
-            </div>
-          </section>
-
-          <section class="guest-card optional" data-guest="4">
-            <div class="guest-heading"><div><span>04</span><h3>Guest 4</h3></div><label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable="4"><span>Add guest 4</span></label></div>
-            <div class="guest-fields" data-fields="4" hidden>
-              <div class="form-row"><label>First name<input type="text" name="guest4FirstName" disabled></label><label>Last name<input type="text" name="guest4LastName" disabled></label></div>
-              <fieldset><legend>Will you be joining us?</legend><div class="choice-row"><label><input type="radio" name="guest4Attending" value="Yes" disabled><span>Accepts with pleasure</span></label><label><input type="radio" name="guest4Attending" value="No" disabled><span>Regretfully declines</span></label></div></fieldset>
-            </div>
-          </section>
-
-          <section class="guest-card finishing">
-            <div class="guest-heading"><div><span>05</span><h3>Finishing touches</h3></div></div>
-            <label>Dietary requirements<textarea name="dietary" rows="4" placeholder="Please include the guest's name and requirement"></textarea></label>
-            <fieldset><legend>Song requests</legend><p class="field-help">Choose up to three songs that will get you onto the dance floor.</p><div class="form-row three"><label>Song request 1<input type="text" name="song1" placeholder="Artist and song title"></label><label>Song request 2<input type="text" name="song2" placeholder="Artist and song title"></label><label>Song request 3<input type="text" name="song3" placeholder="Artist and song title"></label></div></fieldset>
-            <label>Write a message to Emma &amp; Joe<textarea name="message" rows="5" placeholder="Leave us a message..."></textarea></label>
-          </section>
-
-          <button class="submit-button" id="submitButton" type="submit">Send Your Reply <span>❧</span></button>
-          <p class="form-status" id="formStatus">Please check your details before submitting.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer><span>❦</span><p>We can't wait to celebrate with you</p><b>♥</b></footer>
-
-  <div class="thanks" id="thanksModal" aria-hidden="true"><div class="thanks-card"><span class="flourish">❦</span><p class="eyebrow">Thank you</p><h2 id="thanksTitle">We cannot wait to celebrate with you.</h2><p>Your evening RSVP has been sent to Emma and Joe.</p><button id="closeThanks" type="button">Return to the invitation</button></div></div>
-
-  <script src="config.js"></script>
-  <script src="script.js?v=1"></script>
+<!-- V5.15 static envelope introduction -->
+<section aria-label="Open Emma and Joe's wedding invitation" class="fade-envelope-intro" id="luxuryEnvelopeIntro">
+<div class="fade-envelope-stage">
+<img alt="" aria-hidden="true" class="fade-envelope-image" src="../assets/envelope-intro-v52.png"/>
+<button aria-label="Open the wedding invitation" class="fade-envelope-seal-hitbox" id="goldWaxSeal" type="button">
+<span class="sr-only">Open the invitation</span>
+</button>
+</div>
+</section>
+<canvas aria-hidden="true" class="confetti-canvas" id="confettiCanvas"></canvas>
+<main>
+<section aria-label="Emma and Joe wedding homepage" class="v523-homepage" id="home">
+<div class="v523-hero">
+<nav aria-label="Primary" class="v523-nav">
+<a href="#home">Home</a>
+<a href="#day">The Evening</a>
+<a href="#stay">Travel</a>
+<a href="#rsvp">RSVP</a>
+<a href="#faq">Guest Info</a>
+</nav>
+<div class="v523-hero-overlay">
+<img alt="E and J monogram with the date 24.07.2027" class="v523-monogram" src="../assets/monogram-v524.png"/>
+<div class="v523-hero-copy">
+<h1>Emma &amp; Joe</h1>
+<p class="v523-kicker">Are getting married</p>
+<div aria-hidden="true" class="v523-divider">
+<span></span>
+<i>♥</i>
+<span></span>
+</div>
+<p class="v523-date">24th July 2027</p>
+<p class="v523-venue">The Beverley Barn, Beverley</p>
+</div>
+</div>
+</div>
+<div class="v523-cards-shell">
+<div class="v523-cards">
+<a aria-label="The Day" class="v523-card" href="#day">
+<img alt="The Beverley Barn ceremony setting" class="v523-card-photo" src="../assets/card-day-v518.jpg"/>
+<span aria-hidden="true" class="v523-card-icon">
+<svg focusable="false" role="presentation" viewbox="0 0 24 24">
+<rect height="16" rx="2" width="18" x="3" y="5"></rect>
+<line x1="3" x2="21" y1="9" y2="9"></line>
+<line x1="8" x2="8" y1="3" y2="7"></line>
+<line x1="16" x2="16" y1="3" y2="7"></line>
+<line x1="8" x2="8" y1="13" y2="13"></line>
+<line x1="12" x2="12" y1="13" y2="13"></line>
+<line x1="16" x2="16" y1="13" y2="13"></line>
+<line x1="8" x2="8" y1="17" y2="17"></line>
+<line x1="12" x2="12" y1="17" y2="17"></line>
+</svg>
+</span>
+<h3>The Evening</h3>
+<p>Join us for the evening celebrations at The Beverley Barn. See the schedule and key details for the evening.</p>
+</a>
+<a aria-label="Travel" class="v523-card" href="#stay">
+<img alt="Aerial countryside view" class="v523-card-photo" src="../assets/card-travel-v524.png"/>
+<span aria-hidden="true" class="v523-card-icon">
+<svg focusable="false" role="presentation" viewbox="0 0 24 24">
+<path d="M12 21s6-5.47 6-11a6 6 0 1 0-12 0c0 5.53 6 11 6 11z"></path>
+<circle cx="12" cy="10" r="2.6"></circle>
+</svg>
+</span>
+<h3>Travel</h3>
+<p>Find directions to the venue, accommodation options, taxi numbers and local travel information.</p>
+</a>
+<a aria-label="RSVP" class="v523-card" href="#rsvp">
+<img alt="Elegant floral wedding table setting" class="v523-card-photo" src="../assets/card-rsvp-v524.png"/>
+<span aria-hidden="true" class="v523-card-icon">
+<svg focusable="false" role="presentation" viewbox="0 0 24 24">
+<rect height="12" rx="2" width="18" x="3" y="6"></rect>
+<path d="M4 8l8 6 8-6"></path>
+</svg>
+</span>
+<h3>RSVP</h3>
+<p>Please kindly RSVP by 31st October 2026 using our online form.</p>
+</a>
+</div>
+<div class="v523-homepage-footer">
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<p>We can’t wait to celebrate with you!</p>
+</div>
+</div>
+</section>
+<section aria-label="Countdown to Emma and Joe's wedding" class="wedding-countdown">
+<div class="countdown-inner reveal">
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<p class="countdown-kicker">Until the celebration begins</p>
+<div class="countdown-grid" id="weddingCountdown">
+<div class="countdown-item">
+<strong id="countdownDays">000</strong>
+<span>Days</span>
+</div>
+<div class="countdown-item">
+<strong id="countdownHours">00</strong>
+<span>Hours</span>
+</div>
+<div class="countdown-item">
+<strong id="countdownMinutes">00</strong>
+<span>Minutes</span>
+</div>
+<div class="countdown-item">
+<strong id="countdownSeconds">00</strong>
+<span>Seconds</span>
+</div>
+</div>
+<p class="countdown-date">Saturday, 24th July 2027 · 18:00</p>
+</div>
+</section>
+<section class="story section" id="story">
+<div class="section-heading reveal">
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<h2>We would love you to be there...</h2>
+<p>From the ordinary days that became our favourite memories to the adventures still ahead, every chapter has led us to this moment.</p>
+</div>
+<div class="story-panel reveal">
+<div class="story-photo">
+<span aria-hidden="true" class="story-corner tl"></span>
+<span aria-hidden="true" class="story-corner tr"></span>
+<span aria-hidden="true" class="story-corner bl"></span>
+<span aria-hidden="true" class="story-corner br"></span>
+</div>
+<div class="story-copy">
+<p>We cannot wait to celebrate with the people we love most as we begin married life together.</p>
+<p class="signature">Emma &amp; Joe</p>
+</div>
+</div>
+</section>
+<section class="day section" id="day">
+<div class="section-heading reveal">
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<h2>The Evening</h2>
+<p>A little look at what is planned for the evening.</p>
+</div>
+<div class="timeline"><article class="reveal"><time>18:00</time><div><h3>Evening guest arrival</h3><p>Please arrive from 18:00 and join us for the evening celebrations.</p></div></article><article class="reveal"><time>19:25</time><div><h3>Cake cutting</h3><p>A sweet moment before the first dance.</p></div></article><article class="reveal"><time>19:30</time><div><h3>First dance</h3><p>Then everyone joins us on the dance floor.</p></div></article><article class="reveal"><time>20:30</time><div><h3>Evening food</h3><p>A little more fuel for the dance floor.</p></div></article><article class="reveal"><time>21:00</time><div><h3>Sparklers</h3><p>Join us outside for a sparkling evening moment.</p></div></article><article class="reveal"><time>23:30</time><div><h3>Carriages</h3><p>Home safely after a wonderful evening.</p></div></article></div>
+</section>
+<section class="details section" id="details">
+<div class="section-heading reveal">
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<h2>Details</h2>
+</div>
+<div class="detail-grid">
+<article class="reveal">
+<small>01</small>
+<h3>The Venue</h3>
+<p>The Beverley Barn<br/>Long Lane, Beverley<br/>East Riding of Yorkshire, HU17 0RN</p>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=The+Beverley+Barn+Long+Lane+Beverley+HU17+0RN" rel="noopener" target="_blank">Open in Google Maps</a>
+</article>
+<article class="reveal">
+<small>02</small>
+<h3>Arrival</h3>
+<p>Please arrive from 18:00.</p>
+</article>
+<article class="reveal">
+<small>03</small>
+<h3>Travel</h3>
+<p>Free parking is available on site. Cars may be left overnight but must be collected by 08:00 on 25th July 2027.</p>
+</article>
+</div>
+</section>
+<section class="stay section" id="stay">
+<div class="section-heading reveal">
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<h2>Travel &amp; Stay</h2>
+<p>Accommodation in Beverley can fill quickly, so we recommend booking early.</p>
+</div>
+<div class="travel-layout">
+<div>
+<h3 class="travel-subheading reveal">Recommended Hotels</h3>
+<div class="hotel-grid">
+<article class="travel-card reveal">
+<small>Boutique</small>
+<h3>The Beverley Arms</h3>
+<p>25 North Bar Within, Beverley, HU17 8DD</p>
+<p class="distance-line">Approx. 2.6 miles to The Beverley Barn</p>
+<p class="contact-line"><a href="tel:01482296999">01482 296999</a></p>
+<a class="travel-button" href="https://www.beverleyarms.co.uk/" rel="noopener" target="_blank">View &amp; Book</a>
+</article>
+<article class="travel-card reveal">
+<small>Town Centre</small>
+<h3>Premier Inn Beverley</h3>
+<p>Flemingate Centre, Flemingate, Beverley, HU17 0NQ</p>
+<p class="distance-line">Approx. 2.7 miles to The Beverley Barn</p>
+<p class="contact-line"><a href="tel:03333213078">0333 321 3078</a></p>
+<a class="travel-button" href="https://www.premierinn.com/gb/en/hotels/england/east-riding-of-yorkshire/beverley/beverley-town-centre.html" rel="noopener" target="_blank">View &amp; Book</a>
+</article>
+<article class="travel-card reveal">
+<small>Market Place</small>
+<h3>The Kings Head Hotel</h3>
+<p>38 Market Place, Beverley, HU17 9AG</p>
+<p class="distance-line">Approx. 2.6 miles to The Beverley Barn</p>
+<p class="contact-line"><a href="tel:01482868103">01482 868103</a></p>
+<a class="travel-button" href="https://www.kingsheadbeverley.co.uk/" rel="noopener" target="_blank">View &amp; Book</a>
+</article>
+<article class="travel-card reveal">
+<small>Historic</small>
+<h3>The Lairgate Hotel</h3>
+<p>30–34 Lairgate, Beverley, HU17 8EP</p>
+<p class="distance-line">Approx. 2.6 miles to The Beverley Barn</p>
+<p class="contact-line"><a href="tel:01482262409">01482 262409</a></p>
+<a class="travel-button" href="https://thelairgatebeverley.co.uk/" rel="noopener" target="_blank">View &amp; Book</a>
+</article>
+</div>
+</div>
+<div class="taxi-section">
+<h3 class="travel-subheading reveal">Recommended Taxis</h3>
+<p class="taxi-note reveal">Please pre-book your journey home.</p>
+<div class="taxi-grid">
+<article class="taxi-card reveal"><h3>Westholme Cars</h3><a href="tel:01482888999">01482 888999</a></article>
+<article class="taxi-card reveal"><h3>Minster Cars</h3><a href="tel:01482869686">01482 869686</a></article>
+<article class="taxi-card reveal"><h3>AJS Taxi</h3><a href="tel:01482910247">01482 910247</a></article>
+<article class="taxi-card reveal"><h3>Beaver Cars</h3><a href="tel:01482888051">01482 888051</a></article>
+</div>
+</div>
+</div>
+</section>
+<section class="gifts section" id="gifts">
+<div class="section-heading reveal narrow">
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<h2>Gifts</h2>
+<p>Your presence is our present. Should you wish to give something more, a contribution towards our honeymoon would be received with enormous gratitude.</p>
+<div class="gift-details-card">
+<button aria-controls="giftBankDetails" aria-expanded="false" class="gift-reveal-button" id="revealGiftDetails" type="button">View bank details</button>
+<div class="gift-bank-details" hidden="" id="giftBankDetails">
+<div class="gift-detail-row gift-account-name">
+<span>Account name</span>
+<strong>Miss Emma Elizabeth Everett &amp; Mr Joe Toker</strong>
+</div>
+<div class="gift-detail-row">
+<span>Sort code</span>
+<strong>09-01-30</strong>
+<button class="gift-copy-button" data-copy="09-01-30" type="button">Copy</button>
+</div>
+<div class="gift-detail-row">
+<span>Account number</span>
+<strong>40184863</strong>
+<button class="gift-copy-button" data-copy="40184863" type="button">Copy</button>
+</div>
+</div>
+<p class="gift-privacy-note">Bank details are hidden until you choose to view them.</p>
+</div>
+</div>
+</section>
+<section class="faq section" id="faq">
+<div class="section-heading reveal">
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<h2>Good To Know</h2>
+</div>
+<div class="accordion reveal">
+<details><summary>What time should I arrive?</summary><p>Please arrive from 18:00.</p></details>
+<details><summary>What is the dress code?</summary><p>Formal wedding guest attire.</p></details>
+<details><summary>Can I bring a guest?</summary><p>Your invitation confirms the number of places reserved for your household.</p></details>
+<details><summary>Confetti</summary><p>Biodegradable confetti will be provided. Please do not bring your own.</p></details>
+<details><summary>Can I leave my car overnight?</summary><p>Yes. Cars may be left overnight at the owner’s risk, but they must be collected by 08:00 on 25th July 2027.</p></details>
+</div>
+</section>
+<section class="rsvp section" id="rsvp">
+<div class="section-heading reveal narrow">
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<h2>RSVP</h2>
+<p>Kindly complete the details for each invited guest by 31st October 2026. A confirmation will be emailed to Guest 1.</p>
+</div>
+<form class="form rsvp-form-v525 reveal" id="form">
+<section class="rsvp-guest-card is-primary" data-guest="1">
+<div class="guest-card-heading">
+<div><span class="guest-number">01</span><h3>Guest 1</h3></div>
+<p>Primary contact</p>
+</div>
+<div class="form-row three-fields">
+<label>First name<input autocomplete="given-name" name="guest1FirstName" required="" type="text"/></label>
+<label>Last name<input autocomplete="family-name" name="guest1LastName" required="" type="text"/></label>
+<label>Email address<input autocomplete="email" name="guest1Email" required="" type="email"/></label>
+</div>
+<fieldset class="attendance-fieldset">
+<legend>Will you be joining us?</legend>
+<div class="choices attendance-choices">
+<label><input name="guest1Attending" required="" type="radio" value="Yes"/><span>Accepts with pleasure</span></label>
+<label><input name="guest1Attending" required="" type="radio" value="No"/><span>Regretfully declines</span></label>
+</div>
+</fieldset>
+</section>
+<section class="rsvp-guest-card optional-guest" data-guest="2">
+<div class="guest-card-heading">
+<div><span class="guest-number">02</span><h3>Guest 2</h3></div>
+<label class="guest-toggle"><input class="guest-enable" data-enable-guest="2" type="checkbox"/><span>Add guest 2</span></label>
+</div>
+<div class="guest-fields" data-fields-for="2" hidden="">
+<div class="form-row">
+<label>First name<input autocomplete="given-name" disabled="" name="guest2FirstName" type="text"/></label>
+<label>Last name<input autocomplete="family-name" disabled="" name="guest2LastName" type="text"/></label>
+</div>
+<fieldset class="attendance-fieldset">
+<legend>Will you be joining us?</legend>
+<div class="choices attendance-choices">
+<label><input disabled="" name="guest2Attending" type="radio" value="Yes"/><span>Accepts with pleasure</span></label>
+<label><input disabled="" name="guest2Attending" type="radio" value="No"/><span>Regretfully declines</span></label>
+</div>
+</fieldset>
+</div>
+</section>
+<section class="rsvp-guest-card optional-guest" data-guest="3">
+<div class="guest-card-heading">
+<div><span class="guest-number">03</span><h3>Guest 3</h3></div>
+<label class="guest-toggle"><input class="guest-enable" data-enable-guest="3" type="checkbox"/><span>Add guest 3</span></label>
+</div>
+<div class="guest-fields" data-fields-for="3" hidden="">
+<div class="form-row">
+<label>First name<input autocomplete="given-name" disabled="" name="guest3FirstName" type="text"/></label>
+<label>Last name<input autocomplete="family-name" disabled="" name="guest3LastName" type="text"/></label>
+</div>
+<fieldset class="attendance-fieldset">
+<legend>Will you be joining us?</legend>
+<div class="choices attendance-choices">
+<label><input disabled="" name="guest3Attending" type="radio" value="Yes"/><span>Accepts with pleasure</span></label>
+<label><input disabled="" name="guest3Attending" type="radio" value="No"/><span>Regretfully declines</span></label>
+</div>
+</fieldset>
+</div>
+</section>
+<section class="rsvp-guest-card optional-guest" data-guest="4">
+<div class="guest-card-heading">
+<div><span class="guest-number">04</span><h3>Guest 4</h3></div>
+<label class="guest-toggle"><input class="guest-enable" data-enable-guest="4" type="checkbox"/><span>Add guest 4</span></label>
+</div>
+<div class="guest-fields" data-fields-for="4" hidden="">
+<div class="form-row">
+<label>First name<input autocomplete="given-name" disabled="" name="guest4FirstName" type="text"/></label>
+<label>Last name<input autocomplete="family-name" disabled="" name="guest4LastName" type="text"/></label>
+</div>
+<fieldset class="attendance-fieldset">
+<legend>Will you be joining us?</legend>
+<div class="choices attendance-choices">
+<label><input disabled="" name="guest4Attending" type="radio" value="Yes"/><span>Accepts with pleasure</span></label>
+<label><input disabled="" name="guest4Attending" type="radio" value="No"/><span>Regretfully declines</span></label>
+</div>
+</fieldset>
+</div>
+</section>
+<section class="rsvp-extra-card">
+<div class="guest-card-heading compact">
+<div><span class="guest-number">05</span><h3>Finishing touches</h3></div>
+</div>
+<label>Dietary requirements<textarea name="dietary" placeholder="Please include the guest’s name and requirement" rows="4"></textarea></label>
+<fieldset class="song-requests premium-song-requests">
+<legend>Song requests</legend>
+<p class="field-help">Choose up to three songs that will get you onto the dance floor.</p>
+<div class="form-row three-fields">
+<label>Song request 1<input name="song1" placeholder="Artist and song title" type="text"/></label>
+<label>Song request 2<input name="song2" placeholder="Artist and song title" type="text"/></label>
+<label>Song request 3<input name="song3" placeholder="Artist and song title" type="text"/></label>
+</div>
+</fieldset>
+<label class="message-field">Write a message to Emma &amp; Joe
+      <textarea name="message" placeholder="Leave us a message..." rows="5"></textarea>
+</label>
+</section>
+<button class="submit premium-submit" id="submit" type="submit">Send Your Reply <span>❧</span></button>
+<p id="status">Please check your details before submitting.</p>
+</form>
+</section>
+</main>
+<footer>
+<img alt="" class="sprig" src="../assets/sprig.svg"/>
+<p>We can’t wait to celebrate with you</p>
+<span>♥</span>
+</footer>
+<div class="thanks" id="thanks">
+<div>
+<p class="hero-kicker">Thank you</p>
+<h2 id="thanksTitle">We cannot wait to celebrate with you.</h2>
+<p>Your evening RSVP has been sent to Emma and Joe.</p>
+<button class="hero-button small" id="closeThanks">Return to the invitation</button>
+</div>
+</div>
+<script src="config.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
