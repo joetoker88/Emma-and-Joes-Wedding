@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#46593f">
+  <meta name="description" content="Emma and Joe's evening wedding celebration at The Beverley Barn on 24 July 2027.">
+  <title>Emma & Joe | Evening Celebration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body class="intro-active">
+  <section class="envelope-intro" id="envelopeIntro" aria-label="Open Emma and Joe's evening invitation">
+    <div class="envelope-card">
+      <div class="envelope-flourish">❦</div>
+      <div class="envelope-monogram">E <span>&amp;</span> J</div>
+      <div class="envelope-date">24 · 07 · 2027</div>
+      <p>Evening Invitation</p>
+      <button type="button" id="waxSeal" class="wax-seal" aria-label="Open the evening invitation">E&amp;J</button>
+      <span class="seal-help">Press the seal to open</span>
+    </div>
+  </section>
+
+  <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+  <main>
+    <section class="hero" id="home">
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#evening">The Evening</a>
+        <a href="#travel">Travel</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#info">Guest Info</a>
+      </nav>
+
+      <div class="hero-flowers hero-flowers-left" aria-hidden="true">❀ ❋ ❁</div>
+      <div class="hero-flowers hero-flowers-right" aria-hidden="true">❁ ❋ ❀</div>
+
+      <div class="hero-content">
+        <div class="monogram-wrap">
+          <span class="laurel">❧</span>
+          <div class="hero-monogram">E <i>&amp;</i> J</div>
+          <span class="laurel mirror">❧</span>
+        </div>
+        <p class="date-mark">24 · 07 · 2027</p>
+        <div class="gold-divider"><span></span><b>♥</b><span></span></div>
+        <p class="eyebrow">Together with their families</p>
+        <h1>Emma &amp; Joe</h1>
+        <p class="hero-subtitle">joyfully invite you to celebrate their wedding</p>
+        <div class="gold-divider"><span></span><b>♥</b><span></span></div>
+        <h2>Evening Celebration</h2>
+        <p class="hero-date">Saturday, 24th July 2027</p>
+        <p class="hero-time">Please arrive from <strong>18:00</strong></p>
+        <p class="hero-venue">The Beverley Barn · Beverley</p>
+        <a class="primary-button" href="#rsvp">RSVP</a>
+      </div>
+    </section>
+
+    <section class="countdown-section" aria-label="Countdown to the evening celebration">
+      <div class="section-shell reveal">
+        <p class="script-kicker">Until the celebration begins</p>
+        <div class="countdown" id="countdown">
+          <div><strong id="days">000</strong><span>Days</span></div>
+          <div><strong id="hours">00</strong><span>Hours</span></div>
+          <div><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+        <p class="countdown-date">Saturday, 24th July 2027 · 18:00</p>
+      </div>
+    </section>
+
+    <section class="section" id="evening">
+      <div class="section-shell">
+        <header class="section-heading reveal">
+          <span class="flourish">❦</span>
+          <p class="eyebrow">The Evening</p>
+          <h2>Come celebrate with us</h2>
+          <p>Join us for the evening celebrations at The Beverley Barn.</p>
+        </header>
+
+        <div class="timeline">
+          <article class="reveal"><time>18:00</time><div><h3>Evening guest arrival</h3><p>Join us at The Beverley Barn and settle in for the evening.</p></div></article>
+          <article class="reveal"><time>19:25</time><div><h3>Cake cutting</h3><p>A sweet moment before the first dance.</p></div></article>
+          <article class="reveal"><time>19:30</time><div><h3>First dance</h3><p>Then everyone joins us on the dance floor.</p></div></article>
+          <article class="reveal"><time>20:30</time><div><h3>Evening food</h3><p>A little more fuel for the dance floor.</p></div></article>
+          <article class="reveal"><time>21:00</time><div><h3>Sparklers</h3><p>Join us outside for a sparkling evening moment.</p></div></article>
+          <article class="reveal"><time>23:30</time><div><h3>Carriages</h3><p>Home safely after a wonderful evening.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pale" id="travel">
+      <div class="section-shell">
+        <header class="section-heading reveal">
+          <span class="flourish">❦</span>
+          <p class="eyebrow">Travel &amp; Stay</p>
+          <h2>Plan your evening</h2>
+          <p>Accommodation in Beverley can fill quickly, so we recommend booking early.</p>
+        </header>
+
+        <div class="venue-card reveal">
+          <div><span class="number">01</span><h3>The Beverley Barn</h3><p>Long Lane, Beverley<br>East Riding of Yorkshire, HU17 0RN</p></div>
+          <div><span class="number">02</span><h3>Arrival</h3><p>Please arrive from 18:00.</p></div>
+          <div><span class="number">03</span><h3>Parking</h3><p>Free parking is available on site. Cars may be left overnight but must be collected by 08:00 on 25th July 2027.</p></div>
+        </div>
+
+        <h3 class="subheading reveal">Recommended Hotels</h3>
+        <div class="hotel-grid">
+          <article class="hotel reveal"><small>Boutique</small><h3>The Beverley Arms</h3><p>25 North Bar Within, Beverley, HU17 8DD</p><p>Approx. 2.6 miles to the venue</p><a href="https://www.beverleyarms.co.uk/" target="_blank" rel="noopener">View &amp; Book</a></article>
+          <article class="hotel reveal"><small>Town Centre</small><h3>Premier Inn Beverley</h3><p>Flemingate Centre, Flemingate, Beverley, HU17 0NQ</p><p>Approx. 2.7 miles to the venue</p><a href="https://www.premierinn.com/gb/en/hotels/england/east-riding-of-yorkshire/beverley/beverley-town-centre.html" target="_blank" rel="noopener">View &amp; Book</a></article>
+          <article class="hotel reveal"><small>Market Place</small><h3>The Kings Head Hotel</h3><p>38 Market Place, Beverley, HU17 9AG</p><p>Approx. 2.6 miles to the venue</p><a href="https://www.kingsheadbeverley.co.uk/" target="_blank" rel="noopener">View &amp; Book</a></article>
+          <article class="hotel reveal"><small>Historic</small><h3>The Lairgate Hotel</h3><p>30–34 Lairgate, Beverley, HU17 8EP</p><p>Approx. 2.6 miles to the venue</p><a href="https://thelairgatebeverley.co.uk/" target="_blank" rel="noopener">View &amp; Book</a></article>
+        </div>
+
+        <h3 class="subheading reveal">Recommended Taxis</h3>
+        <p class="taxi-note reveal">Please pre-book your journey home.</p>
+        <div class="taxi-grid reveal">
+          <a href="tel:01482888999"><strong>Westholme Cars</strong><span>01482 888999</span></a>
+          <a href="tel:01482869686"><strong>Minster Cars</strong><span>01482 869686</span></a>
+          <a href="tel:01482910247"><strong>AJS Taxi</strong><span>01482 910247</span></a>
+          <a href="tel:01482888051"><strong>Beaver Cars</strong><span>01482 888051</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="info">
+      <div class="section-shell narrow">
+        <header class="section-heading reveal">
+          <span class="flourish">❦</span>
+          <p class="eyebrow">Guest Info</p>
+          <h2>Good to know</h2>
+        </header>
+        <div class="accordion reveal">
+          <details><summary>What time should I arrive?</summary><p>Please arrive from 18:00.</p></details>
+          <details><summary>What is the dress code?</summary><p>Formal wedding guest attire.</p></details>
+          <details><summary>Can I bring a guest?</summary><p>Your invitation confirms the number of places reserved for your household.</p></details>
+          <details><summary>Can I leave my car overnight?</summary><p>Yes. Cars may be left overnight at the owner's risk, but they must be collected by 08:00 on 25th July 2027.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rsvp-section" id="rsvp">
+      <div class="section-shell narrow-wide">
+        <header class="section-heading reveal">
+          <span class="flourish">❦</span>
+          <p class="eyebrow">RSVP</p>
+          <h2>Send your reply</h2>
+          <p>Kindly complete the details for each invited guest by 31st October 2026. A confirmation will be emailed to Guest 1.</p>
+        </header>
+
+        <form id="rsvpForm" class="rsvp-form reveal" novalidate>
+          <section class="guest-card primary-guest" data-guest="1">
+            <div class="guest-heading"><div><span>01</span><h3>Guest 1</h3></div><small>Primary contact</small></div>
+            <div class="form-row three">
+              <label>First name<input type="text" name="guest1FirstName" required autocomplete="given-name"></label>
+              <label>Last name<input type="text" name="guest1LastName" required autocomplete="family-name"></label>
+              <label>Email address<input type="email" name="guest1Email" required autocomplete="email"></label>
+            </div>
+            <fieldset><legend>Will you be joining us?</legend><div class="choice-row"><label><input type="radio" name="guest1Attending" value="Yes" required><span>Accepts with pleasure</span></label><label><input type="radio" name="guest1Attending" value="No" required><span>Regretfully declines</span></label></div></fieldset>
+          </section>
+
+          <section class="guest-card optional" data-guest="2">
+            <div class="guest-heading"><div><span>02</span><h3>Guest 2</h3></div><label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable="2"><span>Add guest 2</span></label></div>
+            <div class="guest-fields" data-fields="2" hidden>
+              <div class="form-row"><label>First name<input type="text" name="guest2FirstName" disabled></label><label>Last name<input type="text" name="guest2LastName" disabled></label></div>
+              <fieldset><legend>Will you be joining us?</legend><div class="choice-row"><label><input type="radio" name="guest2Attending" value="Yes" disabled><span>Accepts with pleasure</span></label><label><input type="radio" name="guest2Attending" value="No" disabled><span>Regretfully declines</span></label></div></fieldset>
+            </div>
+          </section>
+
+          <section class="guest-card optional" data-guest="3">
+            <div class="guest-heading"><div><span>03</span><h3>Guest 3</h3></div><label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable="3"><span>Add guest 3</span></label></div>
+            <div class="guest-fields" data-fields="3" hidden>
+              <div class="form-row"><label>First name<input type="text" name="guest3FirstName" disabled></label><label>Last name<input type="text" name="guest3LastName" disabled></label></div>
+              <fieldset><legend>Will you be joining us?</legend><div class="choice-row"><label><input type="radio" name="guest3Attending" value="Yes" disabled><span>Accepts with pleasure</span></label><label><input type="radio" name="guest3Attending" value="No" disabled><span>Regretfully declines</span></label></div></fieldset>
+            </div>
+          </section>
+
+          <section class="guest-card optional" data-guest="4">
+            <div class="guest-heading"><div><span>04</span><h3>Guest 4</h3></div><label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable="4"><span>Add guest 4</span></label></div>
+            <div class="guest-fields" data-fields="4" hidden>
+              <div class="form-row"><label>First name<input type="text" name="guest4FirstName" disabled></label><label>Last name<input type="text" name="guest4LastName" disabled></label></div>
+              <fieldset><legend>Will you be joining us?</legend><div class="choice-row"><label><input type="radio" name="guest4Attending" value="Yes" disabled><span>Accepts with pleasure</span></label><label><input type="radio" name="guest4Attending" value="No" disabled><span>Regretfully declines</span></label></div></fieldset>
+            </div>
+          </section>
+
+          <section class="guest-card finishing">
+            <div class="guest-heading"><div><span>05</span><h3>Finishing touches</h3></div></div>
+            <label>Dietary requirements<textarea name="dietary" rows="4" placeholder="Please include the guest's name and requirement"></textarea></label>
+            <fieldset><legend>Song requests</legend><p class="field-help">Choose up to three songs that will get you onto the dance floor.</p><div class="form-row three"><label>Song request 1<input type="text" name="song1" placeholder="Artist and song title"></label><label>Song request 2<input type="text" name="song2" placeholder="Artist and song title"></label><label>Song request 3<input type="text" name="song3" placeholder="Artist and song title"></label></div></fieldset>
+            <label>Write a message to Emma &amp; Joe<textarea name="message" rows="5" placeholder="Leave us a message..."></textarea></label>
+          </section>
+
+          <button class="submit-button" id="submitButton" type="submit">Send Your Reply <span>❧</span></button>
+          <p class="form-status" id="formStatus">Please check your details before submitting.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>❦</span><p>We can't wait to celebrate with you</p><b>♥</b></footer>
+
+  <div class="thanks" id="thanksModal" aria-hidden="true"><div class="thanks-card"><span class="flourish">❦</span><p class="eyebrow">Thank you</p><h2 id="thanksTitle">We cannot wait to celebrate with you.</h2><p>Your evening RSVP has been sent to Emma and Joe.</p><button id="closeThanks" type="button">Return to the invitation</button></div></div>
+
+  <script src="config.js"></script>
+  <script src="script.js?v=1"></script>
+</body>
+</html>
