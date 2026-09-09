@@ -9,7 +9,7 @@
 <title>Emma &amp; Joe | Evening Celebration | 24 July 2027</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Allura&amp;family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="../styles.css?v=536" rel="stylesheet"/>
 <style>
 .drinks-course .menu-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
@@ -104,7 +104,7 @@
 </svg>
 </span>
 <h3>RSVP</h3>
-<p>Please kindly RSVP by 31st October 2026 using our online form.</p>
+<p>Please kindly RSVP by 31st December 2026 using our online form.</p>
 </a>
 </div>
 <div class="v523-homepage-footer">
@@ -152,7 +152,7 @@
 <span aria-hidden="true" class="story-corner br"></span>
 </div>
 <div class="story-copy">
-<p>We cannot wait to celebrate with the people we love most as we begin married life together.</p>
+<p>The Evening Reception</p>
 <p class="signature">Emma &amp; Joe</p>
 </div>
 </div>
@@ -251,8 +251,8 @@
 <h2>Gifts</h2>
 <p>Your presence is our present. Should you wish to give something more, a contribution towards our honeymoon would be received with enormous gratitude.</p>
 <div class="gift-details-card">
-<button aria-controls="giftBankDetails" aria-expanded="false" class="gift-reveal-button" id="revealGiftDetails" type="button">View bank details</button>
-<div class="gift-bank-details" hidden="" id="giftBankDetails">
+<button aria-controls="giftBankDetails" aria-expanded="false" class="gift-reveal-button" id="bankDetailsToggle" type="button">View bank details</button>
+<div class="gift-bank-details" hidden="True" id="bankDetailsPanel">
 <div class="gift-detail-row gift-account-name">
 <span>Account name</span>
 <strong>Miss Emma Elizabeth Everett &amp; Mr Joe Toker</strong>
@@ -279,9 +279,9 @@
 </div>
 <div class="accordion reveal">
 <details><summary>What time should I arrive?</summary><p>Please arrive from 18:00.</p></details>
-<details><summary>What is the dress code?</summary><p>Formal wedding guest attire.</p></details>
+<details><summary>What is the dress code?</summary><p>Party</p></details>
 <details><summary>Can I bring a guest?</summary><p>Your invitation confirms the number of places reserved for your household.</p></details>
-<details><summary>Confetti</summary><p>Biodegradable confetti will be provided. Please do not bring your own.</p></details>
+
 <details><summary>Can I leave my car overnight?</summary><p>Yes. Cars may be left overnight at the owner’s risk, but they must be collected by 08:00 on 25th July 2027.</p></details>
 </div>
 </section>
@@ -289,7 +289,7 @@
 <div class="section-heading reveal narrow">
 <img alt="" class="sprig" src="../assets/sprig.svg"/>
 <h2>RSVP</h2>
-<p>Kindly complete the details for each invited guest by 31st October 2026. A confirmation will be emailed to Guest 1.</p>
+<p>Kindly complete the details for each invited guest by 31st December 2026. A confirmation will be emailed to Guest 1.</p>
 </div>
 <form class="form rsvp-form-v525 reveal" id="form">
 <section class="rsvp-guest-card is-primary" data-guest="1">
@@ -329,47 +329,11 @@
 </fieldset>
 </div>
 </section>
-<section class="rsvp-guest-card optional-guest" data-guest="3">
-<div class="guest-card-heading">
-<div><span class="guest-number">03</span><h3>Guest 3</h3></div>
-<label class="guest-toggle"><input class="guest-enable" data-enable-guest="3" type="checkbox"/><span>Add guest 3</span></label>
-</div>
-<div class="guest-fields" data-fields-for="3" hidden="">
-<div class="form-row">
-<label>First name<input autocomplete="given-name" disabled="" name="guest3FirstName" type="text"/></label>
-<label>Last name<input autocomplete="family-name" disabled="" name="guest3LastName" type="text"/></label>
-</div>
-<fieldset class="attendance-fieldset">
-<legend>Will you be joining us?</legend>
-<div class="choices attendance-choices">
-<label><input disabled="" name="guest3Attending" type="radio" value="Yes"/><span>Accepts with pleasure</span></label>
-<label><input disabled="" name="guest3Attending" type="radio" value="No"/><span>Regretfully declines</span></label>
-</div>
-</fieldset>
-</div>
-</section>
-<section class="rsvp-guest-card optional-guest" data-guest="4">
-<div class="guest-card-heading">
-<div><span class="guest-number">04</span><h3>Guest 4</h3></div>
-<label class="guest-toggle"><input class="guest-enable" data-enable-guest="4" type="checkbox"/><span>Add guest 4</span></label>
-</div>
-<div class="guest-fields" data-fields-for="4" hidden="">
-<div class="form-row">
-<label>First name<input autocomplete="given-name" disabled="" name="guest4FirstName" type="text"/></label>
-<label>Last name<input autocomplete="family-name" disabled="" name="guest4LastName" type="text"/></label>
-</div>
-<fieldset class="attendance-fieldset">
-<legend>Will you be joining us?</legend>
-<div class="choices attendance-choices">
-<label><input disabled="" name="guest4Attending" type="radio" value="Yes"/><span>Accepts with pleasure</span></label>
-<label><input disabled="" name="guest4Attending" type="radio" value="No"/><span>Regretfully declines</span></label>
-</div>
-</fieldset>
-</div>
-</section>
+
+
 <section class="rsvp-extra-card">
 <div class="guest-card-heading compact">
-<div><span class="guest-number">05</span><h3>Finishing touches</h3></div>
+<div><span class="guest-number">03</span><h3>Finishing touches</h3></div>
 </div>
 <label>Dietary requirements<textarea name="dietary" placeholder="Please include the guest’s name and requirement" rows="4"></textarea></label>
 <fieldset class="song-requests premium-song-requests">
@@ -405,5 +369,25 @@
 </div>
 <script src="config.js"></script>
 <script src="script.js?v=2"></script>
-</body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const button = document.getElementById('bankDetailsToggle');
+  const panel = document.getElementById('bankDetailsPanel');
+  if (!button || !panel) return;
+
+  button.addEventListener('click', function (event) {
+    event.preventDefault();
+    const opening = panel.hasAttribute('hidden');
+    if (opening) {
+      panel.removeAttribute('hidden');
+      button.setAttribute('aria-expanded', 'true');
+      button.textContent = 'Hide bank details';
+    } else {
+      panel.setAttribute('hidden', '');
+      button.setAttribute('aria-expanded', 'false');
+      button.textContent = 'View bank details';
+    }
+  });
+});
+</script></body>
 </html>

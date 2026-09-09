@@ -377,7 +377,7 @@ form.addEventListener("submit", async event => {
   data.email = data.guest1Email;
   data.name = [data.guest1FirstName, data.guest1LastName].filter(Boolean).join(" ").trim();
 
-  const guests = [1, 2, 3, 4]
+  const guests = [1, 2]
     .map(number => {
       const guest = {
         number,
@@ -483,7 +483,7 @@ form.addEventListener("submit", async event => {
     document.querySelectorAll(".guest-fields, .meal-selection").forEach(section => {
       section.hidden = true;
     });
-    [2, 3, 4].forEach(number => setRequiredForGuest(number, false));
+    [2].forEach(number => setRequiredForGuest(number, false));
 
     if (savedStatus.emailStatus === "Sent") {
       status.textContent = "Your RSVP and meal choices were saved. Please check your inbox for confirmation.";
