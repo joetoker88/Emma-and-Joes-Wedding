@@ -1,0 +1,224 @@
+/* Project Evergreen / Emma & Joe - evening appearance fixes v2.2
+ * Load after ../styles.css in /evening/index.html.
+ * Presentation only: does not alter RSVP behaviour, fields, or submission code.
+ */
+
+/* Three evening homepage cards, not the two-column daytime layout. */
+.v523-cards {
+  max-width: 1080px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 980px) and (min-width: 651px) {
+  .v523-cards {
+    max-width: 780px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .v523-cards > .v523-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, 376px);
+    justify-self: center;
+  }
+}
+@media (max-width: 650px) {
+  .v523-cards { max-width: 420px; grid-template-columns: 1fr; }
+  .v523-cards > .v523-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: auto;
+  }
+}
+
+/* Use the exact illustrated icons from the matching daytime site.
+ * URLs resolve from /evening/ to the shared /assets/ directory.
+ */
+.v523-card-icon {
+  background-color: #fffdf9;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 68px 68px;
+  overflow: hidden;
+}
+.v523-cards > .v523-card:nth-child(1) .v523-card-icon {
+  background-image: url('../assets/icon-day-v523.png');
+}
+.v523-cards > .v523-card:nth-child(2) .v523-card-icon {
+  background-image: url('../assets/icon-travel-v523.png');
+}
+.v523-cards > .v523-card:nth-child(3) .v523-card-icon {
+  background-image: url('../assets/icon-rsvp-v523.png');
+}
+/* Hide the old solid black SVG artwork; retain its surrounding accessible link. */
+.v523-card-icon svg { display: none !important; }
+
+/* Centrally aligned, coordinated wedding countdown. */
+.wedding-countdown {
+  background: #f7f3ed;
+  padding: 76px 24px 86px;
+  text-align: center;
+}
+.wedding-countdown .countdown-inner {
+  width: min(820px, 100%);
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+.wedding-countdown .sprig { width: 74px; margin: 0 auto 16px; }
+.wedding-countdown .countdown-kicker {
+  margin: 0 0 20px;
+  color: #6d5841;
+  font: 500 clamp(1.45rem, 2.7vw, 2.1rem)/1.25 var(--serif, Georgia, serif);
+  letter-spacing: .04em;
+}
+.wedding-countdown .countdown-grid,
+.wedding-countdown #weddingCountdown {
+  width: min(820px, 100%);
+  margin: 0 auto 22px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 16px;
+}
+.wedding-countdown .countdown-item,
+.wedding-countdown .countdown-grid > div,
+.wedding-countdown #weddingCountdown > div {
+  min-width: 0;
+  padding: 20px 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgba(185,157,111,.28);
+  border-radius: 18px;
+  background: #fffdf9;
+  box-shadow: 0 8px 24px rgba(64,49,27,.055);
+}
+.wedding-countdown .countdown-item strong,
+.wedding-countdown .countdown-grid > div > strong,
+.wedding-countdown #weddingCountdown > div > strong {
+  display: block;
+  color: #a1814b;
+  font: 500 clamp(2.35rem, 4.6vw, 4.2rem)/1 var(--serif, Georgia, serif);
+  font-variant-numeric: tabular-nums;
+}
+.wedding-countdown .countdown-item span,
+.wedding-countdown .countdown-grid > div > span,
+.wedding-countdown #weddingCountdown > div > span {
+  display: block;
+  margin-top: 7px;
+  font: 500 .72rem/1.3 var(--sans, Arial, sans-serif);
+  color: #6d5841;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.wedding-countdown .countdown-date {
+  margin: 0;
+  color: #5e5148;
+  font: 500 clamp(1rem, 1.8vw, 1.25rem)/1.4 var(--serif, Georgia, serif);
+  letter-spacing: .03em;
+}
+@media (max-width: 600px) {
+  .wedding-countdown { padding: 58px 18px 66px; }
+  .wedding-countdown .countdown-grid,
+  .wedding-countdown #weddingCountdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .wedding-countdown .countdown-item,
+  .wedding-countdown .countdown-grid > div,
+  .wedding-countdown #weddingCountdown > div { padding: 18px 6px 14px; }
+}
+
+/* Guest controls: restore 'Add guest 2' as a visible pill button.
+ * The existing checkbox stays in the DOM, so existing change handlers still work.
+ * Order-independent: handles <span> before or after <input> inside a label.
+ */
+.rsvp .guest-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin: 0 0 22px;
+}
+.rsvp .guest-card-heading h3 {
+  margin: 3px 0 0;
+  font: 500 clamp(1.9rem, 3vw, 2.3rem)/1.05 var(--serif, Georgia, serif);
+  letter-spacing: .015em;
+}
+.rsvp .guest-number {
+  display:block;
+  color:#ab884e;
+  font:600 .72rem var(--sans, Arial, sans-serif);
+  letter-spacing:.12em;
+}
+.rsvp .guest-card-heading > p { color:#6d5841; margin:0; font-size:1rem; }
+.rsvp .rsvp-guest-card + .rsvp-guest-card,
+.rsvp .rsvp-extra-card {
+  border-top: 1px solid #dbd1c1;
+  margin-top: 18px;
+  padding-top: 22px;
+}
+.rsvp label.guest-toggle,
+.rsvp .guest-toggle:has(input[type="checkbox"]) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 155px;
+  min-height: 47px;
+  width: auto;
+  margin: 0;
+  padding: 11px 18px;
+  border: 1px solid #c9b692;
+  border-radius: 999px;
+  background: #fffdf9;
+  box-shadow: 0 4px 12px rgba(64,49,27,.06);
+  color: #4b5f43;
+  font: 600 .82rem/1.2 var(--sans, Arial, sans-serif);
+  letter-spacing: .03em;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.rsvp .guest-toggle:has(input[type="checkbox"])::before {
+  content: '+';
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font: 600 1.05rem/1 var(--sans, Arial, sans-serif);
+  flex-shrink: 0;
+}
+.rsvp .guest-toggle input[type="checkbox"] {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+.rsvp .guest-toggle > span { color: inherit; font: inherit; display: inline; }
+.rsvp .guest-toggle:has(input[type="checkbox"]:checked) {
+  background: #4b5f43;
+  color: #fff;
+  border-color: #4b5f43;
+}
+.rsvp .guest-toggle:has(input[type="checkbox"]:checked)::before {
+  content: '✓';
+  font-size: .8rem;
+}
+.rsvp .guest-toggle:has(input[type="checkbox"]:focus-visible) {
+  outline: 3px solid #b99a61;
+  outline-offset: 3px;
+}
+.rsvp .guest-toggle:has(input[type="checkbox"]):hover {
+  border-color: #a98a50;
+}
+.rsvp .guest-fields[hidden] { display: none !important; }
+@media (max-width: 600px) {
+  .rsvp .guest-card-heading { align-items: flex-start; }
+}
