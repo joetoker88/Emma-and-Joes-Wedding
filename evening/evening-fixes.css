@@ -1,4 +1,4 @@
-/* Project Evergreen / Emma & Joe - evening appearance fixes v2.3
+/* Project Evergreen / Emma & Joe - evening appearance fixes v2.4
  * Load after ../styles.css in /evening/index.html.
  * Presentation only: does not alter RSVP behaviour, fields, or submission code.
  */
@@ -238,4 +238,40 @@
 .v523-cards .v523-card .v523-card-icon img,
 .v523-cards .v523-card .v523-card-icon svg {
   display: none !important;
+}
+
+
+/* v2.4 — True centring fix.
+ * The original icon-*-v523.png files contain a small pictogram
+ * drawn in the lower/right portion of a photograph. Centring those
+ * PNG files in CSS therefore still leaves the symbol off-centre.
+ * Replace the picture-medallion graphics with single, centred,
+ * original-style gold outline icons, directly inside this CSS.
+ * No change to card links or RSVP submission logic.
+ */
+.v523-cards .v523-card .v523-card-icon {
+  display: grid !important;
+  place-items: center !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 72px !important;
+  height: 72px !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  background-color: #fffdf9 !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 33px 33px !important;
+  border: 1px solid rgba(172, 134, 81, .18);
+  border-radius: 50% !important;
+}
+.v523-cards .v523-card .v523-card-icon > * { display: none !important; }
+.v523-cards > .v523-card:nth-child(1) .v523-card-icon {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20stroke%3D%22%23ac8651%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%228%22%20y%3D%2211%22%20width%3D%2232%22%20height%3D%2230%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M8%2020h32M16%207v8M32%207v8%22%2F%3E%3Cpath%20d%3D%22M17%2027h.1M24%2027h.1M31%2027h.1M17%2034h.1M24%2034h.1M31%2034h.1%22%20stroke-width%3D%224%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+.v523-cards > .v523-card:nth-child(2) .v523-card-icon {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20stroke%3D%22%23ac8651%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M24%2043s14-12.3%2014-25a14%2014%200%200%200-28%200c0%2012.7%2014%2025%2014%2025Z%22%2F%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2218%22%20r%3D%225%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+.v523-cards > .v523-card:nth-child(3) .v523-card-icon {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20stroke%3D%22%23ac8651%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%225%22%20y%3D%2212%22%20width%3D%2238%22%20height%3D%2226%22%20rx%3D%222.5%22%2F%3E%3Cpath%20d%3D%22m6%2014%2018%2014%2018-14%22%2F%3E%3C%2Fsvg%3E") !important;
 }
