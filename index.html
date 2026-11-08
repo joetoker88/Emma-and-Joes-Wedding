@@ -9,24 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=536">
-<style>
-.drinks-course .menu-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-.drinks-course .menu-options label{min-height:auto;padding:9px 6px}
-.drinks-course .menu-options span{line-height:1.2}
-@media(max-width:700px){.drinks-course .menu-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:420px){.drinks-course .menu-options{grid-template-columns:1fr}}
-</style>
-
-<style>
-.menu-options label span{
-  width:100%;
-  text-align:center;
-}
-.menu-options label small{
-  text-align:center;
-}
-</style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="intro-active">
 
@@ -54,7 +37,6 @@
     </div>
   </section>
 
-<canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
   
   
   <main>
@@ -62,16 +44,16 @@
       <div class="v523-hero">
         <nav class="v523-nav" aria-label="Primary">
           <a href="#home">Home</a>
+          <a href="#story">Our Story</a>
           <a href="#day">The Day</a>
           <a href="#stay">Travel</a>
-          <a href="#rsvp">RSVP</a>
           <a href="#faq">Guest Info</a>
         </nav>
 
         <div class="v523-hero-overlay">
           <img
             class="v523-monogram"
-            src="assets/monogram-v524.png"
+            src="assets/monogram-v523.png"
             alt="E and J monogram with the date 24.07.2027"
           >
 
@@ -100,17 +82,7 @@
               alt="The Beverley Barn ceremony setting"
             >
             <span class="v523-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="presentation" focusable="false">
-                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-                <line x1="3" y1="9" x2="21" y2="9"></line>
-                <line x1="8" y1="3" x2="8" y2="7"></line>
-                <line x1="16" y1="3" x2="16" y2="7"></line>
-                <line x1="8" y1="13" x2="8" y2="13"></line>
-                <line x1="12" y1="13" x2="12" y2="13"></line>
-                <line x1="16" y1="13" x2="16" y2="13"></line>
-                <line x1="8" y1="17" x2="8" y2="17"></line>
-                <line x1="12" y1="17" x2="12" y2="17"></line>
-              </svg>
+              <img src="assets/icon-day-v523.png" alt="">
             </span>
             <h3>The Day</h3>
             <p>Join us for our ceremony and reception at The Beverley Barn. See the schedule and key details for our special day.</p>
@@ -119,67 +91,22 @@
           <a class="v523-card" href="#stay" aria-label="Travel">
             <img
               class="v523-card-photo"
-              src="assets/card-travel-v524.png"
+              src="assets/card-travel-v523.png"
               alt="Aerial countryside view"
             >
             <span class="v523-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="presentation" focusable="false">
-                <path d="M12 21s6-5.47 6-11a6 6 0 1 0-12 0c0 5.53 6 11 6 11z"></path>
-                <circle cx="12" cy="10" r="2.6"></circle>
-              </svg>
+              <img src="assets/icon-travel-v523.png" alt="">
             </span>
             <h3>Travel</h3>
             <p>Find directions to the venue, accommodation options, taxi numbers and local travel information.</p>
           </a>
 
-          <a class="v523-card" href="#rsvp" aria-label="RSVP">
-            <img
-              class="v523-card-photo"
-              src="assets/card-rsvp-v524.png"
-              alt="Elegant floral wedding table setting"
-            >
-            <span class="v523-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="presentation" focusable="false">
-                <rect x="3" y="6" width="18" height="12" rx="2"></rect>
-                <path d="M4 8l8 6 8-6"></path>
-              </svg>
-            </span>
-            <h3>RSVP</h3>
-            <p>Please kindly RSVP by 31st October 2026 using our online form.</p>
-          </a>
         </div>
 
         <div class="v523-homepage-footer">
           <img class="sprig" src="assets/sprig.svg" alt="">
           <p>We can’t wait to celebrate with you!</p>
         </div>
-      </div>
-    </section>
-
-
-    <section class="wedding-countdown" aria-label="Countdown to Emma and Joe's wedding">
-      <div class="countdown-inner reveal">
-        <img class="sprig" src="assets/sprig.svg" alt="">
-        <p class="countdown-kicker">Until we say “I do”</p>
-        <div class="countdown-grid" id="weddingCountdown">
-          <div class="countdown-item">
-            <strong id="countdownDays">000</strong>
-            <span>Days</span>
-          </div>
-          <div class="countdown-item">
-            <strong id="countdownHours">00</strong>
-            <span>Hours</span>
-          </div>
-          <div class="countdown-item">
-            <strong id="countdownMinutes">00</strong>
-            <span>Minutes</span>
-          </div>
-          <div class="countdown-item">
-            <strong id="countdownSeconds">00</strong>
-            <span>Seconds</span>
-          </div>
-        </div>
-        <p class="countdown-date">Saturday, 24th July 2027</p>
       </div>
     </section>
 
@@ -263,7 +190,6 @@
               <small>Boutique</small>
               <h3>The Beverley Arms</h3>
               <p>25 North Bar Within, Beverley, HU17 8DD</p>
-              <p class="distance-line">Approx. 2.6 miles to The Beverley Barn</p>
               <p class="contact-line"><a href="tel:01482296999">01482 296999</a></p>
               <a class="travel-button" target="_blank" rel="noopener" href="https://www.beverleyarms.co.uk/">View &amp; Book</a>
             </article>
@@ -271,7 +197,6 @@
               <small>Town Centre</small>
               <h3>Premier Inn Beverley</h3>
               <p>Flemingate Centre, Flemingate, Beverley, HU17 0NQ</p>
-              <p class="distance-line">Approx. 2.7 miles to The Beverley Barn</p>
               <p class="contact-line"><a href="tel:03333213078">0333 321 3078</a></p>
               <a class="travel-button" target="_blank" rel="noopener" href="https://www.premierinn.com/gb/en/hotels/england/east-riding-of-yorkshire/beverley/beverley-town-centre.html">View &amp; Book</a>
             </article>
@@ -279,15 +204,13 @@
               <small>Market Place</small>
               <h3>The Kings Head Hotel</h3>
               <p>38 Market Place, Beverley, HU17 9AG</p>
-              <p class="distance-line">Approx. 2.6 miles to The Beverley Barn</p>
               <p class="contact-line"><a href="tel:01482868103">01482 868103</a></p>
               <a class="travel-button" target="_blank" rel="noopener" href="https://www.kingsheadbeverley.co.uk/">View &amp; Book</a>
             </article>
             <article class="travel-card reveal">
-              <small>Historic</small>
+              <small>Historic Centre</small>
               <h3>The Lairgate Hotel</h3>
               <p>30–34 Lairgate, Beverley, HU17 8EP</p>
-              <p class="distance-line">Approx. 2.6 miles to The Beverley Barn</p>
               <p class="contact-line"><a href="tel:01482262409">01482 262409</a></p>
               <a class="travel-button" target="_blank" rel="noopener" href="https://thelairgatebeverley.co.uk/">View &amp; Book</a>
             </article>
@@ -296,7 +219,7 @@
 
         <div class="taxi-section">
           <h3 class="travel-subheading reveal">Recommended Taxis</h3>
-          <p class="taxi-note reveal">Please pre-book your journey home.</p>
+          <p class="taxi-note reveal">Please pre-book your journey home, especially for the end of the evening.</p>
           <div class="taxi-grid">
             <article class="taxi-card reveal"><h3>Westholme Cars</h3><a href="tel:01482888999">01482 888999</a></article>
             <article class="taxi-card reveal"><h3>Minster Cars</h3><a href="tel:01482869686">01482 869686</a></article>
@@ -312,26 +235,6 @@
         <img class="sprig" src="assets/sprig.svg" alt="">
         <h2>Gifts</h2>
         <p>Your presence is our present. Should you wish to give something more, a contribution towards our honeymoon would be received with enormous gratitude.</p>
-        <div class="gift-details-card">
-          <button class="gift-reveal-button" id="revealGiftDetails" type="button" aria-expanded="false" aria-controls="giftBankDetails">View bank details</button>
-          <div class="gift-bank-details" id="giftBankDetails" hidden>
-            <div class="gift-detail-row gift-account-name">
-              <span>Account name</span>
-              <strong>Miss Emma Elizabeth Everett &amp; Mr Joe Toker</strong>
-            </div>
-            <div class="gift-detail-row">
-              <span>Sort code</span>
-              <strong>09-01-30</strong>
-              <button class="gift-copy-button" type="button" data-copy="09-01-30">Copy</button>
-            </div>
-            <div class="gift-detail-row">
-              <span>Account number</span>
-              <strong>40184863</strong>
-              <button class="gift-copy-button" type="button" data-copy="40184863">Copy</button>
-            </div>
-          </div>
-          <p class="gift-privacy-note">Bank details are hidden until you choose to view them.</p>
-        </div>
       </div>
     </section>
 
@@ -341,158 +244,13 @@
         <h2>Good To Know</h2>
       </div>
       <div class="accordion reveal">
-        <details><summary>What time should I arrive?</summary><p>Please arrive from 12:00 and no later than 12:30.</p></details>
+        <details><summary>What time should I arrive?</summary><p>Please arrive from 12:00 and no later than 12:30. The ceremony begins at 13:00.</p></details>
         <details><summary>What is the dress code?</summary><p>Formal wedding guest attire.</p></details>
         <details><summary>Can I bring a guest?</summary><p>Your invitation confirms the number of places reserved for your household.</p></details>
-        <details><summary>Confetti</summary><p>Biodegradable confetti will be provided. Please do not bring your own.</p></details>
         <details><summary>Can I leave my car overnight?</summary><p>Yes. Cars may be left overnight at the owner’s risk, but they must be collected by 08:00 on 25th July 2027.</p></details>
       </div>
     </section>
 
-    <section class="rsvp section" id="rsvp">
-      <div class="section-heading reveal narrow">
-        <img class="sprig" src="assets/sprig.svg" alt="">
-        <h2>RSVP</h2>
-        <p>Kindly complete the details for each invited guest by 31st October 2026. A confirmation will be emailed to Guest 1.</p>
-      </div>
-
-      <form class="form rsvp-form-v525 reveal" id="form">
-        <section class="rsvp-guest-card is-primary" data-guest="1">
-          <div class="guest-card-heading">
-            <div>
-              <span class="guest-number">01</span>
-              <h3>Guest 1</h3>
-            </div>
-            <p>Primary contact</p>
-          </div>
-
-          <div class="form-row three-fields">
-            <label>First name<input type="text" name="guest1FirstName" autocomplete="given-name" required></label>
-            <label>Last name<input type="text" name="guest1LastName" autocomplete="family-name" required></label>
-            <label>Email address<input type="email" name="guest1Email" autocomplete="email" required></label>
-          </div>
-
-          <fieldset class="attendance-fieldset">
-            <legend>Will you be joining us?</legend>
-            <div class="choices attendance-choices">
-              <label><input type="radio" name="guest1Attending" value="Yes" required><span>Accepts with pleasure</span></label>
-              <label><input type="radio" name="guest1Attending" value="No" required><span>Regretfully declines</span></label>
-            </div>
-          </fieldset>
-
-          <div class="meal-selection" data-meals-for="1" hidden>
-            <div class="meal-heading">
-              <span>Meal choices</span>
-              <p>Please select one starter and one main course.</p>
-            </div>
-
-            <fieldset class="menu-course">
-              <legend>Starter</legend>
-              <div class="menu-options">
-                <label><input type="radio" name="guest1Starter" value="Ham Hock Terrine with Crostini, Rocket & Piccalilli"><span>Ham Hock Terrine<small>With crostini, rocket &amp; piccalilli</small></span></label>
-                <label><input type="radio" name="guest1Starter" value="Asparagus Wrapped In Parma Ham With Hollandaise Sauce & A Crispy Hen's Egg"><span>Asparagus Wrapped In Parma Ham<small>With hollandaise sauce &amp; a crispy hen&#39;s egg</small></span></label>
-              </div>
-            </fieldset>
-
-            <fieldset class="menu-course">
-              <legend>Main course</legend>
-              <div class="menu-options">
-                <label><input type="radio" name="guest1Main" value="Traditional Roast Chicken with Homemade Stuffing, Pigs in Blankets, Yorkshire Pudding, Roast Potatoes & Roasted Root Vegetables"><span>Traditional Roast Chicken<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding. Served with roast potatoes and roasted root vegetables.</small></span></label>
-                <label><input type="radio" name="guest1Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette, Roast Potatoes & Roasted Root Vegetables"><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette. Served with roast potatoes and roasted root vegetables.</small></span></label>
-              </div>
-            </fieldset>
-            <fieldset class="menu-course drinks-course">
-              <legend>Drinks Options</legend>
-              <div class="menu-options">
-                <label><input type="radio" name="guest1Drinks" value="2 x Sparkling wine"><span>2 x Sparkling wine</span></label>
-                <label><input type="radio" name="guest1Drinks" value="2 x Beer"><span>2 x Beer</span></label>
-                <label><input type="radio" name="guest1Drinks" value="1 x Sparkling wine & 1 x beer"><span>1 x Sparkling wine &amp; 1 x beer</span></label>
-                <label><input type="radio" name="guest1Drinks" value="Non-alcoholic"><span>Non-alcoholic</span></label>
-              </div>
-            </fieldset>
-
-          </div>
-        </section>
-
-        <section class="rsvp-guest-card optional-guest" data-guest="2">
-          <div class="guest-card-heading">
-            <div>
-              <span class="guest-number">02</span>
-              <h3>Guest 2</h3>
-            </div>
-            <label class="guest-toggle"><input type="checkbox" class="guest-enable" data-enable-guest="2"><span>Add guest 2</span></label>
-          </div>
-
-          <div class="guest-fields" data-fields-for="2" hidden>
-            <div class="form-row">
-              <label>First name<input type="text" name="guest2FirstName" autocomplete="given-name" disabled></label>
-              <label>Last name<input type="text" name="guest2LastName" autocomplete="family-name" disabled></label>
-            </div>
-
-            <fieldset class="attendance-fieldset">
-              <legend>Will you be joining us?</legend>
-              <div class="choices attendance-choices">
-                <label><input type="radio" name="guest2Attending" value="Yes" disabled><span>Accepts with pleasure</span></label>
-                <label><input type="radio" name="guest2Attending" value="No" disabled><span>Regretfully declines</span></label>
-              </div>
-            </fieldset>
-
-            <div class="meal-selection" data-meals-for="2" hidden>
-              <div class="meal-heading"><span>Meal choices</span><p>Please select one starter and one main course.</p></div>
-              <fieldset class="menu-course">
-                <legend>Starter</legend>
-                <div class="menu-options">
-                  <label><input type="radio" name="guest2Starter" value="Ham Hock Terrine with Crostini, Rocket & Piccalilli" disabled><span>Ham Hock Terrine<small>With crostini, rocket &amp; piccalilli</small></span></label>
-                  <label><input type="radio" name="guest2Starter" value="Asparagus Wrapped In Parma Ham With Hollandaise Sauce & A Crispy Hen's Egg" disabled><span>Asparagus Wrapped In Parma Ham<small>With hollandaise sauce &amp; a crispy hen&#39;s egg</small></span></label>
-                </div>
-              </fieldset>
-              <fieldset class="menu-course">
-                <legend>Main course</legend>
-                <div class="menu-options">
-                  <label><input type="radio" name="guest2Main" value="Traditional Roast Chicken with Homemade Stuffing, Pigs in Blankets, Yorkshire Pudding, Roast Potatoes & Roasted Root Vegetables" disabled><span>Traditional Roast Chicken<small>With homemade stuffing, pigs in blankets &amp; Yorkshire pudding. Served with roast potatoes and roasted root vegetables.</small></span></label>
-                  <label><input type="radio" name="guest2Main" value="Herb Crusted Salmon, Crispy Kale with A Lemon & Caper Burnt Noisette, Roast Potatoes & Roasted Root Vegetables" disabled><span>Herb Crusted Salmon<small>Crispy kale with a lemon &amp; caper burnt noisette. Served with roast potatoes and roasted root vegetables.</small></span></label>
-                </div>
-              </fieldset>
-            <fieldset class="menu-course drinks-course">
-              <legend>Drinks Options</legend>
-              <div class="menu-options">
-                <label><input type="radio" name="guest2Drinks" value="2 x Sparkling wine"><span>2 x Sparkling wine</span></label>
-                <label><input type="radio" name="guest2Drinks" value="2 x Beer"><span>2 x Beer</span></label>
-                <label><input type="radio" name="guest2Drinks" value="1 x Sparkling wine & 1 x beer"><span>1 x Sparkling wine &amp; 1 x beer</span></label>
-                <label><input type="radio" name="guest2Drinks" value="Non-alcoholic"><span>Non-alcoholic</span></label>
-              </div>
-            </fieldset>
-
-            </div>
-          </div>
-        </section>
-
-        <section class="rsvp-extra-card">
-          <div class="guest-card-heading compact">
-            <div><span class="guest-number">03</span><h3>Finishing touches</h3></div>
-          </div>
-
-          <label>Dietary requirements<textarea name="dietary" rows="4" placeholder="Please include the guest’s name and requirement"></textarea></label>
-
-          <fieldset class="song-requests premium-song-requests">
-            <legend>Song requests</legend>
-            <p class="field-help">Choose up to three songs that will get you onto the dance floor.</p>
-            <div class="form-row three-fields">
-              <label>Song request 1<input type="text" name="song1" placeholder="Artist and song title"></label>
-              <label>Song request 2<input type="text" name="song2" placeholder="Artist and song title"></label>
-              <label>Song request 3<input type="text" name="song3" placeholder="Artist and song title"></label>
-            </div>
-          </fieldset>
-
-          <label class="message-field">Write a message to Emma &amp; Joe
-            <textarea name="message" rows="5" placeholder="Leave us a message..."></textarea>
-          </label>
-        </section>
-
-        <button class="submit premium-submit" id="submit" type="submit">Send Your Reply <span>❧</span></button>
-        <p id="status">Please check your details before submitting.</p>
-      </form>
-    </section>
   </main>
 
   <footer>
@@ -501,16 +259,6 @@
     <span>♥</span>
   </footer>
 
-  <div id="thanks" class="thanks">
-    <div>
-      <p class="hero-kicker">Thank you</p>
-      <h2 id="thanksTitle">We cannot wait to celebrate with you.</h2>
-      <p>Your response has been sent to Emma and Joe.</p>
-      <button id="closeThanks" class="hero-button small">Return to the invitation</button>
-    </div>
-  </div>
-
-  <script src="config.js"></script>
-  <script src="script.js?v=550"></script>
+  <script src="script.js"></script>
 </body>
 </html>
