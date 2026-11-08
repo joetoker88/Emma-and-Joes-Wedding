@@ -1,4 +1,4 @@
-/* Project Evergreen / Emma & Joe - evening appearance fixes v2.2
+/* Project Evergreen / Emma & Joe - evening appearance fixes v2.3
  * Load after ../styles.css in /evening/index.html.
  * Presentation only: does not alter RSVP behaviour, fields, or submission code.
  */
@@ -221,4 +221,21 @@
 .rsvp .guest-fields[hidden] { display: none !important; }
 @media (max-width: 600px) {
   .rsvp .guest-card-heading { align-items: flex-start; }
+}
+
+
+/* v2.3: remove the duplicate/internally offset icon layer visible on live site.
+   Display just one centered graphic, using the original illustrated PNG.
+   The graphics above are the actual original assets from /assets/.
+ */
+.v523-cards .v523-card .v523-card-icon {
+  background-repeat: no-repeat !important;
+  background-position: 50% 50% !important;
+  background-size: 68px 68px !important;
+  padding: 0 !important;
+}
+.v523-cards .v523-card .v523-card-icon > *,
+.v523-cards .v523-card .v523-card-icon img,
+.v523-cards .v523-card .v523-card-icon svg {
+  display: none !important;
 }
