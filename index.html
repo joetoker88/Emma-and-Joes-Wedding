@@ -236,6 +236,24 @@
         <h2>Gifts</h2>
         <p>Your presence is our present. Should you wish to give something more, a contribution towards our honeymoon would be received with enormous gratitude.</p>
       </div>
+
+      <div class="bank-details reveal" id="bankDetails">
+        <button class="bank-reveal" id="bankReveal" type="button"
+          aria-expanded="false" aria-controls="bankInformation">
+          View bank details
+        </button>
+        <div class="bank-information" id="bankInformation" hidden>
+          <p class="bank-account-name">Account name <strong>Miss Emma Elizabeth Everett &amp; Mr Joe Toker</strong></p>
+          <p>Sort code <strong>09-01-30</strong>
+            <button class="bank-copy" type="button" data-copy="09-01-30">Copy</button>
+          </p>
+          <p>Account number <strong>40184863</strong>
+            <button class="bank-copy" type="button" data-copy="40184863">Copy</button>
+          </p>
+        </div>
+        <p class="bank-hidden-note" id="bankHiddenNote">Bank details are hidden until you choose to view them.</p>
+        <p class="bank-copy-status" id="bankCopyStatus" aria-live="polite"></p>
+      </div>
     </section>
 
     <section class="faq section" id="faq">
@@ -258,6 +276,36 @@
     <p>We can’t wait to celebrate with you</p>
     <span>♥</span>
   </footer>
+
+
+  <script>
+    (() => {
+      const reveal = document.getElementById('bankReveal');
+      const info = document.getElementById('bankInformation');
+      const note = document.getElementById('bankHiddenNote');
+      const status = document.getElementById('bankCopyStatus');
+      if (reveal && info) {
+        reveal.addEventListener('click', () => {
+          const opening = info.hidden;
+          info.hidden = !opening;
+          reveal.setAttribute('aria-expanded', String(opening));
+          reveal.textContent = opening ? 'Hide bank details' : 'View bank details';
+          if (note) note.hidden = opening;
+        });
+      }
+      document.querySelectorAll('.bank-copy').forEach(button => {
+        button.addEventListener('click', async () => {
+          const value = button.getAttribute('data-copy') || '';
+          try {
+            await navigator.clipboard.writeText(value);
+            if (status) status.textContent = 'Copied to clipboard';
+          } catch (error) {
+            if (status) status.textContent = 'Copy unavailable — please select and copy the number.';
+          }
+        });
+      });
+    })();
+  </script>
 
   <script src="script.js"></script>
 </body>
